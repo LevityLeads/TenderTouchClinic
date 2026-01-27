@@ -5,23 +5,23 @@
 See: .planning/PROJECT.md (updated 2026-01-27)
 
 **Core value:** Visitors can quickly understand what Tender Touch offers and easily take the next step—whether booking classes or reaching out for support.
-**Current focus:** Phase 3 - Contact & Forms (COMPLETE)
+**Current focus:** Phase 4 - Integrations & Launch (IN PROGRESS)
 
 ## Current Position
 
-Phase: 3 of 4 (Contact & Forms)
-Plan: 2 of 2 in current phase
-Status: Phase complete
-Last activity: 2026-01-27 — Completed 03-02-PLAN.md (contact form)
+Phase: 4 of 4 (Integrations & Launch)
+Plan: 2 of 3 in current phase
+Status: In progress
+Last activity: 2026-01-27 — Completed 04-02-PLAN.md (WhatsApp disclaimer & cookie consent)
 
-Progress: [########░░] 80%
+Progress: [#########░] 90%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 8
-- Average duration: 11 min
-- Total execution time: 1.4 hours
+- Total plans completed: 9
+- Average duration: 10 min
+- Total execution time: 1.5 hours
 
 **By Phase:**
 
@@ -30,10 +30,11 @@ Progress: [########░░] 80%
 | 1. Foundation | 3/3 | 39 min | 13 min |
 | 2. Static Content | 3/3 | 40 min | 13 min |
 | 3. Contact & Forms | 2/2 | 9 min | 5 min |
+| 4. Integrations & Launch | 1/3 | 5 min | 5 min |
 
 **Recent Trend:**
-- Last 5 plans: 8 min, 14 min, 18 min, 3 min, 6 min
-- Trend: Stable
+- Last 5 plans: 14 min, 18 min, 3 min, 6 min, 5 min
+- Trend: Fast execution
 
 *Updated after each plan completion*
 
@@ -68,6 +69,8 @@ Recent decisions affecting current work:
 - Validation schema in src/lib/validations/ shared by client and server
 - Server Actions in src/app/actions/ with typed state return
 - useActionState hook for form submission with Server Actions
+- CSS-only tooltip to keep WhatsApp button as Server Component
+- react-cookie-consent for mature GDPR-compliant implementation
 
 ### Pending Todos
 
@@ -83,5 +86,5 @@ None.
 ## Session Continuity
 
 Last session: 2026-01-27
-Stopped at: Completed 03-02-PLAN.md (contact form) - Phase 3 complete
+Stopped at: Completed 04-02-PLAN.md (WhatsApp disclaimer & cookie consent)
 Resume file: None
