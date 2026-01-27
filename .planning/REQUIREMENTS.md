@@ -27,50 +27,50 @@ Requirements for initial website launch. Each maps to roadmap phases.
 
 ### Homepage
 
-- [ ] **HOME-01**: Hero section with compelling headline, subheadline, hero image, and primary CTA (Book Now / Get in Touch)
-- [ ] **HOME-02**: Services overview section with cards/grid showing all 6 services with brief descriptions
-- [ ] **HOME-03**: About section introducing Megan and Tender Touch's approach
-- [ ] **HOME-04**: Testimonials section displaying 3-5 curated client reviews with photos
-- [ ] **HOME-05**: Call-to-action section encouraging visitors to book or contact
-- [ ] **HOME-06**: Trust indicators (credentials, certifications, years of experience)
+- [x] **HOME-01**: Hero section with compelling headline, subheadline, hero image, and primary CTA (Book Now / Get in Touch)
+- [x] **HOME-02**: Services overview section with cards/grid showing all 6 services with brief descriptions
+- [x] **HOME-03**: About section introducing Megan and Tender Touch's approach
+- [x] **HOME-04**: Testimonials section displaying 3-5 curated client reviews with photos
+- [x] **HOME-05**: Call-to-action section encouraging visitors to book or contact
+- [x] **HOME-06**: Trust indicators (credentials, certifications, years of experience)
 
 ### Services Pages
 
-- [ ] **SERV-01**: Services overview page displaying all 6 services with summary cards
-- [ ] **SERV-02**: Antenatal Classes detail page with full 6-week course outline, pricing, benefits, and booking CTA
-- [ ] **SERV-03**: Baby Massage detail page with 4-week course details, benefits, class photos, and booking CTA
-- [ ] **SERV-04**: Postnatal Support detail page covering home visits, clinic consultations, what's included, and contact CTA
-- [ ] **SERV-05**: Vaccinations section on overview page with schedule, vaccines offered, and booking CTA
-- [ ] **SERV-06**: Lactation Consultations section on overview page with what's covered and booking CTA
-- [ ] **SERV-07**: Newborn Check-ups section on overview page with services included and booking CTA
-- [ ] **SERV-08**: Each service page/section includes transparent pricing information
-- [ ] **SERV-09**: Clear CTAs on each service directing to booking or contact methods
+- [x] **SERV-01**: Services overview page displaying all 6 services with summary cards
+- [x] **SERV-02**: Antenatal Classes detail page with full 6-week course outline, pricing, benefits, and booking CTA
+- [x] **SERV-03**: Baby Massage detail page with 4-week course details, benefits, class photos, and booking CTA
+- [x] **SERV-04**: Postnatal Support detail page covering home visits, clinic consultations, what's included, and contact CTA
+- [x] **SERV-05**: Vaccinations section on overview page with schedule, vaccines offered, and booking CTA
+- [x] **SERV-06**: Lactation Consultations section on overview page with what's covered and booking CTA
+- [x] **SERV-07**: Newborn Check-ups section on overview page with services included and booking CTA
+- [x] **SERV-08**: Each service page/section includes transparent pricing information
+- [x] **SERV-09**: Clear CTAs on each service directing to booking or contact methods
 
 ### About Page
 
-- [ ] **ABOUT-01**: Megan's professional bio highlighting credentials (RN, Midwife, UCT 1996, Certified Infant Massage Instructor)
-- [ ] **ABOUT-02**: Personal story including her experience as a mother of two and journey to opening Tender Touch
-- [ ] **ABOUT-03**: Clinic story (opened January 2022, grew from postnatal home visit practice)
-- [ ] **ABOUT-04**: Professional photo of Megan
-- [ ] **ABOUT-05**: Clinic mission and patient-centered approach
-- [ ] **ABOUT-06**: Photo gallery showing clinic environment and classes
+- [x] **ABOUT-01**: Megan's professional bio highlighting credentials (RN, Midwife, UCT 1996, Certified Infant Massage Instructor)
+- [x] **ABOUT-02**: Personal story including her experience as a mother of two and journey to opening Tender Touch
+- [x] **ABOUT-03**: Clinic story (opened January 2022, grew from postnatal home visit practice)
+- [x] **ABOUT-04**: Professional photo of Megan
+- [x] **ABOUT-05**: Clinic mission and patient-centered approach
+- [x] **ABOUT-06**: Photo gallery showing clinic environment and classes
 
 ### Class Schedule
 
-- [ ] **SCHED-01**: Class schedule page displaying upcoming course dates
-- [ ] **SCHED-02**: 6-week Antenatal Classes with start dates and availability
-- [ ] **SCHED-03**: 4-week Baby Massage classes with start dates and availability
-- [ ] **SCHED-04**: Clear indication of available spots or waitlist status
-- [ ] **SCHED-05**: Booking CTA for each upcoming class
+- [x] **SCHED-01**: Class schedule page displaying upcoming course dates
+- [x] **SCHED-02**: 6-week Antenatal Classes with start dates and availability
+- [x] **SCHED-03**: 4-week Baby Massage classes with start dates and availability
+- [x] **SCHED-04**: Clear indication of available spots or waitlist status
+- [x] **SCHED-05**: Booking CTA for each upcoming class
 
 ### FAQ Section
 
-- [ ] **FAQ-01**: FAQ section addressing common questions about services
-- [ ] **FAQ-02**: Questions about antenatal classes (when to start, what to bring, group size)
-- [ ] **FAQ-03**: Questions about baby massage (age range, what to bring, benefits)
-- [ ] **FAQ-04**: Questions about postnatal support (home visits vs clinic, what's included)
-- [ ] **FAQ-05**: Questions about booking, payment, and cancellation policies
-- [ ] **FAQ-06**: Mobile-friendly accordion/expandable format
+- [x] **FAQ-01**: FAQ section addressing common questions about services
+- [x] **FAQ-02**: Questions about antenatal classes (when to start, what to bring, group size)
+- [x] **FAQ-03**: Questions about baby massage (age range, what to bring, benefits)
+- [x] **FAQ-04**: Questions about postnatal support (home visits vs clinic, what's included)
+- [x] **FAQ-05**: Questions about booking, payment, and cancellation policies
+- [x] **FAQ-06**: Mobile-friendly accordion/expandable format
 
 ### Contact & Forms
 
@@ -102,24 +102,24 @@ Requirements for initial website launch. Each maps to roadmap phases.
 
 ### Testimonials
 
-- [ ] **TEST-01**: Testimonials section on homepage featuring 3-5 curated reviews
-- [ ] **TEST-02**: Each testimonial includes client name, service used, and quote
-- [ ] **TEST-03**: Real photos of clients (with permission) or placeholder illustrations
-- [ ] **TEST-04**: Testimonials emphasize specific outcomes and emotional experience
-- [ ] **TEST-05**: Diverse representation across different services (antenatal, postnatal, baby massage)
+- [x] **TEST-01**: Testimonials section on homepage featuring 3-5 curated reviews
+- [x] **TEST-02**: Each testimonial includes client name, service used, and quote
+- [x] **TEST-03**: Real photos of clients (with permission) or placeholder illustrations
+- [x] **TEST-04**: Testimonials emphasize specific outcomes and emotional experience
+- [x] **TEST-05**: Diverse representation across different services (antenatal, postnatal, baby massage)
 
 ### Content & Messaging
 
-- [ ] **CONT-11**: All content written with patient-first, empathetic tone
-- [ ] **CONT-12**: Content addresses visitor concerns ("Can you help me?" "Will you take good care of me?")
-- [ ] **CONT-13**: Use of "you" language more than "we" language throughout
+- [x] **CONT-11**: All content written with patient-first, empathetic tone
+- [x] **CONT-12**: Content addresses visitor concerns ("Can you help me?" "Will you take good care of me?")
+- [x] **CONT-13**: Use of "you" language more than "we" language throughout
 - [ ] **CONT-14**: Warm, approachable visual design with soft colors (teal/green brand palette)
-- [ ] **CONT-15**: Real photos from clinic, classes, and sessions used throughout site
+- [x] **CONT-15**: Real photos from clinic, classes, and sessions used throughout site
 
 ### Legal & Privacy
 
-- [ ] **LEGAL-01**: Privacy policy page covering data collection, storage, and usage
-- [ ] **LEGAL-02**: Privacy policy linked in footer and on contact form
+- [x] **LEGAL-01**: Privacy policy page covering data collection, storage, and usage
+- [x] **LEGAL-02**: Privacy policy linked in footer and on contact form
 - [ ] **LEGAL-03**: Cookie consent (if analytics implemented)
 
 ## v2 Requirements
@@ -181,43 +181,43 @@ Which phases cover which requirements. Updated during roadmap creation.
 | NAV-03 | Phase 1 | Complete |
 | NAV-04 | Phase 1 | Complete |
 | NAV-05 | Phase 1 | Complete |
-| HOME-01 | Phase 2 | Pending |
-| HOME-02 | Phase 2 | Pending |
-| HOME-03 | Phase 2 | Pending |
-| HOME-04 | Phase 2 | Pending |
-| HOME-05 | Phase 2 | Pending |
-| HOME-06 | Phase 2 | Pending |
-| SERV-01 | Phase 2 | Pending |
-| SERV-02 | Phase 2 | Pending |
-| SERV-03 | Phase 2 | Pending |
-| SERV-04 | Phase 2 | Pending |
-| SERV-05 | Phase 2 | Pending |
-| SERV-06 | Phase 2 | Pending |
-| SERV-07 | Phase 2 | Pending |
-| SERV-08 | Phase 2 | Pending |
-| SERV-09 | Phase 2 | Pending |
-| ABOUT-01 | Phase 2 | Pending |
-| ABOUT-02 | Phase 2 | Pending |
-| ABOUT-03 | Phase 2 | Pending |
-| ABOUT-04 | Phase 2 | Pending |
-| ABOUT-05 | Phase 2 | Pending |
-| ABOUT-06 | Phase 2 | Pending |
-| SCHED-01 | Phase 2 | Pending |
-| SCHED-02 | Phase 2 | Pending |
-| SCHED-03 | Phase 2 | Pending |
-| SCHED-04 | Phase 2 | Pending |
-| SCHED-05 | Phase 2 | Pending |
-| FAQ-01 | Phase 2 | Pending |
-| FAQ-02 | Phase 2 | Pending |
-| FAQ-03 | Phase 2 | Pending |
-| FAQ-04 | Phase 2 | Pending |
-| FAQ-05 | Phase 2 | Pending |
-| FAQ-06 | Phase 2 | Pending |
-| TEST-01 | Phase 2 | Pending |
-| TEST-02 | Phase 2 | Pending |
-| TEST-03 | Phase 2 | Pending |
-| TEST-04 | Phase 2 | Pending |
-| TEST-05 | Phase 2 | Pending |
+| HOME-01 | Phase 2 | Complete |
+| HOME-02 | Phase 2 | Complete |
+| HOME-03 | Phase 2 | Complete |
+| HOME-04 | Phase 2 | Complete |
+| HOME-05 | Phase 2 | Complete |
+| HOME-06 | Phase 2 | Complete |
+| SERV-01 | Phase 2 | Complete |
+| SERV-02 | Phase 2 | Complete |
+| SERV-03 | Phase 2 | Complete |
+| SERV-04 | Phase 2 | Complete |
+| SERV-05 | Phase 2 | Complete |
+| SERV-06 | Phase 2 | Complete |
+| SERV-07 | Phase 2 | Complete |
+| SERV-08 | Phase 2 | Complete |
+| SERV-09 | Phase 2 | Complete |
+| ABOUT-01 | Phase 2 | Complete |
+| ABOUT-02 | Phase 2 | Complete |
+| ABOUT-03 | Phase 2 | Complete |
+| ABOUT-04 | Phase 2 | Complete |
+| ABOUT-05 | Phase 2 | Complete |
+| ABOUT-06 | Phase 2 | Complete |
+| SCHED-01 | Phase 2 | Complete |
+| SCHED-02 | Phase 2 | Complete |
+| SCHED-03 | Phase 2 | Complete |
+| SCHED-04 | Phase 2 | Complete |
+| SCHED-05 | Phase 2 | Complete |
+| FAQ-01 | Phase 2 | Complete |
+| FAQ-02 | Phase 2 | Complete |
+| FAQ-03 | Phase 2 | Complete |
+| FAQ-04 | Phase 2 | Complete |
+| FAQ-05 | Phase 2 | Complete |
+| FAQ-06 | Phase 2 | Complete |
+| TEST-01 | Phase 2 | Complete |
+| TEST-02 | Phase 2 | Complete |
+| TEST-03 | Phase 2 | Complete |
+| TEST-04 | Phase 2 | Complete |
+| TEST-05 | Phase 2 | Complete |
 | CONT-01 | Phase 3 | Pending |
 | CONT-02 | Phase 3 | Pending |
 | CONT-03 | Phase 3 | Pending |
@@ -228,11 +228,11 @@ Which phases cover which requirements. Updated during roadmap creation.
 | CONT-08 | Phase 3 | Pending |
 | CONT-09 | Phase 3 | Pending |
 | CONT-10 | Phase 3 | Pending |
-| CONT-11 | Phase 2 | Pending |
-| CONT-12 | Phase 2 | Pending |
-| CONT-13 | Phase 2 | Pending |
+| CONT-11 | Phase 2 | Complete |
+| CONT-12 | Phase 2 | Complete |
+| CONT-13 | Phase 2 | Complete |
 | CONT-14 | Phase 1 | Complete |
-| CONT-15 | Phase 2 | Pending |
+| CONT-15 | Phase 2 | Complete |
 | BOOK-01 | Phase 4 | Pending |
 | BOOK-02 | Phase 4 | Pending |
 | BOOK-03 | Phase 4 | Pending |
@@ -242,8 +242,8 @@ Which phases cover which requirements. Updated during roadmap creation.
 | WHATS-02 | Phase 4 | Pending |
 | WHATS-03 | Phase 4 | Pending |
 | WHATS-04 | Phase 4 | Pending |
-| LEGAL-01 | Phase 2 | Pending |
-| LEGAL-02 | Phase 2 | Pending |
+| LEGAL-01 | Phase 2 | Complete |
+| LEGAL-02 | Phase 2 | Complete |
 | LEGAL-03 | Phase 4 | Pending |
 
 **Coverage:**

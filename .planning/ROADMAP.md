@@ -92,8 +92,8 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Foundation & Design System | 3/3 | Complete | 2026-01-27 |
-| 2. Static Content & Pages | 0/3 | Ready | - |
-| 3. Contact & Forms | 0/2 | Not started | - |
+| 2. Static Content & Pages | 3/3 | Complete | 2026-01-27 |
+| 3. Contact & Forms | 0/2 | Ready | - |
 | 4. Integrations & Launch | 0/3 | Not started | - |
 
 ---
