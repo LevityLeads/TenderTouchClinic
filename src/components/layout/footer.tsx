@@ -147,6 +147,21 @@ export function Footer() {
             &copy; {currentYear} Tender Touch Mother &amp; Baby Clinic. All
             rights reserved.
           </p>
+          <p className="mt-2">
+            <Link
+              href="/privacy"
+              className="hover:text-primary-300 transition-colors"
+            >
+              Privacy Policy
+            </Link>
+            <span className="mx-2">|</span>
+            <Link
+              href="/terms"
+              className="hover:text-primary-300 transition-colors"
+            >
+              Terms of Service
+            </Link>
+          </p>
         </div>
       </div>
     </footer>
