@@ -61,11 +61,11 @@ Plans:
   3. Clinic receives email notification when form is submitted
   4. Visitor can see clinic address, phone, email, hours, and interactive map on contact page
   5. Form collects NO medical information (HIPAA-aware design)
-**Plans**: TBD
+**Plans**: 2 plans
 
 Plans:
-- [ ] 03-01: Contact page layout and information display
-- [ ] 03-02: Contact form with Server Actions and email integration
+- [ ] 03-01-PLAN.md — Contact page layout, info display, and Google Maps embed (Wave 1)
+- [ ] 03-02-PLAN.md — Contact form with React Hook Form, Zod validation, and Resend email (Wave 2)
 
 ### Phase 4: Integrations & Launch
 **Goal**: Visitors can book appointments via Bookem and site is production-ready
