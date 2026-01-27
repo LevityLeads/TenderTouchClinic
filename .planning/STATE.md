@@ -10,28 +10,29 @@ See: .planning/PROJECT.md (updated 2026-01-27)
 ## Current Position
 
 Phase: 2 of 4 (Static Content & Pages)
-Plan: 0 of 3 in current phase
-Status: Ready to plan
-Last activity: 2026-01-27 — Phase 1 complete and verified
+Plan: 1 of 3 in current phase
+Status: In progress
+Last activity: 2026-01-27 — Completed 02-01-PLAN.md
 
-Progress: [###░░░░░░░] 27%
+Progress: [####░░░░░░] 36%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 3
-- Average duration: 13 min
-- Total execution time: 0.65 hours
+- Total plans completed: 4
+- Average duration: 12 min
+- Total execution time: 0.78 hours
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
 | 1. Foundation | 3/3 | 39 min | 13 min |
+| 2. Static Content | 1/3 | 8 min | 8 min |
 
 **Recent Trend:**
-- Last 5 plans: 14 min, 14 min, 11 min
-- Trend: Stable
+- Last 5 plans: 14 min, 14 min, 11 min, 8 min
+- Trend: Improving
 
 *Updated after each plan completion*
 
@@ -51,6 +52,8 @@ Recent decisions affecting current work:
 - WhatsApp button as Server Component (no client JS for external link)
 - LocalBusiness JSON-LD schema for local search SEO
 - Dynamic sitemap via Next.js MetadataRoute
+- TypeScript data files over CMS for static content (infrequent updates)
+- Radix UI Accordion for WAI-ARIA compliance and keyboard navigation
 
 ### Pending Todos
 
@@ -63,5 +66,5 @@ None.
 ## Session Continuity
 
 Last session: 2026-01-27
-Stopped at: Phase 1 complete and verified (19/19 must-haves verified)
+Stopped at: Completed 02-01-PLAN.md (content data infrastructure)
 Resume file: None
