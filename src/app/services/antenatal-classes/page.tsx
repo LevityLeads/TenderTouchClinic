@@ -3,8 +3,9 @@ import Link from "next/link";
 import { Container } from "@/components/ui/container";
 import { Section } from "@/components/ui/section";
 import { Button } from "@/components/ui/button";
+import { BookemWidget } from "@/components/integrations/bookem-widget";
 import { getServiceBySlug } from "@/data/services";
-import { SITE_CONFIG } from "@/lib/constants";
+import { BOOKEM_CONFIG, CONTACT_INFO, getWhatsAppUrl, SITE_CONFIG } from "@/lib/constants";
 import { notFound } from "next/navigation";
 
 const service = getServiceBySlug("antenatal-classes");
@@ -145,10 +146,31 @@ export default function AntenatalClassesPage() {
               Join our small, supportive antenatal class and connect with other
               expectant parents while learning everything you need to know.
             </p>
-            <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:justify-center">
-              <Button href="/schedule" size="lg">
-                Book Your Course
-              </Button>
+            <div className="mt-8">
+              <BookemWidget
+                serviceId={BOOKEM_CONFIG.services["antenatal-classes"]}
+                className="mx-auto max-w-2xl"
+              />
+              <p className="mt-4 text-sm text-neutral-500">
+                Having trouble?{" "}
+                <a
+                  href={CONTACT_INFO.phoneHref}
+                  className="font-medium text-primary-600 hover:text-primary-700"
+                >
+                  Call us at {CONTACT_INFO.phone}
+                </a>{" "}
+                or{" "}
+                <a
+                  href={getWhatsAppUrl()}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-medium text-primary-600 hover:text-primary-700"
+                >
+                  WhatsApp
+                </a>
+              </p>
+            </div>
+            <div className="mt-8">
               <Button href="/contact" variant="secondary" size="lg">
                 Ask a Question
               </Button>
