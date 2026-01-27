@@ -11,8 +11,8 @@ This roadmap delivers a modern, mobile-first marketing website for Tender Touch 
 - Decimal phases (e.g., 2.1): Urgent insertions if needed (marked with INSERTED)
 
 - [x] **Phase 1: Foundation & Design System** - Next.js scaffolding, component library, mobile-first layout, performance/accessibility foundation
-- [ ] **Phase 2: Static Content & Pages** - Homepage, services, about, schedule, FAQ, testimonials with patient-centric copy
-- [ ] **Phase 3: Contact & Forms** - Contact page, inquiry form with HIPAA-aware design, Google Maps, email integration
+- [x] **Phase 2: Static Content & Pages** - Homepage, services, about, schedule, FAQ, testimonials with patient-centric copy
+- [x] **Phase 3: Contact & Forms** - Contact page, inquiry form with HIPAA-aware design, Google Maps, email integration
 - [ ] **Phase 4: Integrations & Launch** - Bookem booking, WhatsApp button, final SEO/accessibility/performance validation, deployment
 
 ## Phase Details
@@ -47,9 +47,9 @@ Plans:
 **Plans**: 3 plans
 
 Plans:
-- [ ] 02-01-PLAN.md — Content data files and accordion component (Wave 1)
-- [ ] 02-02-PLAN.md — Homepage sections and services pages (Wave 2)
-- [ ] 02-03-PLAN.md — About, Schedule, FAQ, and legal pages (Wave 2)
+- [x] 02-01-PLAN.md — Content data files and accordion component (Wave 1)
+- [x] 02-02-PLAN.md — Homepage sections and services pages (Wave 2)
+- [x] 02-03-PLAN.md — About, Schedule, FAQ, and legal pages (Wave 2)
 
 ### Phase 3: Contact & Forms
 **Goal**: Visitors can reach out via contact form and find clinic location
@@ -64,8 +64,8 @@ Plans:
 **Plans**: 2 plans
 
 Plans:
-- [ ] 03-01-PLAN.md — Contact page layout, info display, and Google Maps embed (Wave 1)
-- [ ] 03-02-PLAN.md — Contact form with React Hook Form, Zod validation, and Resend email (Wave 2)
+- [x] 03-01-PLAN.md — Contact page layout, info display, and Google Maps embed (Wave 1)
+- [x] 03-02-PLAN.md — Contact form with React Hook Form, Zod validation, and Resend email (Wave 2)
 
 ### Phase 4: Integrations & Launch
 **Goal**: Visitors can book appointments via Bookem and site is production-ready
@@ -93,7 +93,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4
 |-------|----------------|--------|-----------|
 | 1. Foundation & Design System | 3/3 | Complete | 2026-01-27 |
 | 2. Static Content & Pages | 3/3 | Complete | 2026-01-27 |
-| 3. Contact & Forms | 0/2 | Ready | - |
+| 3. Contact & Forms | 2/2 | Complete | 2026-01-27 |
 | 4. Integrations & Launch | 0/3 | Not started | - |
 
 ---

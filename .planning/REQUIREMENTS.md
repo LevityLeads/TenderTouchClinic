@@ -74,16 +74,16 @@ Requirements for initial website launch. Each maps to roadmap phases.
 
 ### Contact & Forms
 
-- [ ] **CONT-01**: Contact page with multiple contact methods (phone, email, WhatsApp)
-- [ ] **CONT-02**: Contact form with fields: name, phone, email, preferred contact time, message
-- [ ] **CONT-03**: Form validation with clear error messages
-- [ ] **CONT-04**: HIPAA-aware form design (collects NO medical information)
-- [ ] **CONT-05**: Success confirmation after form submission
-- [ ] **CONT-06**: Form submissions sent via email to clinic (using Resend or similar)
-- [ ] **CONT-07**: Privacy notice on form about data handling
-- [ ] **CONT-08**: Clinic address, phone, email, and hours prominently displayed on contact page
-- [ ] **CONT-09**: Google Maps embed showing clinic location (13 Nederburg Road, Kirstenhof)
-- [ ] **CONT-10**: Directions and parking information
+- [x] **CONT-01**: Contact page with multiple contact methods (phone, email, WhatsApp)
+- [x] **CONT-02**: Contact form with fields: name, phone, email, preferred contact time, message
+- [x] **CONT-03**: Form validation with clear error messages
+- [x] **CONT-04**: HIPAA-aware form design (collects NO medical information)
+- [x] **CONT-05**: Success confirmation after form submission
+- [x] **CONT-06**: Form submissions sent via email to clinic (using Resend or similar)
+- [x] **CONT-07**: Privacy notice on form about data handling
+- [x] **CONT-08**: Clinic address, phone, email, and hours prominently displayed on contact page
+- [x] **CONT-09**: Google Maps embed showing clinic location (13 Nederburg Road, Kirstenhof)
+- [x] **CONT-10**: Directions and parking information
 
 ### Booking Integration
 
@@ -218,16 +218,16 @@ Which phases cover which requirements. Updated during roadmap creation.
 | TEST-03 | Phase 2 | Complete |
 | TEST-04 | Phase 2 | Complete |
 | TEST-05 | Phase 2 | Complete |
-| CONT-01 | Phase 3 | Pending |
-| CONT-02 | Phase 3 | Pending |
-| CONT-03 | Phase 3 | Pending |
-| CONT-04 | Phase 3 | Pending |
-| CONT-05 | Phase 3 | Pending |
-| CONT-06 | Phase 3 | Pending |
-| CONT-07 | Phase 3 | Pending |
-| CONT-08 | Phase 3 | Pending |
-| CONT-09 | Phase 3 | Pending |
-| CONT-10 | Phase 3 | Pending |
+| CONT-01 | Phase 3 | Complete |
+| CONT-02 | Phase 3 | Complete |
+| CONT-03 | Phase 3 | Complete |
+| CONT-04 | Phase 3 | Complete |
+| CONT-05 | Phase 3 | Complete |
+| CONT-06 | Phase 3 | Complete |
+| CONT-07 | Phase 3 | Complete |
+| CONT-08 | Phase 3 | Complete |
+| CONT-09 | Phase 3 | Complete |
+| CONT-10 | Phase 3 | Complete |
 | CONT-11 | Phase 2 | Complete |
 | CONT-12 | Phase 2 | Complete |
 | CONT-13 | Phase 2 | Complete |
