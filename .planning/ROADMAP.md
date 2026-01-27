@@ -10,7 +10,7 @@ This roadmap delivers a modern, mobile-first marketing website for Tender Touch 
 - Integer phases (1, 2, 3, 4): Planned milestone work
 - Decimal phases (e.g., 2.1): Urgent insertions if needed (marked with INSERTED)
 
-- [ ] **Phase 1: Foundation & Design System** - Next.js scaffolding, component library, mobile-first layout, performance/accessibility foundation
+- [x] **Phase 1: Foundation & Design System** - Next.js scaffolding, component library, mobile-first layout, performance/accessibility foundation
 - [ ] **Phase 2: Static Content & Pages** - Homepage, services, about, schedule, FAQ, testimonials with patient-centric copy
 - [ ] **Phase 3: Contact & Forms** - Contact page, inquiry form with HIPAA-aware design, Google Maps, email integration
 - [ ] **Phase 4: Integrations & Launch** - Bookem booking, WhatsApp button, final SEO/accessibility/performance validation, deployment
@@ -30,9 +30,9 @@ This roadmap delivers a modern, mobile-first marketing website for Tender Touch 
 **Plans**: 3 plans
 
 Plans:
-- [ ] 01-01-PLAN.md — Project scaffolding, design tokens, and UI primitives (Wave 1)
-- [ ] 01-02-PLAN.md — Header, MobileNav, and ServicesDropdown (Wave 2)
-- [ ] 01-03-PLAN.md — Footer, WhatsApp button, and root layout wiring (Wave 2)
+- [x] 01-01-PLAN.md — Project scaffolding, design tokens, and UI primitives (Wave 1)
+- [x] 01-02-PLAN.md — Header, MobileNav, and ServicesDropdown (Wave 2)
+- [x] 01-03-PLAN.md — Footer, WhatsApp button, and root layout wiring (Wave 2)
 
 ### Phase 2: Static Content & Pages
 **Goal**: Visitors can browse all clinic information, understand services, and see testimonials
@@ -91,7 +91,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation & Design System | 0/3 | Planned | - |
+| 1. Foundation & Design System | 3/3 | Complete ✓ | 2026-01-27 |
 | 2. Static Content & Pages | 0/3 | Not started | - |
 | 3. Contact & Forms | 0/2 | Not started | - |
 | 4. Integrations & Launch | 0/3 | Not started | - |
