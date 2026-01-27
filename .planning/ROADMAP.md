@@ -77,12 +77,12 @@ Plans:
   3. Floating WhatsApp button appears on all pages and opens chat with pre-filled message
   4. Site passes WCAG 2.2 AA accessibility audit (axe DevTools)
   5. Site achieves Core Web Vitals (LCP < 2.5s, CLS < 0.1) on mobile
-**Plans**: TBD
+**Plans**: 3 plans
 
 Plans:
-- [ ] 04-01: Bookem booking integration
-- [ ] 04-02: WhatsApp button and final polish
-- [ ] 04-03: Accessibility/performance audit and launch validation
+- [ ] 04-01-PLAN.md — Bookem booking widget integration with service pre-selection (Wave 1)
+- [ ] 04-02-PLAN.md — WhatsApp disclaimer and cookie consent banner (Wave 1)
+- [ ] 04-03-PLAN.md — Accessibility tests and launch validation checkpoint (Wave 2)
 
 ## Progress
 
