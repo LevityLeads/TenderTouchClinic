@@ -90,6 +90,23 @@ export const SERVICES = [
 ] as const;
 
 /**
+ * Bookem booking widget configuration
+ */
+export const BOOKEM_CONFIG = {
+  businessSlug: "tendertouchclinic", // Update with actual Bookem slug
+  baseUrl: "https://bookem.com",
+  // Service ID mapping - update with actual Bookem service IDs
+  services: {
+    "antenatal-classes": "antenatal",
+    "baby-massage": "baby-massage",
+    "postnatal-support": "postnatal",
+    "lactation": "lactation",
+    "newborn-checkups": "checkup",
+    "vaccinations": "vaccination",
+  },
+} as const;
+
+/**
  * Pre-filled WhatsApp message for inquiries
  */
 export const WHATSAPP_MESSAGE = encodeURIComponent(
