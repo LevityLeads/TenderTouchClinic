@@ -169,13 +169,88 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| (To be populated by roadmapper) | | |
+| FOUND-01 | Phase 1 | Pending |
+| FOUND-02 | Phase 1 | Pending |
+| FOUND-03 | Phase 1 | Pending |
+| FOUND-04 | Phase 1 | Pending |
+| FOUND-05 | Phase 1 | Pending |
+| FOUND-06 | Phase 1 | Pending |
+| FOUND-07 | Phase 1 | Pending |
+| NAV-01 | Phase 1 | Pending |
+| NAV-02 | Phase 1 | Pending |
+| NAV-03 | Phase 1 | Pending |
+| NAV-04 | Phase 1 | Pending |
+| NAV-05 | Phase 1 | Pending |
+| HOME-01 | Phase 2 | Pending |
+| HOME-02 | Phase 2 | Pending |
+| HOME-03 | Phase 2 | Pending |
+| HOME-04 | Phase 2 | Pending |
+| HOME-05 | Phase 2 | Pending |
+| HOME-06 | Phase 2 | Pending |
+| SERV-01 | Phase 2 | Pending |
+| SERV-02 | Phase 2 | Pending |
+| SERV-03 | Phase 2 | Pending |
+| SERV-04 | Phase 2 | Pending |
+| SERV-05 | Phase 2 | Pending |
+| SERV-06 | Phase 2 | Pending |
+| SERV-07 | Phase 2 | Pending |
+| SERV-08 | Phase 2 | Pending |
+| SERV-09 | Phase 2 | Pending |
+| ABOUT-01 | Phase 2 | Pending |
+| ABOUT-02 | Phase 2 | Pending |
+| ABOUT-03 | Phase 2 | Pending |
+| ABOUT-04 | Phase 2 | Pending |
+| ABOUT-05 | Phase 2 | Pending |
+| ABOUT-06 | Phase 2 | Pending |
+| SCHED-01 | Phase 2 | Pending |
+| SCHED-02 | Phase 2 | Pending |
+| SCHED-03 | Phase 2 | Pending |
+| SCHED-04 | Phase 2 | Pending |
+| SCHED-05 | Phase 2 | Pending |
+| FAQ-01 | Phase 2 | Pending |
+| FAQ-02 | Phase 2 | Pending |
+| FAQ-03 | Phase 2 | Pending |
+| FAQ-04 | Phase 2 | Pending |
+| FAQ-05 | Phase 2 | Pending |
+| FAQ-06 | Phase 2 | Pending |
+| TEST-01 | Phase 2 | Pending |
+| TEST-02 | Phase 2 | Pending |
+| TEST-03 | Phase 2 | Pending |
+| TEST-04 | Phase 2 | Pending |
+| TEST-05 | Phase 2 | Pending |
+| CONT-01 | Phase 3 | Pending |
+| CONT-02 | Phase 3 | Pending |
+| CONT-03 | Phase 3 | Pending |
+| CONT-04 | Phase 3 | Pending |
+| CONT-05 | Phase 3 | Pending |
+| CONT-06 | Phase 3 | Pending |
+| CONT-07 | Phase 3 | Pending |
+| CONT-08 | Phase 3 | Pending |
+| CONT-09 | Phase 3 | Pending |
+| CONT-10 | Phase 3 | Pending |
+| CONT-11 | Phase 2 | Pending |
+| CONT-12 | Phase 2 | Pending |
+| CONT-13 | Phase 2 | Pending |
+| CONT-14 | Phase 1 | Pending |
+| CONT-15 | Phase 2 | Pending |
+| BOOK-01 | Phase 4 | Pending |
+| BOOK-02 | Phase 4 | Pending |
+| BOOK-03 | Phase 4 | Pending |
+| BOOK-04 | Phase 4 | Pending |
+| BOOK-05 | Phase 4 | Pending |
+| WHATS-01 | Phase 4 | Pending |
+| WHATS-02 | Phase 4 | Pending |
+| WHATS-03 | Phase 4 | Pending |
+| WHATS-04 | Phase 4 | Pending |
+| LEGAL-01 | Phase 2 | Pending |
+| LEGAL-02 | Phase 2 | Pending |
+| LEGAL-03 | Phase 4 | Pending |
 
 **Coverage:**
-- v1 requirements: (To be counted)
-- Mapped to phases: (To be counted)
-- Unmapped: (To be validated)
+- v1 requirements: 67
+- Mapped to phases: 67
+- Unmapped: 0
 
 ---
 *Requirements defined: 2026-01-27*
-*Last updated: 2026-01-27 after initial definition*
+*Last updated: 2026-01-27 after roadmap creation*
