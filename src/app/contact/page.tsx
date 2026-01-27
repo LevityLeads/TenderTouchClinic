@@ -4,6 +4,7 @@ import { Section } from "@/components/ui/section";
 import { Container } from "@/components/ui/container";
 import { ContactInfo } from "@/components/sections/contact-info";
 import { MapEmbed } from "@/components/sections/map-embed";
+import { ContactForm } from "@/components/forms/contact-form";
 import { contactInfo, directions } from "@/data/contact";
 
 export const metadata: Metadata = {
@@ -98,16 +99,18 @@ export default function ContactPage() {
         </Container>
       </Section>
 
-      {/* CTA Section */}
+      {/* Contact Form Section */}
       <Section variant="primary">
         <Container>
-          <div className="mx-auto max-w-2xl text-center">
-            <h2 className="font-display text-2xl font-bold text-neutral-900 sm:text-3xl">
-              Ready to Reach Out?
+          <div className="mx-auto max-w-xl">
+            <h2 className="mb-8 text-center font-display text-2xl font-bold text-neutral-900 sm:text-3xl">
+              Send Us a Message
             </h2>
-            <p className="mt-4 text-lg text-neutral-700">
-              Send us an enquiry using the form below, or contact us directly via phone,
-              email, or WhatsApp. We typically respond within 24 hours.
+            <div className="rounded-lg bg-white p-6 shadow-md sm:p-8">
+              <ContactForm />
+            </div>
+            <p className="mt-4 text-center text-sm text-neutral-600">
+              No medical information is collected via this form.
             </p>
           </div>
         </Container>
