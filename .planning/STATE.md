@@ -5,33 +5,33 @@
 See: .planning/PROJECT.md (updated 2026-01-27)
 
 **Core value:** Visitors can quickly understand what Tender Touch offers and easily take the next step—whether booking classes or reaching out for support.
-**Current focus:** Phase 2 - Static Content & Pages
+**Current focus:** Phase 2 - Static Content & Pages (Complete)
 
 ## Current Position
 
 Phase: 2 of 4 (Static Content & Pages)
-Plan: 2 of 3 in current phase
-Status: In progress
-Last activity: 2026-01-27 — Completed 02-02-PLAN.md
+Plan: 3 of 3 in current phase (COMPLETE)
+Status: Phase complete
+Last activity: 2026-01-27 — Completed 02-03-PLAN.md
 
-Progress: [#####░░░░░] 45%
+Progress: [######░░░░] 55%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 5
-- Average duration: 12 min
-- Total execution time: 0.9 hours
+- Total plans completed: 6
+- Average duration: 13 min
+- Total execution time: 1.2 hours
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
 | 1. Foundation | 3/3 | 39 min | 13 min |
-| 2. Static Content | 2/3 | 22 min | 11 min |
+| 2. Static Content | 3/3 | 40 min | 13 min |
 
 **Recent Trend:**
-- Last 5 plans: 14 min, 14 min, 11 min, 8 min, 14 min
+- Last 5 plans: 14 min, 11 min, 8 min, 14 min, 18 min
 - Trend: Stable
 
 *Updated after each plan completion*
@@ -57,6 +57,8 @@ Recent decisions affecting current work:
 - Section component with variant prop (default/muted/primary) for page section styling
 - Card composition pattern following shadcn/ui conventions
 - Gradient hero background as image placeholder approach
+- Privacy and Terms pages use robots noindex (common for legal pages)
+- Section components in src/components/sections/ for reusable page sections
 
 ### Pending Todos
 
@@ -65,9 +67,11 @@ None.
 ### Blockers/Concerns
 
 - og-image.jpg needed in public/images/ for social sharing (placeholder path defined)
+- Photo gallery uses placeholder images (clinic photos to be added)
+- Legal pages have placeholder content (should be reviewed by legal professional)
 
 ## Session Continuity
 
 Last session: 2026-01-27
-Stopped at: Completed 02-02-PLAN.md (homepage and services pages)
+Stopped at: Completed 02-03-PLAN.md (about, schedule, FAQ, legal pages)
 Resume file: None
