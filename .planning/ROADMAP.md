@@ -44,12 +44,12 @@ Plans:
   3. Visitor can read Megan's story, credentials, and see clinic photos on About page
   4. Visitor can view upcoming antenatal and baby massage class dates with availability
   5. Visitor can find answers to common questions in accordion-style FAQ section
-**Plans**: TBD
+**Plans**: 3 plans
 
 Plans:
-- [ ] 02-01: Content data files and homepage
-- [ ] 02-02: Service pages (overview + detail pages)
-- [ ] 02-03: About, Schedule, FAQ, and legal pages
+- [ ] 02-01-PLAN.md — Content data files and accordion component (Wave 1)
+- [ ] 02-02-PLAN.md — Homepage sections and services pages (Wave 2)
+- [ ] 02-03-PLAN.md — About, Schedule, FAQ, and legal pages (Wave 2)
 
 ### Phase 3: Contact & Forms
 **Goal**: Visitors can reach out via contact form and find clinic location
@@ -91,8 +91,8 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation & Design System | 3/3 | Complete ✓ | 2026-01-27 |
-| 2. Static Content & Pages | 0/3 | Not started | - |
+| 1. Foundation & Design System | 3/3 | Complete | 2026-01-27 |
+| 2. Static Content & Pages | 0/3 | Ready | - |
 | 3. Contact & Forms | 0/2 | Not started | - |
 | 4. Integrations & Launch | 0/3 | Not started | - |
 
