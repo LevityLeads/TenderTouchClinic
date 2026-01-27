@@ -5,23 +5,23 @@
 See: .planning/PROJECT.md (updated 2026-01-27)
 
 **Core value:** Visitors can quickly understand what Tender Touch offers and easily take the next step—whether booking classes or reaching out for support.
-**Current focus:** Phase 3 - Contact & Forms
+**Current focus:** Phase 3 - Contact & Forms (COMPLETE)
 
 ## Current Position
 
 Phase: 3 of 4 (Contact & Forms)
-Plan: 1 of 2 in current phase
-Status: In progress
-Last activity: 2026-01-27 — Completed 03-01-PLAN.md (contact page)
+Plan: 2 of 2 in current phase
+Status: Phase complete
+Last activity: 2026-01-27 — Completed 03-02-PLAN.md (contact form)
 
-Progress: [#######░░░] 70%
+Progress: [########░░] 80%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 7
-- Average duration: 12 min
-- Total execution time: 1.3 hours
+- Total plans completed: 8
+- Average duration: 11 min
+- Total execution time: 1.4 hours
 
 **By Phase:**
 
@@ -29,10 +29,10 @@ Progress: [#######░░░] 70%
 |-------|-------|-------|----------|
 | 1. Foundation | 3/3 | 39 min | 13 min |
 | 2. Static Content | 3/3 | 40 min | 13 min |
-| 3. Contact & Forms | 1/2 | 3 min | 3 min |
+| 3. Contact & Forms | 2/2 | 9 min | 5 min |
 
 **Recent Trend:**
-- Last 5 plans: 11 min, 8 min, 14 min, 18 min, 3 min
+- Last 5 plans: 8 min, 14 min, 18 min, 3 min, 6 min
 - Trend: Stable
 
 *Updated after each plan completion*
@@ -62,6 +62,12 @@ Recent decisions affecting current work:
 - Section components in src/components/sections/ for reusable page sections
 - Google Maps basic embed URL (no API key required) for simple map display
 - WhatsApp link uses wa.me format with international country code
+- Zod v4 for validation with message option (not required_error)
+- resend v4.0.1 pinned (v6.9.0 has TypeScript type definition bug)
+- Honeypot spam protection over reCAPTCHA (simpler, no external service)
+- Validation schema in src/lib/validations/ shared by client and server
+- Server Actions in src/app/actions/ with typed state return
+- useActionState hook for form submission with Server Actions
 
 ### Pending Todos
 
@@ -72,9 +78,10 @@ None.
 - og-image.jpg needed in public/images/ for social sharing (placeholder path defined)
 - Photo gallery uses placeholder images (clinic photos to be added)
 - Legal pages have placeholder content (should be reviewed by legal professional)
+- Resend API key needed for production email sending (form shows graceful error without it)
 
 ## Session Continuity
 
 Last session: 2026-01-27
-Stopped at: Completed 03-01-PLAN.md (contact page)
+Stopped at: Completed 03-02-PLAN.md (contact form) - Phase 3 complete
 Resume file: None
