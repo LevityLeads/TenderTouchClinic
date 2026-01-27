@@ -45,6 +45,9 @@ Recent decisions affecting current work:
 - oklch color space for brand colors (better perceptual uniformity)
 - Inter for body text, Playfair Display for headings
 - Button component polymorphism (renders as Link when href provided)
+- Server Component Header composes Client Component children (MobileNav, ServicesDropdown)
+- Flat expandable services list on mobile instead of dropdown
+- Escape key closes all dropdowns/menus and returns focus to trigger
 - WhatsApp button as Server Component (no client JS for external link)
 - LocalBusiness JSON-LD schema for local search SEO
 - Dynamic sitemap via Next.js MetadataRoute
@@ -59,6 +62,6 @@ None.
 
 ## Session Continuity
 
-Last session: 2026-01-27T09:47:05Z
-Stopped at: Completed 01-03-PLAN.md
+Last session: 2026-01-27T09:47:06Z
+Stopped at: Completed 01-02-PLAN.md (all Phase 1 plans now complete)
 Resume file: None
