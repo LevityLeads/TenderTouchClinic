@@ -5,6 +5,7 @@ import { SkipLink } from "@/components/ui/skip-link";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { WhatsAppButton } from "@/components/layout/whatsapp-button";
+import { CookieConsentBanner } from "@/components/layout/cookie-consent";
 import { SITE_CONFIG, CONTACT_INFO } from "@/lib/constants";
 
 const inter = Inter({
@@ -110,6 +111,7 @@ export default function RootLayout({
         </main>
         <Footer />
         <WhatsAppButton />
+        <CookieConsentBanner />
       </body>
     </html>
   );
