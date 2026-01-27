@@ -27,12 +27,12 @@ This roadmap delivers a modern, mobile-first marketing website for Tender Touch 
   3. Keyboard navigation works through header, navigation, and footer
   4. Header with logo, nav links, and CTA renders on all viewports with mobile hamburger menu
   5. Footer with contact info, links, hours, and social displays on all pages
-**Plans**: TBD
+**Plans**: 3 plans
 
 Plans:
-- [ ] 01-01: Project scaffolding and tooling setup
-- [ ] 01-02: Layout components (Header, Footer, MobileNav)
-- [ ] 01-03: UI component library and design tokens
+- [ ] 01-01-PLAN.md — Project scaffolding, design tokens, and UI primitives (Wave 1)
+- [ ] 01-02-PLAN.md — Header, MobileNav, and ServicesDropdown (Wave 2)
+- [ ] 01-03-PLAN.md — Footer, WhatsApp button, and root layout wiring (Wave 2)
 
 ### Phase 2: Static Content & Pages
 **Goal**: Visitors can browse all clinic information, understand services, and see testimonials
@@ -91,7 +91,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation & Design System | 0/3 | Not started | - |
+| 1. Foundation & Design System | 0/3 | Planned | - |
 | 2. Static Content & Pages | 0/3 | Not started | - |
 | 3. Contact & Forms | 0/2 | Not started | - |
 | 4. Integrations & Launch | 0/3 | Not started | - |
