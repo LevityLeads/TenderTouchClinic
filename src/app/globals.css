@@ -237,14 +237,58 @@
       opacity: 0;
     }
   }
+
+  /* Shimmer effect for skeleton loaders */
+  @keyframes shimmer {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+
+  /* Shake animation for form validation errors */
+  @keyframes shake {
+    0%, 100% {
+      transform: translateX(0);
+    }
+    10%, 30%, 50%, 70%, 90% {
+      transform: translateX(-4px);
+    }
+    20%, 40%, 60%, 80% {
+      transform: translateX(4px);
+    }
+  }
+
+  --animate-shake: shake 0.4s ease-out;
 }
 
 /* Base styles and accessibility */
 @layer base {
-  /* Focus styles for accessibility (FOUND-04) */
+  /* Enhanced focus styles for accessibility (FOUND-04) */
   *:focus-visible {
     outline: 2px solid var(--color-primary-500);
     outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  /* Enhanced focus ring for buttons and interactive elements */
+  button:focus-visible,
+  a:focus-visible,
+  [role="button"]:focus-visible {
+    outline: 2px solid var(--color-primary-500);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 4px rgba(101, 163, 135, 0.2);
+  }
+
+  /* Focus ring for form inputs */
+  input:focus-visible,
+  textarea:focus-visible,
+  select:focus-visible {
+    outline: none;
+    border-color: var(--color-primary-500);
+    box-shadow: 0 0 0 3px rgba(101, 163, 135, 0.15);
   }
 
   /* Smooth scroll for anchor navigation */
@@ -263,6 +307,12 @@
   h2,
   h3 {
     font-family: var(--font-display);
+  }
+
+  /* Selection color */
+  ::selection {
+    background-color: var(--color-primary-200);
+    color: var(--color-neutral-900);
   }
 }
 
@@ -415,6 +465,11 @@
     background: rgba(255, 255, 255, 0.4);
     animation: ripple 0.6s linear;
     pointer-events: none;
+  }
+
+  /* Shake animation for form errors */
+  .animate-shake {
+    animation: shake 0.4s ease-out;
   }
 
   /* Scroll progress bar */
