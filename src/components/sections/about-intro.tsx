@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { Container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
 import { meganBio } from "@/data/about";
@@ -50,18 +51,16 @@ export function AboutIntro() {
           </div>
         </SlideIn>
 
-        {/* Image placeholder */}
+        {/* Megan's photo */}
         <ScaleIn delay={0.2} className="mt-12 lg:mt-0">
-          <div className="aspect-[4/5] overflow-hidden rounded-xl bg-neutral-100">
-            <div className="flex h-full items-center justify-center text-neutral-400">
-              {/* Placeholder for Megan's photo */}
-              <div className="text-center">
-                <div className="mx-auto h-24 w-24 rounded-full bg-primary-100 flex items-center justify-center">
-                  <span className="text-4xl text-primary-300">M</span>
-                </div>
-                <p className="mt-4 text-sm">Photo coming soon</p>
-              </div>
-            </div>
+          <div className="relative aspect-[4/5] overflow-hidden rounded-xl bg-neutral-100">
+            <Image
+              src="/images/about/megan.jpg"
+              alt={`${meganBio.name} - ${meganBio.title}`}
+              fill
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              className="object-cover"
+            />
           </div>
         </ScaleIn>
       </div>

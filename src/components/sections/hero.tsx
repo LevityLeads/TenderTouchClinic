@@ -16,7 +16,9 @@ interface HeroProps {
  * Hero section for homepage with main headline, subheadline, and CTAs.
  * Supports background image with gradient fallback.
  */
-export function Hero({ backgroundImage = "/images/hero.jpg" }: HeroProps) {
+export function Hero({ backgroundImage = "/images/hero.gif" }: HeroProps) {
+  const isAnimated = backgroundImage.endsWith(".gif");
+
   return (
     <section className="relative min-h-[60vh] bg-gradient-to-br from-primary-600 via-primary-500 to-primary-400">
       {/* Background image with gradient overlay */}
@@ -27,6 +29,7 @@ export function Hero({ backgroundImage = "/images/hero.jpg" }: HeroProps) {
         priority
         sizes="100vw"
         className="object-cover"
+        unoptimized={isAnimated}
         onError={(e) => {
           // Hide image on error, gradient fallback shows through
           e.currentTarget.style.display = "none";
