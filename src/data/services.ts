@@ -1,8 +1,9 @@
 /**
- * Service item with name, booking link, price, and duration
+ * Service item with name, booking link, price, duration, and description
  */
 export interface ServiceItem {
   name: string;
+  description: string;
   bookingUrl: string;
   price: string;
   duration: string;
@@ -88,18 +89,24 @@ export const serviceCategories: ServiceCategory[] = [
     services: [
       {
         name: "Antenatal Consultation",
+        description:
+          "A one-on-one session to discuss your pregnancy, address concerns, and create a personalised plan for your birth and early parenting journey.",
         bookingUrl: "https://tendertouchclinic.bookem.com/services/5ae7a87799274fc9888ccf76aaa2758a",
         price: "R600",
         duration: "1 hour",
       },
       {
         name: "Antenatal & Parent Preparation Classes",
+        description:
+          "Comprehensive classes covering labour, birth, breastfeeding, and newborn care. Gain confidence and practical skills to feel fully prepared for parenthood.",
         bookingUrl: "https://tendertouchclinic.bookem.com/services/fe1281f7910d43b09d79fe8bfadb87cc",
         price: "R2,900",
         duration: "12 hours",
       },
       {
         name: "Pregnancy Vaccine (Adacel)",
+        description:
+          "Protect your baby before birth with the Adacel vaccine, recommended during pregnancy to provide immunity against whooping cough in the first months of life.",
         bookingUrl: "https://tendertouchclinic.bookem.com/services/ae58e163a4b442c0a805bfb65c85cb57",
         price: "R200",
         duration: "20 mins",
@@ -130,12 +137,16 @@ export const serviceCategories: ServiceCategory[] = [
       } as ExpandableServiceItem,
       {
         name: "Newborn Check (First Consultation)",
+        description:
+          "A thorough first check for your baby including weight, feeding assessment, and guidance on newborn care. Peace of mind for new parents in those early days.",
         bookingUrl: "https://tendertouchclinic.bookem.com/services/c909c6057fee496cb70f8f466d21feb9",
         price: "R600 - R900",
         duration: "1 - 1.5 hours",
       },
       {
         name: "General Consultation (Follow-ups)",
+        description:
+          "Ongoing support for you and your baby as you settle into your new routine. Address any concerns, track growth, and get expert guidance when you need it.",
         bookingUrl: "https://tendertouchclinic.bookem.com/services/0140939ef99b433784c83ec159d44342",
         price: "R300 - R600",
         duration: "30 mins - 1 hour",
@@ -150,12 +161,16 @@ export const serviceCategories: ServiceCategory[] = [
     services: [
       {
         name: "Breastfeeding Consultation (Sr Megan)",
+        description:
+          "Compassionate, practical support for common breastfeeding challenges. Sr Megan's 25+ years of experience helps you find solutions that work for you and your baby.",
         bookingUrl: "https://tendertouchclinic.bookem.com/services/3cf5f7f4ee9043299ffe1cacb3d6aed4",
         price: "R600 - R900",
         duration: "1 - 1.5 hours",
       },
       {
         name: "Lactation Consultation (Sr Brigitte - SACLC)",
+        description:
+          "In-depth lactation support from a SACLC-certified consultant. Ideal for complex feeding challenges, tongue-tie assessment, and establishing a sustainable breastfeeding routine.",
         bookingUrl: "https://tendertouchclinic.bookem.com/services/9ef878824e1d47a99ae0a4a6e0c18531",
         price: "R1,100",
         duration: "1.5 hours",

@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import Link from "next/link";
 import { Container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
 import { ServicePageHero } from "@/components/sections/service-page-hero";
-import { ExpandableService } from "@/components/ui/expandable-service";
 import { getServicePageContent, getServiceCategoryBySlug } from "@/data/service-pages";
 import { isExpandableService, type ServiceCategory } from "@/data/services";
-import { ArrowRight, CheckCircle } from "lucide-react";
+import { ArrowRight, CheckCircle, MessageCircle } from "lucide-react";
 
 const SLUG = "postnatal-support";
 
@@ -46,41 +46,82 @@ export default function PostnatalSupportPage() {
         </Container>
       </section>
 
-      {/* Services List */}
+      {/* Services Cards */}
       <section className="bg-white py-12 lg:py-16">
         <Container>
           <h2 className="font-serif text-2xl font-bold text-neutral-900 sm:text-3xl text-center">
             Our Services
           </h2>
-          <div className="mt-8 mx-auto max-w-2xl space-y-4">
+          <div className="mt-10 grid gap-6 md:grid-cols-3">
             {category.services.map((service, index) =>
               isExpandableService(service) ? (
-                <ExpandableService key={index} service={service} />
-              ) : (
-                <a
+                /* Home Visits - Special Card */
+                <div
                   key={index}
-                  href={service.bookingUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-between rounded-lg border border-neutral-200 bg-white px-6 py-4 transition-all duration-200 hover:border-primary-300 hover:bg-primary-50 hover:shadow-sm group"
+                  className="flex flex-col rounded-2xl border border-neutral-200 bg-gradient-to-b from-primary-50 to-white p-6 shadow-sm"
                 >
-                  <div>
-                    <span className="block font-medium text-neutral-900">
-                      {service.name}
-                    </span>
-                    <span className="block text-sm text-neutral-500 mt-1">
-                      <span className="font-semibold text-primary-600">
+                  <h3 className="font-serif text-xl font-semibold text-neutral-900">
+                    {service.name}
+                  </h3>
+
+                  <p className="mt-3 text-neutral-600 text-sm leading-relaxed flex-grow">
+                    {service.content.description}
+                  </p>
+
+                  <div className="mt-6 pt-4 border-t border-neutral-100">
+                    <p className="text-xs text-neutral-500 mb-2">Pricing varies by provider</p>
+                    <div className="space-y-1 text-sm">
+                      {service.content.pricing.map((p, i) => (
+                        <p key={i} className="text-neutral-600">
+                          <span className="font-medium">{p.provider}:</span> {p.details}
+                        </p>
+                      ))}
+                    </div>
+                  </div>
+
+                  <Link
+                    href="/contact"
+                    className="mt-4 flex items-center justify-center gap-2 rounded-lg bg-primary-600 px-4 py-3 text-white font-medium transition-colors hover:bg-primary-700"
+                  >
+                    <MessageCircle className="h-4 w-4" />
+                    Contact to Book
+                  </Link>
+                </div>
+              ) : (
+                /* Regular Bookable Services */
+                <div
+                  key={index}
+                  className="flex flex-col rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm hover:shadow-md hover:border-primary-200 transition-all duration-300"
+                >
+                  <h3 className="font-serif text-xl font-semibold text-neutral-900">
+                    {service.name}
+                  </h3>
+
+                  <p className="mt-3 text-neutral-600 text-sm leading-relaxed flex-grow">
+                    {service.description}
+                  </p>
+
+                  <div className="mt-6 pt-4 border-t border-neutral-100">
+                    <div className="flex items-baseline justify-between">
+                      <span className="text-2xl font-bold text-primary-600">
                         {service.price}
                       </span>
-                      {" | "}
-                      {service.duration}
-                    </span>
+                      <span className="text-sm text-neutral-500">
+                        {service.duration}
+                      </span>
+                    </div>
                   </div>
-                  <span className="flex items-center gap-1 text-primary-600 font-medium">
-                    Book
-                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                  </span>
-                </a>
+
+                  <a
+                    href={service.bookingUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-4 flex items-center justify-center gap-2 rounded-lg bg-primary-600 px-4 py-3 text-white font-medium transition-colors hover:bg-primary-700"
+                  >
+                    Book Now
+                    <ArrowRight className="h-4 w-4" />
+                  </a>
+                </div>
               )
             )}
           </div>

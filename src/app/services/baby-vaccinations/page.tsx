@@ -10,6 +10,16 @@ import { CheckCircle } from "lucide-react";
 
 const SLUG = "baby-vaccinations";
 
+// Descriptions for each vaccine category
+const vaccineCategoryDescriptions: Record<string, string> = {
+  "State-Subsidised Schedule":
+    "Essential vaccines provided as part of the national immunisation programme. Follow the recommended schedule to ensure your baby is fully protected at each milestone.",
+  "Private Vaccines":
+    "Additional vaccines for enhanced protection against serious illnesses. These complement the state schedule and provide broader immunity for your child.",
+  "Combo Appointments":
+    "Convenient combined vaccine appointments that reduce the number of visits. Perfect for busy parents who want to stay on track with their baby's immunisation schedule.",
+};
+
 export const metadata: Metadata = {
   title: "Baby Vaccinations",
   description:
@@ -46,18 +56,41 @@ export default function BabyVaccinationsPage() {
         </Container>
       </section>
 
-      {/* Vaccine Categories */}
+      {/* Vaccine Category Cards */}
       <section className="bg-white py-12 lg:py-16">
         <Container>
           <h2 className="font-serif text-2xl font-bold text-neutral-900 sm:text-3xl text-center">
             Vaccination Options
           </h2>
-          <p className="mt-4 text-center text-neutral-600">
+          <p className="mt-4 text-center text-neutral-600 max-w-2xl mx-auto">
             Select a category below to view available vaccines and book your appointment.
           </p>
-          <div className="mt-8 mx-auto max-w-2xl space-y-4">
+          <div className="mt-10 grid gap-6 md:grid-cols-3">
             {category.categories.map((vaccineCategory, index) => (
-              <VaccineDropdown key={index} category={vaccineCategory} />
+              <div
+                key={index}
+                className="flex flex-col rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm hover:shadow-md hover:border-primary-200 transition-all duration-300"
+              >
+                {/* Category Name */}
+                <h3 className="font-serif text-xl font-semibold text-neutral-900">
+                  {vaccineCategory.name}
+                </h3>
+
+                {/* Description */}
+                <p className="mt-3 text-neutral-600 text-sm leading-relaxed flex-grow">
+                  {vaccineCategoryDescriptions[vaccineCategory.name]}
+                </p>
+
+                {/* Vaccines Count */}
+                <div className="mt-6 pt-4 border-t border-neutral-100">
+                  <p className="text-sm text-neutral-500 mb-3">
+                    {vaccineCategory.items.length} vaccine{vaccineCategory.items.length !== 1 ? "s" : ""} available
+                  </p>
+                </div>
+
+                {/* Dropdown */}
+                <VaccineDropdown category={vaccineCategory} />
+              </div>
             ))}
           </div>
         </Container>

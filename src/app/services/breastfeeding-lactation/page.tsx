@@ -45,39 +45,52 @@ export default function BreastfeedingLactationPage() {
         </Container>
       </section>
 
-      {/* Services List */}
+      {/* Services Cards */}
       <section className="bg-white py-12 lg:py-16">
         <Container>
           <h2 className="font-serif text-2xl font-bold text-neutral-900 sm:text-3xl text-center">
             Our Services
           </h2>
-          <div className="mt-8 mx-auto max-w-2xl space-y-4">
+          <div className="mt-10 grid gap-6 md:grid-cols-2 max-w-4xl mx-auto">
             {category.services.map((service, index) =>
               isExpandableService(service) ? null : (
-                <a
+                <div
                   key={index}
-                  href={service.bookingUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-between rounded-lg border border-neutral-200 bg-white px-6 py-4 transition-all duration-200 hover:border-primary-300 hover:bg-primary-50 hover:shadow-sm group"
+                  className="flex flex-col rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm hover:shadow-md hover:border-primary-200 transition-all duration-300"
                 >
-                  <div>
-                    <span className="block font-medium text-neutral-900">
-                      {service.name}
-                    </span>
-                    <span className="block text-sm text-neutral-500 mt-1">
-                      <span className="font-semibold text-primary-600">
+                  {/* Service Name */}
+                  <h3 className="font-serif text-xl font-semibold text-neutral-900">
+                    {service.name}
+                  </h3>
+
+                  {/* Description */}
+                  <p className="mt-3 text-neutral-600 text-sm leading-relaxed flex-grow">
+                    {service.description}
+                  </p>
+
+                  {/* Price & Duration */}
+                  <div className="mt-6 pt-4 border-t border-neutral-100">
+                    <div className="flex items-baseline justify-between">
+                      <span className="text-2xl font-bold text-primary-600">
                         {service.price}
                       </span>
-                      {" | "}
-                      {service.duration}
-                    </span>
+                      <span className="text-sm text-neutral-500">
+                        {service.duration}
+                      </span>
+                    </div>
                   </div>
-                  <span className="flex items-center gap-1 text-primary-600 font-medium">
-                    Book
-                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                  </span>
-                </a>
+
+                  {/* Book Button */}
+                  <a
+                    href={service.bookingUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-4 flex items-center justify-center gap-2 rounded-lg bg-primary-600 px-4 py-3 text-white font-medium transition-colors hover:bg-primary-700"
+                  >
+                    Book Now
+                    <ArrowRight className="h-4 w-4" />
+                  </a>
+                </div>
               )
             )}
           </div>
