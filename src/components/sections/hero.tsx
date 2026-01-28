@@ -1,13 +1,8 @@
 "use client";
 
-import Image from "next/image";
 import { Container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-
-interface HeroProps {
-  backgroundImage?: string;
-}
 
 // Text animation variants
 const titleVariants = {
@@ -49,136 +44,195 @@ const fadeUpVariants = {
 };
 
 /**
- * Enhanced Hero section with animated gradient overlay, floating shapes,
+ * Gradient Mesh Background Component
+ * Creates an animated, organic flowing gradient effect
+ */
+function GradientMesh() {
+  return (
+    <div className="absolute inset-0 overflow-hidden">
+      {/* Base gradient */}
+      <div className="absolute inset-0 bg-gradient-to-br from-primary-600 via-primary-500 to-primary-400" />
+
+      {/* Gradient mesh blobs */}
+      <motion.div
+        className="absolute w-[800px] h-[800px] rounded-full opacity-70"
+        style={{
+          background: "radial-gradient(circle, oklch(0.65 0.18 155) 0%, transparent 70%)",
+          left: "-20%",
+          top: "-30%",
+          filter: "blur(60px)",
+        }}
+        animate={{
+          x: [0, 100, 50, 0],
+          y: [0, 50, 100, 0],
+          scale: [1, 1.1, 0.95, 1],
+        }}
+        transition={{
+          duration: 20,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+      />
+
+      <motion.div
+        className="absolute w-[600px] h-[600px] rounded-full opacity-60"
+        style={{
+          background: "radial-gradient(circle, oklch(0.75 0.15 160) 0%, transparent 70%)",
+          right: "-10%",
+          top: "10%",
+          filter: "blur(80px)",
+        }}
+        animate={{
+          x: [0, -80, -40, 0],
+          y: [0, 80, 40, 0],
+          scale: [1, 0.9, 1.1, 1],
+        }}
+        transition={{
+          duration: 25,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 2,
+        }}
+      />
+
+      <motion.div
+        className="absolute w-[700px] h-[700px] rounded-full opacity-50"
+        style={{
+          background: "radial-gradient(circle, oklch(0.80 0.12 170) 0%, transparent 70%)",
+          left: "30%",
+          bottom: "-20%",
+          filter: "blur(70px)",
+        }}
+        animate={{
+          x: [0, -60, 60, 0],
+          y: [0, -80, -40, 0],
+          scale: [1, 1.15, 0.9, 1],
+        }}
+        transition={{
+          duration: 22,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 4,
+        }}
+      />
+
+      {/* Accent color blob */}
+      <motion.div
+        className="absolute w-[500px] h-[500px] rounded-full opacity-40"
+        style={{
+          background: "radial-gradient(circle, oklch(0.85 0.10 140) 0%, transparent 70%)",
+          right: "20%",
+          bottom: "10%",
+          filter: "blur(60px)",
+        }}
+        animate={{
+          x: [0, 70, -30, 0],
+          y: [0, -50, 50, 0],
+          scale: [1, 0.85, 1.1, 1],
+        }}
+        transition={{
+          duration: 18,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 1,
+        }}
+      />
+
+      {/* Warm accent blob */}
+      <motion.div
+        className="absolute w-[400px] h-[400px] rounded-full opacity-30"
+        style={{
+          background: "radial-gradient(circle, oklch(0.82 0.08 95) 0%, transparent 70%)",
+          left: "50%",
+          top: "20%",
+          filter: "blur(50px)",
+        }}
+        animate={{
+          x: [0, -100, 50, 0],
+          y: [0, 60, -30, 0],
+          scale: [1, 1.2, 0.95, 1],
+        }}
+        transition={{
+          duration: 15,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 3,
+        }}
+      />
+
+      {/* Small floating orbs for sparkle */}
+      <motion.div
+        className="absolute w-32 h-32 rounded-full"
+        style={{
+          background: "radial-gradient(circle, rgba(255,255,255,0.4) 0%, transparent 70%)",
+          left: "15%",
+          top: "40%",
+          filter: "blur(20px)",
+        }}
+        animate={{
+          y: [0, -40, 0],
+          opacity: [0.3, 0.6, 0.3],
+          scale: [1, 1.3, 1],
+        }}
+        transition={{
+          duration: 8,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+      />
+
+      <motion.div
+        className="absolute w-24 h-24 rounded-full"
+        style={{
+          background: "radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%)",
+          right: "25%",
+          top: "30%",
+          filter: "blur(15px)",
+        }}
+        animate={{
+          y: [0, 30, 0],
+          x: [0, -20, 0],
+          opacity: [0.2, 0.5, 0.2],
+        }}
+        transition={{
+          duration: 10,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 2,
+        }}
+      />
+
+      {/* Noise texture overlay for organic feel */}
+      <div
+        className="absolute inset-0 opacity-[0.03]"
+        style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
+        }}
+      />
+    </div>
+  );
+}
+
+/**
+ * Enhanced Hero section with animated gradient mesh background,
  * staggered text reveal, and glassmorphism CTAs.
  */
-export function Hero({ backgroundImage = "/images/hero.gif" }: HeroProps) {
-  const isAnimated = backgroundImage.endsWith(".gif");
+export function Hero() {
   const title = "Nurture and Care for Parents and Babies";
 
   return (
     <section className="relative min-h-[80vh] overflow-hidden">
-      {/* Base gradient background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary-700 via-primary-600 to-primary-500" />
+      {/* Animated Gradient Mesh Background */}
+      <GradientMesh />
 
-      {/* Animated gradient overlay */}
-      <div
-        className="absolute inset-0 opacity-60"
-        style={{
-          background: "linear-gradient(45deg, var(--color-primary-800), var(--color-primary-500), var(--color-accent-400), var(--color-primary-600))",
-          backgroundSize: "400% 400%",
-          animation: "gradient-shift 15s ease infinite",
-        }}
-      />
-
-      {/* Background image */}
-      <Image
-        src={backgroundImage}
-        alt=""
-        fill
-        priority
-        sizes="100vw"
-        className="object-cover mix-blend-overlay opacity-40"
-        unoptimized={isAnimated}
-        onError={(e) => {
-          e.currentTarget.style.display = "none";
-        }}
-      />
-
-      {/* Floating decorative shapes */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {/* Large blob top-left */}
-        <motion.div
-          className="absolute -top-20 -left-20 w-96 h-96 rounded-full bg-white/5 blur-3xl"
-          animate={{
-            y: [0, -20, 0],
-            x: [0, 10, 0],
-            scale: [1, 1.1, 1],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
-
-        {/* Medium blob right */}
-        <motion.div
-          className="absolute top-1/4 -right-10 w-72 h-72 rounded-full bg-accent-300/10 blur-2xl"
-          animate={{
-            y: [0, 30, 0],
-            x: [0, -15, 0],
-          }}
-          transition={{
-            duration: 10,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 1,
-          }}
-        />
-
-        {/* Small floating circles */}
-        <motion.div
-          className="absolute top-1/3 left-1/4 w-4 h-4 rounded-full bg-white/20"
-          animate={{
-            y: [0, -30, 0],
-            opacity: [0.2, 0.5, 0.2],
-          }}
-          transition={{
-            duration: 4,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
-        <motion.div
-          className="absolute top-2/3 right-1/3 w-6 h-6 rounded-full bg-white/15"
-          animate={{
-            y: [0, 20, 0],
-            opacity: [0.15, 0.4, 0.15],
-          }}
-          transition={{
-            duration: 5,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 0.5,
-          }}
-        />
-        <motion.div
-          className="absolute bottom-1/4 left-1/3 w-3 h-3 rounded-full bg-accent-200/30"
-          animate={{
-            y: [0, -25, 0],
-            x: [0, 10, 0],
-          }}
-          transition={{
-            duration: 6,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 1.5,
-          }}
-        />
-
-        {/* Bottom blob */}
-        <motion.div
-          className="absolute -bottom-32 left-1/4 w-[500px] h-[500px] rounded-full bg-primary-400/10 blur-3xl"
-          animate={{
-            scale: [1, 1.2, 1],
-            opacity: [0.1, 0.2, 0.1],
-          }}
-          transition={{
-            duration: 12,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
-      </div>
-
-      {/* Dark overlay for text readability */}
-      <div className="absolute inset-0 bg-gradient-to-t from-primary-900/50 via-transparent to-primary-900/30" />
+      {/* Subtle vignette for depth */}
+      <div className="absolute inset-0 bg-gradient-to-t from-primary-900/40 via-transparent to-primary-900/20" />
+      <div className="absolute inset-0 bg-gradient-to-r from-primary-900/20 via-transparent to-primary-900/20" />
 
       <Container className="relative flex min-h-[80vh] flex-col items-center justify-center py-24 text-center">
         {/* Animated title with letter-by-letter reveal */}
         <motion.h1
-          className="font-serif text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl xl:text-7xl max-w-5xl"
+          className="font-serif text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl xl:text-7xl max-w-5xl drop-shadow-lg"
           variants={titleVariants}
           initial="hidden"
           animate="visible"
@@ -204,7 +258,7 @@ export function Hero({ backgroundImage = "/images/hero.gif" }: HeroProps) {
 
         {/* Subtitle with fade-up */}
         <motion.p
-          className="mt-6 max-w-2xl text-lg text-white/90 sm:text-xl lg:text-2xl"
+          className="mt-6 max-w-2xl text-lg text-white/90 sm:text-xl lg:text-2xl drop-shadow-md"
           variants={fadeUpVariants}
           initial="hidden"
           animate="visible"
@@ -270,7 +324,7 @@ export function Hero({ backgroundImage = "/images/hero.gif" }: HeroProps) {
         </motion.div>
       </Container>
 
-      {/* Simple curved bottom edge */}
+      {/* Curved bottom edge */}
       <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none">
         <svg
           className="relative block w-full h-12 sm:h-16"
