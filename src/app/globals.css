@@ -1,17 +1,17 @@
 @import "tailwindcss";
 
 @theme {
-  /* Brand Colors - Teal/Green Palette (CONT-14) */
-  --color-primary-50: oklch(0.97 0.02 175);
-  --color-primary-100: oklch(0.94 0.04 175);
-  --color-primary-200: oklch(0.88 0.08 175);
-  --color-primary-300: oklch(0.78 0.12 175);
-  --color-primary-400: oklch(0.68 0.14 175);
-  --color-primary-500: oklch(0.55 0.14 175); /* Main brand teal */
-  --color-primary-600: oklch(0.45 0.12 175);
-  --color-primary-700: oklch(0.38 0.10 175);
-  --color-primary-800: oklch(0.32 0.08 175);
-  --color-primary-900: oklch(0.25 0.06 175);
+  /* Brand Colors - Pastel Mint Green Palette */
+  --color-primary-50: oklch(0.97 0.02 160);
+  --color-primary-100: oklch(0.94 0.04 160);
+  --color-primary-200: oklch(0.88 0.07 160);
+  --color-primary-300: oklch(0.80 0.10 160);
+  --color-primary-400: oklch(0.72 0.12 160);
+  --color-primary-500: oklch(0.65 0.12 160); /* Main brand mint */
+  --color-primary-600: oklch(0.58 0.11 160);
+  --color-primary-700: oklch(0.50 0.10 160);
+  --color-primary-800: oklch(0.42 0.08 160);
+  --color-primary-900: oklch(0.35 0.06 160);
 
   /* Warm Accent - Soft Peach/Coral */
   --color-accent-50: oklch(0.98 0.01 50);
