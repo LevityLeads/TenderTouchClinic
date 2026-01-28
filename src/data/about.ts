@@ -19,6 +19,27 @@ Whether you're preparing for birth, navigating the early weeks with your newborn
   imageUrl: "/images/about/megan.jpg",
 };
 
+export const brigitteBio = {
+  name: "Brigitte Williams",
+  title: "Registered Nurse & Midwife",
+  credentials: [
+    "BCur, Stellenbosch University (1996)",
+    "Registered Nurse & Midwife",
+    "SA Certified Lactation Consultant (2023)",
+    "Former NICU Nurse",
+  ],
+  bio: `Brigitte Williams is a registered nurse and midwife with extensive experience in neonatal and postnatal care. She has been in private practice for over 20 years, providing in-home phototherapy for jaundiced newborns, postnatal home visits, and breastfeeding counselling to support families during the early weeks after birth.
+
+In 2023, she qualified as a South African Certified Lactation Consultant, enhancing her ability to offer evidence-based, compassionate feeding support. As a former NICU nurse and the mother of a NICU baby, Brigitte has a deep understanding of the stress and uncertainty that can arise when birth or the newborn period does not go as planned.
+
+Brigitte brings a calm, empathetic, and family-centred approach to all aspects of her care.`,
+  personalNote:
+    "Brigitte is a mom to two young adult men and understands the parenting journey from newborn through to adulthood.",
+  imageUrl: "/images/about/brigitte.jpg",
+};
+
+export const teamMembers = [meganBio, brigitteBio];
+
 export const clinicStory = {
   founded: "January 2022",
   location: "Kirstenhof, Cape Town",

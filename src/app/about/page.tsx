@@ -3,12 +3,12 @@ import Image from "next/image";
 import { Container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
 import { PhotoGallery } from "@/components/sections/photo-gallery";
-import { meganBio, clinicStory } from "@/data/about";
+import { meganBio, brigitteBio, clinicStory } from "@/data/about";
 
 export const metadata: Metadata = {
-  title: "About Megan Benn",
+  title: "About Our Team",
   description:
-    "Meet Megan Benn, Registered Nurse and Midwife with over 25 years of experience. Learn about Tender Touch Mother & Baby Clinic's story and mission.",
+    "Meet Megan Benn and Brigitte Williams, Registered Nurses and Midwives with over 45 years of combined experience. Learn about Tender Touch Mother & Baby Clinic's story and mission.",
   alternates: {
     canonical: "/about",
   },
@@ -25,9 +25,72 @@ const galleryImages = [
   { src: "/images/about/clinic-4.jpg", alt: "Baby massage session" },
 ];
 
+interface TeamMemberSectionProps {
+  member: typeof meganBio;
+  reversed?: boolean;
+}
+
 /**
- * About page showcasing Megan's background, credentials, and clinic story.
- * Requirements: ABOUT-01 through ABOUT-06
+ * Reusable team member section component
+ */
+function TeamMemberSection({ member, reversed = false }: TeamMemberSectionProps) {
+  return (
+    <div className={`grid gap-12 lg:grid-cols-5 lg:gap-16 ${reversed ? 'lg:direction-rtl' : ''}`}>
+      {/* Photo Column */}
+      <div className={`lg:col-span-2 ${reversed ? 'lg:order-2' : ''}`}>
+        <div className="relative aspect-[3/4] overflow-hidden rounded-lg bg-neutral-200 shadow-lg">
+          <Image
+            src={member.imageUrl}
+            alt={`${member.name}, ${member.title}`}
+            fill
+            sizes="(max-width: 1024px) 100vw, 40vw"
+            className="object-cover"
+          />
+        </div>
+      </div>
+
+      {/* Content Column */}
+      <div className={`lg:col-span-3 ${reversed ? 'lg:order-1' : ''}`}>
+        <h2 className="font-heading text-3xl font-bold text-neutral-900">
+          {member.name}
+        </h2>
+        <p className="mt-2 text-lg text-primary-600 font-medium">
+          {member.title}
+        </p>
+
+        {/* Bio paragraphs */}
+        <div className="mt-6 space-y-4 text-neutral-600 leading-relaxed">
+          {member.bio.split("\n\n").map((paragraph, index) => (
+            <p key={index}>{paragraph}</p>
+          ))}
+        </div>
+
+        {/* Personal note */}
+        <p className="mt-6 italic text-neutral-500">
+          {member.personalNote}
+        </p>
+
+        {/* Credentials */}
+        <div className="mt-8">
+          <h3 className="text-xl font-semibold text-neutral-900">
+            Qualifications & Credentials
+          </h3>
+          <ul className="mt-4 space-y-2 text-neutral-600">
+            {member.credentials.map((credential, index) => (
+              <li key={index} className="flex items-start gap-2">
+                <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-primary-500" />
+                {credential}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/**
+ * About page showcasing team members' backgrounds, credentials, and clinic story.
  */
 export default function AboutPage() {
   return (
@@ -37,72 +100,34 @@ export default function AboutPage() {
         <Container>
           <div className="text-center">
             <h1 className="font-heading text-4xl font-bold text-neutral-900 sm:text-5xl">
-              About {meganBio.name}
+              Meet Our Team
             </h1>
-            <p className="mt-4 text-lg text-neutral-600">
-              {meganBio.title}
+            <p className="mt-4 text-lg text-neutral-600 max-w-2xl mx-auto">
+              Experienced, compassionate care from registered nurses and midwives who understand the parenting journey
             </p>
           </div>
         </Container>
       </section>
 
-      {/* Bio Section */}
+      {/* Megan Bio Section */}
       <section className="py-section lg:py-section-lg">
         <Container>
-          <div className="grid gap-12 lg:grid-cols-5 lg:gap-16">
-            {/* Photo Column */}
-            <div className="lg:col-span-2">
-              <div className="relative aspect-[3/4] overflow-hidden rounded-lg bg-neutral-200 shadow-lg">
-                <Image
-                  src={meganBio.imageUrl}
-                  alt={`${meganBio.name}, ${meganBio.title}`}
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 40vw"
-                  className="object-cover"
-                  priority
-                />
-              </div>
-            </div>
+          <TeamMemberSection member={meganBio} />
+        </Container>
+      </section>
 
-            {/* Content Column */}
-            <div className="lg:col-span-3">
-              <h2 className="font-heading text-3xl font-bold text-neutral-900">
-                My Story
-              </h2>
+      {/* Divider */}
+      <div className="border-t border-neutral-200" />
 
-              {/* Bio paragraphs */}
-              <div className="mt-6 space-y-4 text-neutral-600 leading-relaxed">
-                {meganBio.bio.split("\n\n").map((paragraph, index) => (
-                  <p key={index}>{paragraph}</p>
-                ))}
-              </div>
-
-              {/* Personal note */}
-              <p className="mt-6 italic text-neutral-500">
-                {meganBio.personalNote}
-              </p>
-
-              {/* Credentials */}
-              <div className="mt-8">
-                <h3 className="text-xl font-semibold text-neutral-900">
-                  Qualifications & Credentials
-                </h3>
-                <ul className="mt-4 space-y-2 text-neutral-600">
-                  {meganBio.credentials.map((credential, index) => (
-                    <li key={index} className="flex items-start gap-2">
-                      <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-primary-500" />
-                      {credential}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </div>
+      {/* Brigitte Bio Section */}
+      <section className="py-section lg:py-section-lg bg-white">
+        <Container>
+          <TeamMemberSection member={brigitteBio} reversed />
         </Container>
       </section>
 
       {/* Clinic Story Section */}
-      <section className="bg-white py-section lg:py-section-lg">
+      <section className="bg-neutral-50 py-section lg:py-section-lg">
         <Container>
           <div className="mx-auto max-w-3xl text-center">
             <h2 className="font-heading text-3xl font-bold text-neutral-900">
@@ -149,7 +174,7 @@ export default function AboutPage() {
       </section>
 
       {/* Photo Gallery Section */}
-      <section className="py-section lg:py-section-lg">
+      <section className="py-section lg:py-section-lg bg-white">
         <Container>
           <h2 className="text-center font-heading text-3xl font-bold text-neutral-900">
             The Clinic
@@ -168,10 +193,10 @@ export default function AboutPage() {
         <Container>
           <div className="text-center">
             <h2 className="font-heading text-3xl font-bold text-white">
-              Ready to Meet?
+              Ready to Meet Us?
             </h2>
             <p className="mt-4 text-lg text-primary-100">
-              Book a consultation and let&apos;s discuss how I can support you on your journey.
+              Book a consultation and let&apos;s discuss how we can support you on your journey.
             </p>
             <div className="mt-8">
               <Button
