@@ -5,14 +5,14 @@
 See: .planning/PROJECT.md (updated 2026-01-27)
 
 **Core value:** Visitors can quickly understand what Tender Touch offers and easily take the next step—whether booking classes or reaching out for support.
-**Current focus:** Polish pass v2 - Images and layout improvements
+**Current focus:** Production readiness - final polish complete
 
 ## Current Position
 
 Phase: 4 of 4 (Integrations & Launch)
 Plan: 3 of 3 in current phase (ALL COMPLETE)
 Status: Phase complete - PROJECT COMPLETE
-Last activity: 2026-01-27 — Completed 04-03-PLAN.md (Accessibility tests & launch validation)
+Last activity: 2026-01-28 — Images, UX improvements, and real testimonials added
 
 Progress: [##########] 100%
 
@@ -58,7 +58,6 @@ Recent decisions affecting current work:
 - Radix UI Accordion for WAI-ARIA compliance and keyboard navigation
 - Section component with variant prop (default/muted/primary) for page section styling
 - Card composition pattern following shadcn/ui conventions
-- Gradient hero background as image placeholder approach
 - Privacy and Terms pages use robots noindex (common for legal pages)
 - Section components in src/components/sections/ for reusable page sections
 - Google Maps basic embed URL (no API key required) for simple map display
@@ -77,49 +76,100 @@ Recent decisions affecting current work:
 - Three-tier fallback for third-party widgets: loading, error, noscript
 - jest-axe for automated WCAG 2.2 AA accessibility testing
 - Accessibility test pattern: render component, run axe with WCAG 2.2 AA tags, assert no violations
+- Animated GIF hero uses `unoptimized` prop to preserve animation
+- Sharp-based image optimization script for batch processing
+- Testimonial avatars with colored initials fallback when no image provided
 
-### Pending Todos
+### Completed Items (2026-01-28 Session)
 
-**Next Session: Images & Layout Improvements**
+**1. Image Infrastructure & Optimization**
+- Created image optimization script (`scripts/optimize-images.mjs`)
+- Optimized all images: 38MB → ~1MB (98% reduction)
+- Hero: 12MB GIF → 124KB JPG (static) + original GIF (animated)
+- Clinic photos: 4-6MB each → 80-108KB each
+- Megan portrait: 5.3MB → 69KB
+- Created og-image.jpg for social sharing (1200×630)
+- Organized images into proper folder structure
 
-1. **Add real images**
-   - Hero background image (replace gradient)
-   - Megan's photo for About section
-   - Clinic/facility photos for photo gallery
-   - Service images for service cards
-   - og-image.jpg for social sharing (1200x630px)
+**2. Hero Section Enhancement**
+- Added animated GIF background support with `unoptimized` prop
+- Gradient fallback when image unavailable
+- Dark overlay for text readability
 
-2. **Layout UI improvements**
-   - Review spacing and visual hierarchy
-   - Enhance hero section design
-   - Improve service card layouts
-   - Polish about page layout
-   - Review mobile layouts
+**3. Homepage Megan Photo**
+- Added real photo to About intro section
+- Replaced placeholder with Image component
 
-3. **Production checklist**
-   - Configure RESEND_API_KEY
-   - Verify Bookem credentials
-   - Legal review of Privacy/Terms pages
+**4. Sticky Mobile Booking CTA**
+- New component: `src/components/layout/sticky-mobile-cta.tsx`
+- Appears after scrolling past hero (400px)
+- Dismissible for session
+- Mobile-only (hidden on md+)
+
+**5. Upcoming Classes Section**
+- New component: `src/components/sections/upcoming-classes.tsx`
+- Shows next 3 available classes on homepage
+- Displays date, time, duration, spots available
+- Status badges (Available, Few spots left, Full)
+- Quick book buttons with hover effects
+
+**6. Enhanced Micro-interactions**
+- Buttons: Added shadow glow on hover (`hover:shadow-lg hover:shadow-primary-500/25`)
+- Cards: Added border highlight (`hover:border-primary-200`) and enhanced shadow
+- Testimonials: Added hover lift effect and ring highlight
+
+**7. Real Testimonials**
+- Replaced placeholder testimonials with real Google reviews
+- Added client photos (Nicole, Madelaine, Laura)
+- Images optimized to 200×200 thumbnails (~8KB each)
+- Testimonials component supports images with colored initials fallback
+
+### Remaining Production Checklist
+
+1. **Environment Configuration**
+   - Configure RESEND_API_KEY for contact form emails
+   - Verify Bookem credentials (businessSlug and service IDs)
+
+2. **Content Review**
+   - Legal review of Privacy/Terms pages (placeholder content)
+
+3. **Optional Enhancements**
+   - Convert hero GIF to MP4 for better compression (currently 12MB)
+   - Add more testimonials if available
+   - Add service-specific images to service cards
 
 ### Blockers/Concerns
 
-- og-image.jpg needed in public/images/ for social sharing (placeholder path defined)
-- Photo gallery uses placeholder images (clinic photos to be added)
 - Legal pages have placeholder content (should be reviewed by legal professional)
 - Resend API key needed for production email sending (form shows graceful error without it)
 - Bookem credentials need verification with actual account (businessSlug and service IDs)
+- Hero GIF is 12MB (works but large; MP4 conversion recommended for production)
 
 ## Session Continuity
 
 Last session: 2026-01-28
-Stopped at: Added Framer Motion animations & polish. Ready for images and layout improvements.
+Stopped at: All images added, UX improvements complete, real testimonials with photos added
 Resume file: None
 
-**Recent additions (this session):**
-- framer-motion for scroll animations
-- Reusable motion components (FadeIn, SlideIn, ScaleIn, Stagger)
-- Homepage sections animate on scroll
-- Button/card hover micro-interactions
-- Mobile nav slide animation with staggered items
-- WhatsApp button pulse + scale effects
-- Page transitions via template.tsx
+**Session 2026-01-28 Summary:**
+- Image optimization infrastructure (scripts/optimize-images.mjs)
+- All real images added and optimized (hero, Megan, clinic gallery, og-image)
+- Animated hero GIF restored
+- Sticky mobile booking CTA
+- Upcoming classes section on homepage
+- Enhanced button/card micro-interactions
+- Real testimonials with client photos (Nicole, Madelaine, Laura)
+
+**Files Changed:**
+- `src/components/sections/hero.tsx` - Image background support
+- `src/components/sections/about-intro.tsx` - Megan's photo
+- `src/components/layout/sticky-mobile-cta.tsx` - New component
+- `src/components/sections/upcoming-classes.tsx` - New component
+- `src/components/sections/testimonials.tsx` - Real images support
+- `src/components/ui/button.tsx` - Enhanced hover effects
+- `src/components/ui/card.tsx` - Enhanced hover effects
+- `src/data/testimonials.ts` - Real reviews and image paths
+- `src/app/layout.tsx` - Added StickyMobileCTA
+- `src/app/page.tsx` - Added UpcomingClasses section
+- `scripts/optimize-images.mjs` - New optimization script
+- `public/images/` - All optimized images added
