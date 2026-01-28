@@ -3,6 +3,8 @@
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { forwardRef, type ButtonHTMLAttributes, type AnchorHTMLAttributes, type MouseEvent, useState, useCallback } from "react";
+import { Loader2, Check } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 export type ButtonVariant = "primary" | "secondary" | "outline" | "ghost";
 export type ButtonSize = "sm" | "md" | "lg";
@@ -31,6 +33,8 @@ type ButtonBaseProps = {
   variant?: ButtonVariant;
   size?: ButtonSize;
   ripple?: boolean;
+  loading?: boolean;
+  success?: boolean;
 };
 
 type ButtonAsButton = ButtonBaseProps &
@@ -52,20 +56,26 @@ interface RippleEffect {
 }
 
 /**
- * Enhanced Button component with shimmer effect and optional ripple animation.
+ * Enhanced Button component with shimmer effect, loading/success states, and optional ripple animation.
  * Renders as Link when href is provided, button otherwise.
+ *
+ * Features:
+ * - Loading state with spinner
+ * - Success state with checkmark animation
+ * - Ripple effect on click
+ * - Shimmer effect on hover (primary variant)
  */
 export const Button = forwardRef<
   HTMLButtonElement | HTMLAnchorElement,
   ButtonProps
 >(function Button(
-  { className, variant = "primary", size = "md", ripple = true, children, ...props },
+  { className, variant = "primary", size = "md", ripple = true, loading = false, success = false, children, ...props },
   ref
 ) {
   const [ripples, setRipples] = useState<RippleEffect[]>([]);
 
   const createRipple = useCallback((event: MouseEvent<HTMLElement>) => {
-    if (!ripple) return;
+    if (!ripple || loading) return;
 
     const element = event.currentTarget;
     const rect = element.getBoundingClientRect();
@@ -79,9 +89,16 @@ export const Button = forwardRef<
     setTimeout(() => {
       setRipples(prev => prev.filter(r => r.id !== id));
     }, 600);
-  }, [ripple]);
+  }, [ripple, loading]);
 
-  const classes = cn(baseStyles, variantStyles[variant], sizeStyles[size], className);
+  const classes = cn(
+    baseStyles,
+    variantStyles[variant],
+    sizeStyles[size],
+    loading && "cursor-wait",
+    success && "bg-green-500 hover:bg-green-600 from-green-500 to-green-600 hover:from-green-600 hover:to-green-700",
+    className
+  );
 
   const rippleElements = ripples.map(({ x, y, id }) => (
     <span
@@ -98,6 +115,54 @@ export const Button = forwardRef<
     />
   ));
 
+  // Content with loading/success states
+  const buttonContent = (
+    <AnimatePresence mode="wait">
+      {loading ? (
+        <motion.span
+          key="loading"
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0, scale: 0.8 }}
+          transition={{ duration: 0.15 }}
+          className="relative z-10 flex items-center justify-center gap-2"
+        >
+          <Loader2 className="h-4 w-4 animate-spin" />
+          <span>Loading...</span>
+        </motion.span>
+      ) : success ? (
+        <motion.span
+          key="success"
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0, scale: 0.8 }}
+          transition={{ duration: 0.15 }}
+          className="relative z-10 flex items-center justify-center gap-2"
+        >
+          <motion.div
+            initial={{ scale: 0 }}
+            animate={{ scale: 1 }}
+            transition={{ type: "spring", stiffness: 500, damping: 15 }}
+          >
+            <Check className="h-4 w-4" />
+          </motion.div>
+          <span>Success!</span>
+        </motion.span>
+      ) : (
+        <motion.span
+          key="default"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.15 }}
+          className="relative z-10 flex items-center justify-center gap-inherit"
+        >
+          {children}
+        </motion.span>
+      )}
+    </AnimatePresence>
+  );
+
   if ("href" in props && props.href) {
     const { href, ...linkProps } = props;
     return (
@@ -108,29 +173,27 @@ export const Button = forwardRef<
         onClick={createRipple as unknown as React.MouseEventHandler<HTMLAnchorElement>}
         {...linkProps}
       >
-        <span className="relative z-10 flex items-center justify-center gap-inherit">
-          {children}
-        </span>
+        {buttonContent}
         {rippleElements}
       </Link>
     );
   }
 
+  const buttonProps = props as ButtonAsButton;
   return (
     <button
       ref={ref as React.Ref<HTMLButtonElement>}
       className={classes}
+      disabled={loading || buttonProps.disabled}
       onClick={(e) => {
         createRipple(e);
-        if ("onClick" in props && props.onClick) {
-          (props.onClick as React.MouseEventHandler<HTMLButtonElement>)(e);
+        if (buttonProps.onClick && !loading) {
+          buttonProps.onClick(e);
         }
       }}
-      {...(props as Omit<ButtonHTMLAttributes<HTMLButtonElement>, "onClick">)}
+      {...(buttonProps as Omit<ButtonHTMLAttributes<HTMLButtonElement>, "onClick" | "disabled">)}
     >
-      <span className="relative z-10 flex items-center justify-center gap-inherit">
-        {children}
-      </span>
+      {buttonContent}
       {rippleElements}
     </button>
   );
