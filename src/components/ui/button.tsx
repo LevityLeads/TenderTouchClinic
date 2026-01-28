@@ -7,11 +7,11 @@ export type ButtonSize = "sm" | "md" | "lg";
 
 const variantStyles: Record<ButtonVariant, string> = {
   primary:
-    "bg-primary-500 text-white hover:bg-primary-600 focus-visible:ring-primary-500",
+    "bg-primary-500 text-white hover:bg-primary-600 hover:shadow-lg hover:shadow-primary-500/25 focus-visible:ring-primary-500",
   secondary:
-    "bg-neutral-100 text-neutral-900 hover:bg-neutral-200 focus-visible:ring-neutral-500",
+    "bg-neutral-100 text-neutral-900 hover:bg-neutral-200 hover:shadow-md focus-visible:ring-neutral-500",
   outline:
-    "border-2 border-primary-500 text-primary-600 hover:bg-primary-50 focus-visible:ring-primary-500",
+    "border-2 border-primary-500 text-primary-600 hover:bg-primary-50 hover:shadow-md hover:shadow-primary-500/10 focus-visible:ring-primary-500",
   ghost:
     "text-neutral-700 hover:bg-neutral-100 hover:text-neutral-900 focus-visible:ring-neutral-500",
 };

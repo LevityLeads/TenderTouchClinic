@@ -1,5 +1,6 @@
 import { Hero } from "@/components/sections/hero";
 import { ServicesOverview } from "@/components/sections/services-overview";
+import { UpcomingClasses } from "@/components/sections/upcoming-classes";
 import { AboutIntro } from "@/components/sections/about-intro";
 import { Testimonials } from "@/components/sections/testimonials";
 import { CTASection } from "@/components/sections/cta-section";
@@ -15,6 +16,11 @@ export default function Home() {
       {/* Services Overview */}
       <Section variant="muted">
         <ServicesOverview />
+      </Section>
+
+      {/* Upcoming Classes */}
+      <Section>
+        <UpcomingClasses />
       </Section>
 
       {/* About Megan intro */}
