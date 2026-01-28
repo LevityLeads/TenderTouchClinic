@@ -8,7 +8,7 @@ import { FadeIn, FadeInStagger, FadeInStaggerItem } from "@/components/ui/motion
 
 /**
  * Services overview section for homepage.
- * Displays a grid of service category cards with links to services page.
+ * Displays a grid of service category cards with links to dedicated service pages.
  */
 export function ServicesOverview() {
   const allCategories = [
@@ -42,8 +42,8 @@ export function ServicesOverview() {
                 </CardDescription>
               </CardHeader>
               <CardFooter>
-                <Button href={`/services#${category.id}`} variant="ghost" className="w-full justify-start px-0 text-primary-600 hover:text-primary-700">
-                  View services
+                <Button href={`/services/${category.id}`} variant="ghost" className="w-full justify-start px-0 text-primary-600 hover:text-primary-700">
+                  Find out more
                   <span className="ml-1" aria-hidden="true">&rarr;</span>
                 </Button>
               </CardFooter>

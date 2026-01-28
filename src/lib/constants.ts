@@ -58,22 +58,22 @@ export const NAV_LINKS = [
 export const SERVICES = [
   {
     name: "Pregnancy & Preparation",
-    href: "/services#pregnancy-preparation",
+    href: "/services/pregnancy-preparation",
     description: "Antenatal consultations and parent preparation classes",
   },
   {
     name: "Postnatal Support",
-    href: "/services#postnatal-support",
+    href: "/services/postnatal-support",
     description: "Home visits and newborn consultations",
   },
   {
     name: "Breastfeeding & Lactation",
-    href: "/services#breastfeeding-lactation",
+    href: "/services/breastfeeding-lactation",
     description: "Expert breastfeeding support and guidance",
   },
   {
     name: "Baby Vaccinations",
-    href: "/services#baby-vaccinations",
+    href: "/services/baby-vaccinations",
     description: "State-subsidised and private vaccines",
   },
 ] as const;

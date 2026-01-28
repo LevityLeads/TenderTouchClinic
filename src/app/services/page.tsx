@@ -6,7 +6,7 @@ import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/com
 import { serviceCategories, vaccinationsCategory, isExpandableService, type ServiceIconName } from "@/data/services";
 import { VaccineDropdown } from "@/components/ui/vaccine-dropdown";
 import { ExpandableService } from "@/components/ui/expandable-service";
-import { SITE_CONFIG } from "@/lib/constants";
+import { Button } from "@/components/ui/button";
 import { Baby, HeartHandshake, Milk, Syringe, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 import { FadeIn, FadeInStagger, FadeInStaggerItem } from "@/components/ui/motion";
@@ -68,8 +68,8 @@ export default function ServicesPage() {
                         </div>
                       </div>
                     </CardHeader>
-                    <CardContent className="flex-grow">
-                      <ul className="space-y-3">
+                    <CardContent className="flex-grow flex flex-col">
+                      <ul className="space-y-3 flex-grow">
                         {category.services.map((service, index) =>
                           isExpandableService(service) ? (
                             <li key={index}>
@@ -106,6 +106,16 @@ export default function ServicesPage() {
                           )
                         )}
                       </ul>
+                      <div className="mt-4 pt-4 border-t border-neutral-100">
+                        <Button
+                          href={`/services/${category.id}`}
+                          variant="ghost"
+                          className="w-full justify-center text-primary-600 hover:text-primary-700 hover:bg-primary-50"
+                        >
+                          Find out more
+                          <ArrowRight className="ml-1 h-4 w-4" />
+                        </Button>
+                      </div>
                     </CardContent>
                   </Card>
                 </FadeInStaggerItem>
@@ -133,11 +143,21 @@ export default function ServicesPage() {
                     </div>
                   </div>
                 </CardHeader>
-                <CardContent className="flex-grow">
-                  <div className="space-y-3">
+                <CardContent className="flex-grow flex flex-col">
+                  <div className="space-y-3 flex-grow">
                     {vaccinationsCategory.categories.map((vaccineCategory, index) => (
                       <VaccineDropdown key={index} category={vaccineCategory} />
                     ))}
+                  </div>
+                  <div className="mt-4 pt-4 border-t border-neutral-100">
+                    <Button
+                      href={`/services/${vaccinationsCategory.id}`}
+                      variant="ghost"
+                      className="w-full justify-center text-primary-600 hover:text-primary-700 hover:bg-primary-50"
+                    >
+                      Find out more
+                      <ArrowRight className="ml-1 h-4 w-4" />
+                    </Button>
                   </div>
                 </CardContent>
               </Card>
