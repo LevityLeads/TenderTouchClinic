@@ -1,6 +1,8 @@
+"use client";
+
 import { Container } from "@/components/ui/container";
 import { Shield, Award, GraduationCap, Heart } from "lucide-react";
-import { meganBio } from "@/data/about";
+import { FadeInStagger, FadeInStaggerItem } from "@/components/ui/motion";
 
 /**
  * Trust indicators section for homepage.
@@ -32,24 +34,26 @@ export function TrustIndicators() {
 
   return (
     <Container>
-      <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+      <FadeInStagger className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4" staggerDelay={0.1}>
         {indicators.map((indicator, index) => {
           const Icon = indicator.icon;
           return (
-            <div key={index} className="flex flex-col items-center text-center">
-              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary-100">
-                <Icon className="h-6 w-6 text-primary-600" aria-hidden="true" />
+            <FadeInStaggerItem key={index}>
+              <div className="flex flex-col items-center text-center">
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary-100">
+                  <Icon className="h-6 w-6 text-primary-600" aria-hidden="true" />
+                </div>
+                <h3 className="mt-4 font-medium text-neutral-900">
+                  {indicator.text}
+                </h3>
+                <p className="mt-1 text-sm text-neutral-500">
+                  {indicator.description}
+                </p>
               </div>
-              <h3 className="mt-4 font-medium text-neutral-900">
-                {indicator.text}
-              </h3>
-              <p className="mt-1 text-sm text-neutral-500">
-                {indicator.description}
-              </p>
-            </div>
+            </FadeInStaggerItem>
           );
         })}
-      </div>
+      </FadeInStagger>
     </Container>
   );
 }

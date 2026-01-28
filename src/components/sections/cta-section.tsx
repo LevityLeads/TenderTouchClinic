@@ -1,5 +1,8 @@
+"use client";
+
 import { Container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
+import { FadeIn } from "@/components/ui/motion";
 
 /**
  * Call-to-action section for homepage.
@@ -8,7 +11,7 @@ import { Button } from "@/components/ui/button";
 export function CTASection() {
   return (
     <Container>
-      <div className="text-center">
+      <FadeIn className="text-center">
         <h2 className="font-serif text-3xl font-bold text-neutral-900 sm:text-4xl">
           Ready to Begin Your Journey?
         </h2>
@@ -25,7 +28,7 @@ export function CTASection() {
             Contact Us
           </Button>
         </div>
-      </div>
+      </FadeIn>
     </Container>
   );
 }

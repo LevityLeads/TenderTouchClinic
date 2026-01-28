@@ -1,6 +1,9 @@
+"use client";
+
 import { Container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
 import { meganBio } from "@/data/about";
+import { SlideIn, ScaleIn } from "@/components/ui/motion";
 
 /**
  * About intro section for homepage.
@@ -17,36 +20,38 @@ export function AboutIntro() {
     <Container>
       <div className="lg:grid lg:grid-cols-2 lg:gap-16 lg:items-center">
         {/* Text content */}
-        <div>
-          <h2 className="font-serif text-3xl font-bold text-neutral-900 sm:text-4xl">
-            Meet {meganBio.name}
-          </h2>
-          <p className="mt-2 text-lg text-primary-600">
-            {meganBio.title}
-          </p>
+        <SlideIn direction="left" distance={40}>
+          <div>
+            <h2 className="font-serif text-3xl font-bold text-neutral-900 sm:text-4xl">
+              Meet {meganBio.name}
+            </h2>
+            <p className="mt-2 text-lg text-primary-600">
+              {meganBio.title}
+            </p>
 
-          <p className="mt-6 text-neutral-600 leading-relaxed">
-            {bioSentences}
-          </p>
+            <p className="mt-6 text-neutral-600 leading-relaxed">
+              {bioSentences}
+            </p>
 
-          {/* Credentials */}
-          <ul className="mt-6 space-y-2">
-            {displayCredentials.map((credential, index) => (
-              <li key={index} className="flex items-start gap-2 text-sm text-neutral-700">
-                <span className="mt-1 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-primary-500" aria-hidden="true" />
-                {credential}
-              </li>
-            ))}
-          </ul>
+            {/* Credentials */}
+            <ul className="mt-6 space-y-2">
+              {displayCredentials.map((credential, index) => (
+                <li key={index} className="flex items-start gap-2 text-sm text-neutral-700">
+                  <span className="mt-1 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-primary-500" aria-hidden="true" />
+                  {credential}
+                </li>
+              ))}
+            </ul>
 
-          <Button href="/about" variant="outline" className="mt-8">
-            Read more about Megan
-            <span className="ml-1" aria-hidden="true">&rarr;</span>
-          </Button>
-        </div>
+            <Button href="/about" variant="outline" className="mt-8">
+              Read more about Megan
+              <span className="ml-1" aria-hidden="true">&rarr;</span>
+            </Button>
+          </div>
+        </SlideIn>
 
         {/* Image placeholder */}
-        <div className="mt-12 lg:mt-0">
+        <ScaleIn delay={0.2} className="mt-12 lg:mt-0">
           <div className="aspect-[4/5] overflow-hidden rounded-xl bg-neutral-100">
             <div className="flex h-full items-center justify-center text-neutral-400">
               {/* Placeholder for Megan's photo */}
@@ -58,7 +63,7 @@ export function AboutIntro() {
               </div>
             </div>
           </div>
-        </div>
+        </ScaleIn>
       </div>
     </Container>
   );

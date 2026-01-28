@@ -52,8 +52,10 @@ export function WhatsAppButton() {
           w-14 h-14 rounded-full
           bg-whatsapp text-white
           shadow-lg hover:shadow-xl
-          transition-shadow
+          transition-all duration-300
+          hover:scale-110 active:scale-105
           focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500
+          animate-[pulse-subtle_3s_ease-in-out_infinite]
         "
       >
         <MessageCircle className="w-7 h-7" aria-hidden="true" />
