@@ -1,18 +1,39 @@
 "use client";
 
+import Image from "next/image";
 import { Container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
 import { FadeIn } from "@/components/ui/motion";
 
+interface HeroProps {
+  /**
+   * Optional background image path. Falls back to gradient if not provided.
+   */
+  backgroundImage?: string;
+}
+
 /**
  * Hero section for homepage with main headline, subheadline, and CTAs.
- * Uses gradient background instead of hero image.
+ * Supports background image with gradient fallback.
  */
-export function Hero() {
+export function Hero({ backgroundImage = "/images/hero.jpg" }: HeroProps) {
   return (
     <section className="relative min-h-[60vh] bg-gradient-to-br from-primary-600 via-primary-500 to-primary-400">
-      {/* Decorative overlay pattern */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-white/10 via-transparent to-transparent" />
+      {/* Background image with gradient overlay */}
+      <Image
+        src={backgroundImage}
+        alt=""
+        fill
+        priority
+        sizes="100vw"
+        className="object-cover"
+        onError={(e) => {
+          // Hide image on error, gradient fallback shows through
+          e.currentTarget.style.display = "none";
+        }}
+      />
+      {/* Dark overlay for text readability */}
+      <div className="absolute inset-0 bg-primary-900/40" />
 
       <Container className="relative flex min-h-[60vh] flex-col items-center justify-center py-20 text-center">
         <FadeIn y={30} duration={0.6}>

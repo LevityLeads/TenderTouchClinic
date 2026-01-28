@@ -19,10 +19,10 @@ export const metadata: Metadata = {
  * These will be replaced with actual clinic photos later.
  */
 const galleryImages = [
-  { src: "/images/about/clinic-1.jpg", alt: "Tender Touch Clinic reception area" },
-  { src: "/images/about/clinic-2.jpg", alt: "Comfortable consultation room" },
-  { src: "/images/about/clinic-3.jpg", alt: "Class space set up for antenatal classes" },
-  { src: "/images/about/clinic-4.jpg", alt: "Baby massage class in progress" },
+  { src: "/images/about/clinic-1.jpg", alt: "Tender Touch Clinic interior" },
+  { src: "/images/about/clinic-2.jpg", alt: "Comfortable consultation space" },
+  { src: "/images/about/clinic-3.jpg", alt: "Class space for antenatal sessions" },
+  { src: "/images/about/clinic-4.jpg", alt: "Baby massage session" },
 ];
 
 /**
