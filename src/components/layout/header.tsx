@@ -22,7 +22,7 @@ export function Header() {
         {/* Logo */}
         <Link href="/" aria-label="Tender Touch Clinic - Home">
           <Image
-            src="/images/logo.svg"
+            src="/images/logo.png"
             alt=""
             width={150}
             height={50}
