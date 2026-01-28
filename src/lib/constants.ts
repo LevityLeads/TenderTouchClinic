@@ -59,22 +59,22 @@ export const NAV_LINKS = [
 export const SERVICES = [
   {
     name: "Antenatal Classes",
-    href: "/services/antenatal-classes",
+    href: "/services#antenatal-classes",
     description: "6-week comprehensive preparation course for expectant parents",
   },
   {
     name: "Postnatal Support",
-    href: "/services/postnatal-support",
+    href: "/services#postnatal-support",
     description: "Home visits and clinic consultations for new mothers",
   },
   {
     name: "Baby Massage",
-    href: "/services/baby-massage",
+    href: "/services#baby-massage",
     description: "4-week baby massage classes for bonding and development",
   },
   {
     name: "Lactation Consultations",
-    href: "/services#lactation",
+    href: "/services#lactation-consultations",
     description: "Expert breastfeeding support and guidance",
   },
   {
@@ -90,19 +90,16 @@ export const SERVICES = [
 ] as const;
 
 /**
- * Bookem booking widget configuration
+ * Bookem booking configuration
  */
 export const BOOKEM_CONFIG = {
-  businessSlug: "tendertouchclinic", // Update with actual Bookem slug
-  baseUrl: "https://bookem.com",
-  // Service ID mapping - update with actual Bookem service IDs
+  businessSlug: "tendertouchclinic",
+  baseUrl: "https://tendertouchclinic.bookem.com",
+  // Service ID mapping for legacy detail pages
   services: {
     "antenatal-classes": "antenatal",
     "baby-massage": "baby-massage",
     "postnatal-support": "postnatal",
-    "lactation": "lactation",
-    "newborn-checkups": "checkup",
-    "vaccinations": "vaccination",
   },
 } as const;
 

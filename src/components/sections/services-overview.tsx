@@ -33,7 +33,7 @@ export function ServicesOverview() {
                 </CardDescription>
               </CardHeader>
               <CardFooter>
-                <Button href={service.ctaHref} variant="ghost" className="w-full justify-start px-0 text-primary-600 hover:text-primary-700">
+                <Button href={`/services#${service.slug}`} variant="ghost" className="w-full justify-start px-0 text-primary-600 hover:text-primary-700">
                   Learn more
                   <span className="ml-1" aria-hidden="true">&rarr;</span>
                 </Button>

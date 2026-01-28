@@ -37,9 +37,17 @@ export default function ServicesPage() {
             {services.map((service) => (
               <Card
                 key={service.id}
-                id={service.isDetailPage ? undefined : service.slug}
-                className="flex flex-col"
+                id={service.slug}
+                className="flex flex-col overflow-hidden"
               >
+                <div className="relative h-48 w-full bg-primary-50">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={service.image}
+                    alt={service.name}
+                    className="h-full w-full object-cover"
+                  />
+                </div>
                 <CardHeader>
                   <CardTitle className="text-2xl">{service.name}</CardTitle>
                   <CardDescription className="mt-2">
@@ -79,7 +87,9 @@ export default function ServicesPage() {
 
                 <CardFooter>
                   <Button
-                    href={service.isDetailPage ? service.ctaHref : "/contact"}
+                    href={service.ctaHref}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="w-full"
                   >
                     {service.ctaText}

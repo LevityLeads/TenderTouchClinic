@@ -14,8 +14,10 @@ export interface Service {
   includes?: string[];
   ctaText: string;
   ctaHref: string;
-  isDetailPage: boolean;
+  image: string;
 }
+
+export const BOOKEM_URL = "https://tendertouchclinic.bookem.com/";
 
 export const services: Service[] = [
   {
@@ -45,9 +47,9 @@ export const services: Service[] = [
       "Private WhatsApp group for ongoing support",
       "Access to resources and reference materials",
     ],
-    ctaText: "Book Your Course",
-    ctaHref: "/services/antenatal-classes",
-    isDetailPage: true,
+    ctaText: "Book Now",
+    ctaHref: BOOKEM_URL,
+    image: "/images/services/antenatal-classes.svg",
   },
   {
     id: "postnatal-support",
@@ -76,9 +78,9 @@ export const services: Service[] = [
       "Written summary of visit",
       "Follow-up WhatsApp support",
     ],
-    ctaText: "Book a Visit",
-    ctaHref: "/services/postnatal-support",
-    isDetailPage: true,
+    ctaText: "Book Now",
+    ctaHref: BOOKEM_URL,
+    image: "/images/services/postnatal-support.svg",
   },
   {
     id: "baby-massage",
@@ -107,9 +109,9 @@ export const services: Service[] = [
       "Small group setting (max 6 babies)",
       "Catch-up session if you miss a class",
     ],
-    ctaText: "Join a Course",
-    ctaHref: "/services/baby-massage",
-    isDetailPage: true,
+    ctaText: "Book Now",
+    ctaHref: BOOKEM_URL,
+    image: "/images/services/baby-massage.svg",
   },
   {
     id: "lactation-consultations",
@@ -132,9 +134,9 @@ export const services: Service[] = [
       unit: "per session",
     },
     duration: "45-60 minutes",
-    ctaText: "Book Consultation",
-    ctaHref: "/services#lactation-consultations",
-    isDetailPage: false,
+    ctaText: "Book Now",
+    ctaHref: BOOKEM_URL,
+    image: "/images/services/lactation-consultations.svg",
   },
   {
     id: "newborn-checkups",
@@ -157,9 +159,9 @@ export const services: Service[] = [
       unit: "per visit",
     },
     duration: "20-30 minutes",
-    ctaText: "Book Check-up",
-    ctaHref: "/services#newborn-checkups",
-    isDetailPage: false,
+    ctaText: "Book Now",
+    ctaHref: BOOKEM_URL,
+    image: "/images/services/newborn-checkups.svg",
   },
   {
     id: "vaccinations",
@@ -182,9 +184,9 @@ export const services: Service[] = [
       unit: "Price varies by vaccine",
     },
     duration: "15-20 minutes",
-    ctaText: "Enquire",
-    ctaHref: "/services#vaccinations",
-    isDetailPage: false,
+    ctaText: "Book Now",
+    ctaHref: BOOKEM_URL,
+    image: "/images/services/vaccinations.svg",
   },
 ];
 
