@@ -79,6 +79,11 @@ Recent decisions affecting current work:
 - Animated GIF hero uses `unoptimized` prop to preserve animation
 - Sharp-based image optimization script for batch processing
 - Testimonial avatars with colored initials fallback when no image provided
+- Services page: 4 category cards in 2x2 grid (not 6 individual services)
+- Vaccine dropdowns stacked vertically within category card
+- Home Visits: expandable info panel instead of direct booking (complex pricing)
+- Service items show price and duration on separate line below name
+- Direct Bookem URLs per service (not single booking page)
 
 ### Completed Items (2026-01-28 Session)
 
@@ -148,10 +153,37 @@ Recent decisions affecting current work:
 ## Session Continuity
 
 Last session: 2026-01-28
-Stopped at: All images added, UX improvements complete, real testimonials with photos added
+Stopped at: Services page restructure complete
 Resume file: None
 
-**Session 2026-01-28 Summary:**
+**Session 2026-01-28 (Services Restructure) Summary:**
+- Complete services page restructure with 4 category cards in 2x2 grid
+- Direct Bookem booking links for each individual service
+- Pricing and duration displayed for all services
+- Vaccine dropdowns (State-Subsidised, Private, Combo) stacked vertically
+- Home Visits expandable info panel with detailed pricing (replaces direct booking)
+- Navigation dropdown updated to 4 categories
+- Removed individual service detail pages (no longer needed)
+
+**Services Structure:**
+1. **Pregnancy & Preparation** - Antenatal Consultation, Classes, Pregnancy Vaccine
+2. **Postnatal Support** - Home Visits (info panel), Newborn Check, General Consultation
+3. **Breastfeeding & Lactation** - Sr Megan and Sr Brigitte consultations
+4. **Baby Vaccinations** - 3 dropdown selectors with all vaccine options
+
+**Files Changed (Services Restructure):**
+- `src/data/services.ts` - Complete rewrite with categories, pricing, expandable items
+- `src/app/services/page.tsx` - 2x2 grid layout, handles regular and expandable services
+- `src/components/ui/vaccine-dropdown.tsx` - New dropdown component for vaccines
+- `src/components/ui/expandable-service.tsx` - New component for Home Visits info panel
+- `src/components/sections/services-overview.tsx` - Updated for 4 categories
+- `src/lib/constants.ts` - Updated SERVICES navigation array
+- Deleted: `src/app/services/antenatal-classes/page.tsx`
+- Deleted: `src/app/services/baby-massage/page.tsx`
+- Deleted: `src/app/services/postnatal-support/page.tsx`
+- Deleted: `public/images/services/` (placeholder SVGs no longer needed)
+
+**Previous Session 2026-01-28 Summary:**
 - Image optimization infrastructure (scripts/optimize-images.mjs)
 - All real images added and optimized (hero, Megan, clinic gallery, og-image)
 - Animated hero GIF restored
@@ -160,7 +192,7 @@ Resume file: None
 - Enhanced button/card micro-interactions
 - Real testimonials with client photos (Nicole, Madelaine, Laura)
 
-**Files Changed:**
+**Files Changed (Images/UX):**
 - `src/components/sections/hero.tsx` - Image background support
 - `src/components/sections/about-intro.tsx` - Megan's photo
 - `src/components/layout/sticky-mobile-cta.tsx` - New component
