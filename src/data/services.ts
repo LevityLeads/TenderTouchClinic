@@ -1,9 +1,26 @@
 /**
- * Service item with name and booking link
+ * Service item with name, booking link, price, and duration
  */
 export interface ServiceItem {
   name: string;
   bookingUrl: string;
+  price: string;
+  duration: string;
+}
+
+/**
+ * Special expandable service (like Home Visits) with detailed info instead of direct booking
+ */
+export interface ExpandableServiceItem {
+  name: string;
+  isExpandable: true;
+  content: {
+    title: string;
+    notice: string;
+    description: string;
+    pricing: { provider: string; details: string }[];
+    contactInfo: string;
+  };
 }
 
 /**
@@ -30,7 +47,7 @@ export interface ServiceCategory {
   id: string;
   name: string;
   description: string;
-  services: ServiceItem[];
+  services: (ServiceItem | ExpandableServiceItem)[];
 }
 
 /**
@@ -41,6 +58,15 @@ export interface VaccinationsCategory {
   name: string;
   description: string;
   categories: VaccineCategory[];
+}
+
+/**
+ * Type guard to check if a service is expandable
+ */
+export function isExpandableService(
+  service: ServiceItem | ExpandableServiceItem
+): service is ExpandableServiceItem {
+  return "isExpandable" in service && service.isExpandable === true;
 }
 
 /**
@@ -55,14 +81,20 @@ export const serviceCategories: ServiceCategory[] = [
       {
         name: "Antenatal Consultation",
         bookingUrl: "https://tendertouchclinic.bookem.com/services/5ae7a87799274fc9888ccf76aaa2758a",
+        price: "R600",
+        duration: "1 hour",
       },
       {
         name: "Antenatal & Parent Preparation Classes",
         bookingUrl: "https://tendertouchclinic.bookem.com/services/fe1281f7910d43b09d79fe8bfadb87cc",
+        price: "R2,900",
+        duration: "12 hours",
       },
       {
         name: "Pregnancy Vaccine (Adacel)",
         bookingUrl: "https://tendertouchclinic.bookem.com/services/ae58e163a4b442c0a805bfb65c85cb57",
+        price: "R200",
+        duration: "20 mins",
       },
     ],
   },
@@ -73,15 +105,31 @@ export const serviceCategories: ServiceCategory[] = [
     services: [
       {
         name: "Home Visits",
-        bookingUrl: "https://tendertouchclinic.bookem.com/services/a07aa0f41cb144f59a1310a941a31018",
-      },
+        isExpandable: true,
+        content: {
+          title: "Home Visits - Postnatal check on mom & baby or Lactation Consultation",
+          notice: "Please do not book online. This is for information only.",
+          description:
+            "Postnatal home visits are offered after discharge from hospital. Discovery clients are able to get up to 3 free postnatal visits in the first 6 weeks after baby is born, subject to availability. The first visit is always at home and subsequent follow-ups may be at the clinic or at home (depending on availability).",
+          pricing: [
+            { provider: "Sr Megan Benn", details: "First visit R950 (1hr 30min); follow-up R650 (1hr)" },
+            { provider: "Sr Brigitte Williams", details: "R1,300 for 2 hours (Lactation Consultation)" },
+          ],
+          contactInfo:
+            "To book, please WhatsApp Megan directly on 083 564 1671 or Brigitte on 082 497 8929.",
+        },
+      } as ExpandableServiceItem,
       {
         name: "Newborn Check (First Consultation)",
         bookingUrl: "https://tendertouchclinic.bookem.com/services/c909c6057fee496cb70f8f466d21feb9",
+        price: "R600 - R900",
+        duration: "1 - 1.5 hours",
       },
       {
         name: "General Consultation (Follow-ups)",
         bookingUrl: "https://tendertouchclinic.bookem.com/services/0140939ef99b433784c83ec159d44342",
+        price: "R300 - R600",
+        duration: "30 mins - 1 hour",
       },
     ],
   },
@@ -93,10 +141,14 @@ export const serviceCategories: ServiceCategory[] = [
       {
         name: "Breastfeeding Consultation (Sr Megan)",
         bookingUrl: "https://tendertouchclinic.bookem.com/services/3cf5f7f4ee9043299ffe1cacb3d6aed4",
+        price: "R600 - R900",
+        duration: "1 - 1.5 hours",
       },
       {
         name: "Lactation Consultation (Sr Brigitte - SACLC)",
         bookingUrl: "https://tendertouchclinic.bookem.com/services/9ef878824e1d47a99ae0a4a6e0c18531",
+        price: "R1,100",
+        duration: "1.5 hours",
       },
     ],
   },

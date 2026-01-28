@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 import { Container } from "@/components/ui/container";
 import { Section } from "@/components/ui/section";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
-import { serviceCategories, vaccinationsCategory } from "@/data/services";
+import { serviceCategories, vaccinationsCategory, isExpandableService } from "@/data/services";
 import { VaccineDropdown } from "@/components/ui/vaccine-dropdown";
+import { ExpandableService } from "@/components/ui/expandable-service";
 import { SITE_CONFIG } from "@/lib/constants";
 
 export const metadata: Metadata = {
@@ -30,7 +31,7 @@ export default function ServicesPage() {
         </Container>
       </Section>
 
-      {/* Service Categories Grid */}
+      {/* Service Categories Grid - 2x2 */}
       <Section>
         <Container>
           <div className="grid gap-8 md:grid-cols-2">
@@ -45,36 +46,47 @@ export default function ServicesPage() {
                 </CardHeader>
                 <CardContent className="flex-grow">
                   <ul className="space-y-3">
-                    {category.services.map((service, index) => (
-                      <li key={index}>
-                        <a
-                          href={service.bookingUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex items-center justify-between rounded-lg border border-neutral-200 bg-white px-4 py-3 text-sm transition-colors hover:border-primary-300 hover:bg-primary-50"
-                        >
-                          <span className="font-medium text-neutral-900">
-                            {service.name}
-                          </span>
-                          <span className="text-primary-600">Book &rarr;</span>
-                        </a>
-                      </li>
-                    ))}
+                    {category.services.map((service, index) =>
+                      isExpandableService(service) ? (
+                        <li key={index}>
+                          <ExpandableService service={service} />
+                        </li>
+                      ) : (
+                        <li key={index}>
+                          <a
+                            href={service.bookingUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center justify-between rounded-lg border border-neutral-200 bg-white px-4 py-3 transition-colors hover:border-primary-300 hover:bg-primary-50"
+                          >
+                            <div>
+                              <span className="font-medium text-neutral-900">
+                                {service.name}
+                              </span>
+                              <span className="ml-2 text-sm text-neutral-500">
+                                {service.price} ({service.duration})
+                              </span>
+                            </div>
+                            <span className="text-primary-600">Book &rarr;</span>
+                          </a>
+                        </li>
+                      )
+                    )}
                   </ul>
                 </CardContent>
               </Card>
             ))}
 
-            {/* Vaccinations category with dropdowns */}
-            <Card id={vaccinationsCategory.id} className="flex flex-col md:col-span-2">
+            {/* Vaccinations category with stacked dropdowns */}
+            <Card id={vaccinationsCategory.id} className="flex flex-col">
               <CardHeader>
                 <CardTitle className="text-2xl">{vaccinationsCategory.name}</CardTitle>
                 <CardDescription className="mt-2">
                   {vaccinationsCategory.description}
                 </CardDescription>
               </CardHeader>
-              <CardContent>
-                <div className="grid gap-4 sm:grid-cols-3">
+              <CardContent className="flex-grow">
+                <div className="space-y-3">
                   {vaccinationsCategory.categories.map((vaccineCategory, index) => (
                     <VaccineDropdown key={index} category={vaccineCategory} />
                   ))}
