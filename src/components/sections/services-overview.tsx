@@ -3,14 +3,23 @@
 import { Container } from "@/components/ui/container";
 import { Card, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { services } from "@/data/services";
+import { serviceCategories, vaccinationsCategory } from "@/data/services";
 import { FadeIn, FadeInStagger, FadeInStaggerItem } from "@/components/ui/motion";
 
 /**
  * Services overview section for homepage.
- * Displays a grid of service cards with links to detail pages.
+ * Displays a grid of service category cards with links to services page.
  */
 export function ServicesOverview() {
+  const allCategories = [
+    ...serviceCategories,
+    {
+      id: vaccinationsCategory.id,
+      name: vaccinationsCategory.name,
+      description: vaccinationsCategory.description,
+    },
+  ];
+
   return (
     <Container>
       <FadeIn className="text-center">
@@ -22,19 +31,19 @@ export function ServicesOverview() {
         </p>
       </FadeIn>
 
-      <FadeInStagger className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3" staggerDelay={0.08}>
-        {services.map((service) => (
-          <FadeInStaggerItem key={service.id}>
+      <FadeInStagger className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4" staggerDelay={0.08}>
+        {allCategories.map((category) => (
+          <FadeInStaggerItem key={category.id}>
             <Card className="flex h-full flex-col">
               <CardHeader className="flex-grow">
-                <CardTitle>{service.name}</CardTitle>
+                <CardTitle>{category.name}</CardTitle>
                 <CardDescription className="mt-2">
-                  {service.shortDescription}
+                  {category.description}
                 </CardDescription>
               </CardHeader>
               <CardFooter>
-                <Button href={`/services#${service.slug}`} variant="ghost" className="w-full justify-start px-0 text-primary-600 hover:text-primary-700">
-                  Learn more
+                <Button href={`/services#${category.id}`} variant="ghost" className="w-full justify-start px-0 text-primary-600 hover:text-primary-700">
+                  View services
                   <span className="ml-1" aria-hidden="true">&rarr;</span>
                 </Button>
               </CardFooter>

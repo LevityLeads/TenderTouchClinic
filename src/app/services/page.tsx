@@ -1,15 +1,15 @@
 import type { Metadata } from "next";
 import { Container } from "@/components/ui/container";
 import { Section } from "@/components/ui/section";
-import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { services } from "@/data/services";
+import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
+import { serviceCategories, vaccinationsCategory } from "@/data/services";
+import { VaccineDropdown } from "@/components/ui/vaccine-dropdown";
 import { SITE_CONFIG } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: `Our Services | ${SITE_CONFIG.shortName}`,
   description:
-    "Antenatal classes, postnatal support, baby massage, lactation consultations, newborn check-ups, and vaccinations in Cape Town.",
+    "Antenatal classes, postnatal support, breastfeeding consultations, and baby vaccinations in Cape Town.",
 };
 
 export default function ServicesPage() {
@@ -22,7 +22,7 @@ export default function ServicesPage() {
             <h1 className="font-serif text-4xl font-bold text-neutral-900 sm:text-5xl">
               Our Services
             </h1>
-            <p className="mt-4 mx-auto max-w-2xl text-lg text-neutral-600">
+            <p className="mx-auto mt-4 max-w-2xl text-lg text-neutral-600">
               Comprehensive care for every stage of your motherhood journey, from
               pregnancy preparation to ongoing support.
             </p>
@@ -30,73 +30,57 @@ export default function ServicesPage() {
         </Container>
       </Section>
 
-      {/* Services Grid */}
+      {/* Service Categories Grid */}
       <Section>
         <Container>
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {services.map((service) => (
-              <Card
-                key={service.id}
-                id={service.slug}
-                className="flex flex-col overflow-hidden"
-              >
-                <div className="relative h-48 w-full bg-primary-50">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={service.image}
-                    alt={service.name}
-                    className="h-full w-full object-cover"
-                  />
-                </div>
+          <div className="grid gap-8 md:grid-cols-2">
+            {/* Regular service categories */}
+            {serviceCategories.map((category) => (
+              <Card key={category.id} id={category.id} className="flex flex-col">
                 <CardHeader>
-                  <CardTitle className="text-2xl">{service.name}</CardTitle>
+                  <CardTitle className="text-2xl">{category.name}</CardTitle>
                   <CardDescription className="mt-2">
-                    {service.fullDescription}
+                    {category.description}
                   </CardDescription>
                 </CardHeader>
-
-                <CardContent className="flex-grow space-y-4">
-                  {/* Pricing */}
-                  <div className="rounded-lg bg-primary-50 px-4 py-3">
-                    <p className="text-sm font-medium text-primary-900">
-                      {service.pricing.amount > 0
-                        ? `From R${service.pricing.amount.toLocaleString()}`
-                        : "Price varies"}
-                    </p>
-                    <p className="text-xs text-primary-700">
-                      {service.pricing.unit}
-                    </p>
-                  </div>
-
-                  {/* Benefits (first 3) */}
-                  <ul className="space-y-2">
-                    {service.benefits.slice(0, 3).map((benefit, index) => (
-                      <li
-                        key={index}
-                        className="flex items-start gap-2 text-sm text-neutral-600"
-                      >
-                        <span
-                          className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-primary-500"
-                          aria-hidden="true"
-                        />
-                        {benefit}
+                <CardContent className="flex-grow">
+                  <ul className="space-y-3">
+                    {category.services.map((service, index) => (
+                      <li key={index}>
+                        <a
+                          href={service.bookingUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center justify-between rounded-lg border border-neutral-200 bg-white px-4 py-3 text-sm transition-colors hover:border-primary-300 hover:bg-primary-50"
+                        >
+                          <span className="font-medium text-neutral-900">
+                            {service.name}
+                          </span>
+                          <span className="text-primary-600">Book &rarr;</span>
+                        </a>
                       </li>
                     ))}
                   </ul>
                 </CardContent>
-
-                <CardFooter>
-                  <Button
-                    href={service.ctaHref}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-full"
-                  >
-                    {service.ctaText}
-                  </Button>
-                </CardFooter>
               </Card>
             ))}
+
+            {/* Vaccinations category with dropdowns */}
+            <Card id={vaccinationsCategory.id} className="flex flex-col md:col-span-2">
+              <CardHeader>
+                <CardTitle className="text-2xl">{vaccinationsCategory.name}</CardTitle>
+                <CardDescription className="mt-2">
+                  {vaccinationsCategory.description}
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="grid gap-4 sm:grid-cols-3">
+                  {vaccinationsCategory.categories.map((vaccineCategory, index) => (
+                    <VaccineDropdown key={index} category={vaccineCategory} />
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
           </div>
         </Container>
       </Section>

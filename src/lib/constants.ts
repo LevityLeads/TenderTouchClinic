@@ -58,34 +58,24 @@ export const NAV_LINKS = [
 
 export const SERVICES = [
   {
-    name: "Antenatal Classes",
-    href: "/services#antenatal-classes",
-    description: "6-week comprehensive preparation course for expectant parents",
+    name: "Pregnancy & Preparation",
+    href: "/services#pregnancy-preparation",
+    description: "Antenatal consultations and parent preparation classes",
   },
   {
     name: "Postnatal Support",
     href: "/services#postnatal-support",
-    description: "Home visits and clinic consultations for new mothers",
+    description: "Home visits and newborn consultations",
   },
   {
-    name: "Baby Massage",
-    href: "/services#baby-massage",
-    description: "4-week baby massage classes for bonding and development",
-  },
-  {
-    name: "Lactation Consultations",
-    href: "/services#lactation-consultations",
+    name: "Breastfeeding & Lactation",
+    href: "/services#breastfeeding-lactation",
     description: "Expert breastfeeding support and guidance",
   },
   {
-    name: "Newborn Check-ups",
-    href: "/services#newborn-checkups",
-    description: "Weighing, health checks, and developmental monitoring",
-  },
-  {
-    name: "Vaccinations",
-    href: "/services#vaccinations",
-    description: "Essential vaccinations for babies and toddlers",
+    name: "Baby Vaccinations",
+    href: "/services#baby-vaccinations",
+    description: "State-subsidised and private vaccines",
   },
 ] as const;
 

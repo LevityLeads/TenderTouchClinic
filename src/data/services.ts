@@ -1,200 +1,203 @@
-export interface Service {
-  id: string;
+/**
+ * Service item with name and booking link
+ */
+export interface ServiceItem {
   name: string;
-  slug: string;
-  shortDescription: string;
-  fullDescription: string;
-  benefits: string[];
-  pricing: {
-    amount: number;
-    currency: string;
-    unit: string;
-  };
-  duration?: string;
-  includes?: string[];
-  ctaText: string;
-  ctaHref: string;
-  image: string;
+  bookingUrl: string;
 }
 
-export const BOOKEM_URL = "https://tendertouchclinic.bookem.com/";
+/**
+ * Vaccine item with age/name and booking link
+ */
+export interface VaccineItem {
+  label: string;
+  vaccines?: string;
+  bookingUrl: string;
+}
 
-export const services: Service[] = [
+/**
+ * Vaccine dropdown category
+ */
+export interface VaccineCategory {
+  name: string;
+  items: VaccineItem[];
+}
+
+/**
+ * Service category with services
+ */
+export interface ServiceCategory {
+  id: string;
+  name: string;
+  description: string;
+  services: ServiceItem[];
+}
+
+/**
+ * Vaccinations category with dropdowns
+ */
+export interface VaccinationsCategory {
+  id: string;
+  name: string;
+  description: string;
+  categories: VaccineCategory[];
+}
+
+/**
+ * Service categories data
+ */
+export const serviceCategories: ServiceCategory[] = [
   {
-    id: "antenatal-classes",
-    name: "Antenatal Classes",
-    slug: "antenatal-classes",
-    shortDescription:
-      "6-week comprehensive preparation course for expectant parents",
-    fullDescription:
-      "Our comprehensive 6-week antenatal course prepares you and your partner for labour, birth, and the early weeks with your newborn. Led by Megan, a registered midwife with over 25 years of experience, each session covers essential topics in a warm, supportive environment. Small groups of 6-7 couples ensure personalized attention and lasting connections with other expectant parents.",
-    benefits: [
-      "Small group of 6-7 couples for personalized attention",
-      "Covers labour, birth, breastfeeding, and newborn care",
-      "Build community with other expectant parents",
-      "Partner involvement throughout the course",
-      "Evidence-based information with practical demonstrations",
+    id: "pregnancy-preparation",
+    name: "Pregnancy & Preparation",
+    description: "Prepare for your journey into parenthood with expert guidance and support",
+    services: [
+      {
+        name: "Antenatal Consultation",
+        bookingUrl: "https://tendertouchclinic.bookem.com/services/5ae7a87799274fc9888ccf76aaa2758a",
+      },
+      {
+        name: "Antenatal & Parent Preparation Classes",
+        bookingUrl: "https://tendertouchclinic.bookem.com/services/fe1281f7910d43b09d79fe8bfadb87cc",
+      },
+      {
+        name: "Pregnancy Vaccine (Adacel)",
+        bookingUrl: "https://tendertouchclinic.bookem.com/services/ae58e163a4b442c0a805bfb65c85cb57",
+      },
     ],
-    pricing: {
-      amount: 3500,
-      currency: "ZAR",
-      unit: "per couple, 6-week course",
-    },
-    duration: "6 weeks (one 2-hour session per week)",
-    includes: [
-      "Course materials and handouts",
-      "Tea and refreshments",
-      "Private WhatsApp group for ongoing support",
-      "Access to resources and reference materials",
-    ],
-    ctaText: "Book Now",
-    ctaHref: BOOKEM_URL,
-    image: "/images/services/antenatal-classes.svg",
   },
   {
     id: "postnatal-support",
     name: "Postnatal Support",
-    slug: "postnatal-support",
-    shortDescription:
-      "Home visits and clinic consultations for new mothers and babies",
-    fullDescription:
-      "The early weeks with a new baby can be overwhelming. Our postnatal support services provide the guidance and reassurance you need, whether at home or in our clinic. Megan offers comprehensive assessments of both mother and baby, breastfeeding support, practical advice, and a listening ear during this precious but challenging time.",
-    benefits: [
-      "Convenient home visits or clinic appointments",
-      "Comprehensive mother and baby check-ups",
-      "Expert breastfeeding support and guidance",
-      "Emotional support during the postpartum period",
-      "Flexible scheduling to suit your needs",
+    description: "Comprehensive care for you and your baby in the early weeks and beyond",
+    services: [
+      {
+        name: "Home Visits",
+        bookingUrl: "https://tendertouchclinic.bookem.com/services/a07aa0f41cb144f59a1310a941a31018",
+      },
+      {
+        name: "Newborn Check (First Consultation)",
+        bookingUrl: "https://tendertouchclinic.bookem.com/services/c909c6057fee496cb70f8f466d21feb9",
+      },
+      {
+        name: "General Consultation (Follow-ups)",
+        bookingUrl: "https://tendertouchclinic.bookem.com/services/0140939ef99b433784c83ec159d44342",
+      },
     ],
-    pricing: {
-      amount: 800,
-      currency: "ZAR",
-      unit: "per home visit / R500 clinic visit",
-    },
-    duration: "60-90 minutes per visit",
-    includes: [
-      "Full assessment of mother and baby",
-      "Breastfeeding evaluation and support",
-      "Written summary of visit",
-      "Follow-up WhatsApp support",
-    ],
-    ctaText: "Book Now",
-    ctaHref: BOOKEM_URL,
-    image: "/images/services/postnatal-support.svg",
   },
   {
-    id: "baby-massage",
-    name: "Baby Massage",
-    slug: "baby-massage",
-    shortDescription:
-      "4-week course teaching gentle massage techniques for your baby",
-    fullDescription:
-      "Baby massage is a wonderful way to bond with your little one while supporting their development and wellbeing. Our 4-week course, taught by Megan as a certified IAIM instructor, teaches you gentle, nurturing techniques that can help with colic, sleep, and general relaxation. Suitable for babies from 6 weeks to pre-crawling.",
-    benefits: [
-      "Strengthens parent-baby bonding",
-      "May help relieve colic and gas",
-      "Promotes better sleep patterns",
-      "Stimulates baby's development",
-      "Provides relaxation for both baby and parent",
+    id: "breastfeeding-lactation",
+    name: "Breastfeeding & Lactation",
+    description: "Expert support for your breastfeeding journey",
+    services: [
+      {
+        name: "Breastfeeding Consultation (Sr Megan)",
+        bookingUrl: "https://tendertouchclinic.bookem.com/services/3cf5f7f4ee9043299ffe1cacb3d6aed4",
+      },
+      {
+        name: "Lactation Consultation (Sr Brigitte - SACLC)",
+        bookingUrl: "https://tendertouchclinic.bookem.com/services/9ef878824e1d47a99ae0a4a6e0c18531",
+      },
     ],
-    pricing: {
-      amount: 1200,
-      currency: "ZAR",
-      unit: "per 4-week course",
-    },
-    duration: "4 weeks (one 1-hour session per week)",
-    includes: [
-      "Massage oil provided",
-      "Take-home instruction card",
-      "Small group setting (max 6 babies)",
-      "Catch-up session if you miss a class",
-    ],
-    ctaText: "Book Now",
-    ctaHref: BOOKEM_URL,
-    image: "/images/services/baby-massage.svg",
-  },
-  {
-    id: "lactation-consultations",
-    name: "Lactation Consultations",
-    slug: "lactation-consultations",
-    shortDescription:
-      "One-on-one support for breastfeeding challenges and questions",
-    fullDescription:
-      "Breastfeeding doesn't always come naturally, and that's okay. Our lactation consultations provide dedicated time to address your specific concerns, whether it's latch issues, low supply worries, returning to work, or weaning questions. As a trained breastfeeding counsellor, Megan offers evidence-based guidance tailored to your situation.",
-    benefits: [
-      "Personalized assessment and advice",
-      "Hands-on latch support",
-      "Problem-solving for specific challenges",
-      "Confidence-building guidance",
-      "No rush - dedicated time for your concerns",
-    ],
-    pricing: {
-      amount: 600,
-      currency: "ZAR",
-      unit: "per session",
-    },
-    duration: "45-60 minutes",
-    ctaText: "Book Now",
-    ctaHref: BOOKEM_URL,
-    image: "/images/services/lactation-consultations.svg",
-  },
-  {
-    id: "newborn-checkups",
-    name: "Newborn Check-ups",
-    slug: "newborn-checkups",
-    shortDescription:
-      "Regular weighing and health assessments for your baby",
-    fullDescription:
-      "Regular check-ups give you peace of mind about your baby's growth and development. Our newborn assessments include weighing, feeding evaluation, and a chance to ask any questions. It's a supportive, unhurried appointment where no concern is too small.",
-    benefits: [
-      "Accurate weight tracking",
-      "Feeding assessment",
-      "Development monitoring",
-      "Reassurance and guidance",
-      "Quick, convenient appointments",
-    ],
-    pricing: {
-      amount: 400,
-      currency: "ZAR",
-      unit: "per visit",
-    },
-    duration: "20-30 minutes",
-    ctaText: "Book Now",
-    ctaHref: BOOKEM_URL,
-    image: "/images/services/newborn-checkups.svg",
-  },
-  {
-    id: "vaccinations",
-    name: "Vaccinations",
-    slug: "vaccinations",
-    shortDescription:
-      "Essential immunizations administered in a caring environment",
-    fullDescription:
-      "We offer essential vaccinations for babies and toddlers in a calm, supportive environment. Megan takes the time to explain each vaccine, answer your questions, and ensure your little one is as comfortable as possible. We follow the South African immunization schedule and can advise on additional optional vaccines.",
-    benefits: [
-      "Calm, unhurried environment",
-      "Clear explanation of vaccines",
-      "Comfortable setting for your baby",
-      "Immunization record keeping",
-      "Advice on vaccine schedule",
-    ],
-    pricing: {
-      amount: 0,
-      currency: "ZAR",
-      unit: "Price varies by vaccine",
-    },
-    duration: "15-20 minutes",
-    ctaText: "Book Now",
-    ctaHref: BOOKEM_URL,
-    image: "/images/services/vaccinations.svg",
   },
 ];
 
 /**
- * Find a service by its URL slug.
- * @param slug - The URL-friendly identifier for the service
- * @returns The service if found, undefined otherwise
+ * Vaccinations category with dropdown options
  */
-export function getServiceBySlug(slug: string): Service | undefined {
-  return services.find((s) => s.slug === slug);
-}
+export const vaccinationsCategory: VaccinationsCategory = {
+  id: "baby-vaccinations",
+  name: "Baby Vaccinations",
+  description: "Essential immunizations in a calm, caring environment",
+  categories: [
+    {
+      name: "State-Subsidised Schedule",
+      items: [
+        {
+          label: "6 weeks",
+          vaccines: "Polio, Rotarix, PCV 1, Hexaxim 1",
+          bookingUrl: "https://tendertouchclinic.bookem.com/services/c9b1a71961054e959e67ff1a0fc68ab4",
+        },
+        {
+          label: "10 weeks",
+          vaccines: "Hexaxim 2",
+          bookingUrl: "https://tendertouchclinic.bookem.com/services/5d1ddedcfb0a4cf0be3218ccf1c2a09d",
+        },
+        {
+          label: "14 weeks",
+          vaccines: "Rotarix 2, PCV 2, Hexaxim 3",
+          bookingUrl: "https://tendertouchclinic.bookem.com/services/b1918515fbbc410ab90bd5c9ed71f340",
+        },
+        {
+          label: "6 months",
+          vaccines: "Measles/Rubella",
+          bookingUrl: "https://tendertouchclinic.bookem.com/services/6e1baa5af8894af1a61d649deecbbbd7",
+        },
+        {
+          label: "9 months",
+          vaccines: "PCV 3",
+          bookingUrl: "https://tendertouchclinic.bookem.com/services/b904703c465a48499bd13eb72f86a055",
+        },
+        {
+          label: "18 months",
+          vaccines: "Hexaxim 4 booster",
+          bookingUrl: "https://tendertouchclinic.bookem.com/services/b4454c693aca43b78c7560fe4d210611",
+        },
+      ],
+    },
+    {
+      name: "Private Vaccines",
+      items: [
+        {
+          label: "MMR (12mo+)",
+          bookingUrl: "https://tendertouchclinic.bookem.com/services/ef7b4ed508b34e21bb90bb322494f508",
+        },
+        {
+          label: "Menactra - Meningitis A,C,W,Y (2yr+)",
+          bookingUrl: "https://tendertouchclinic.bookem.com/services/ee8f7d8971484091881ebdb51583a6aa",
+        },
+        {
+          label: "Bexsero - Meningitis B (8wk+)",
+          bookingUrl: "https://tendertouchclinic.bookem.com/services/cb275e4a7b434e2295c666c77acc903c",
+        },
+        {
+          label: "Chicken Pox",
+          bookingUrl: "https://tendertouchclinic.bookem.com/services/eff0276ab45347a99bf73971910b4046",
+        },
+        {
+          label: "Hepatitis A",
+          bookingUrl: "https://tendertouchclinic.bookem.com/services/a1e647b0478741fba70cc577039d2be7",
+        },
+        {
+          label: "6yr Booster (Adacel Quadra)",
+          bookingUrl: "https://tendertouchclinic.bookem.com/services/d33698842c7742eb9f19bc690ceab7eb",
+        },
+      ],
+    },
+    {
+      name: "Combo Appointments",
+      items: [
+        {
+          label: "9mo: PCV + Menactra",
+          bookingUrl: "https://tendertouchclinic.bookem.com/services/3ced9186b71447b9bd7a6c8be0456638",
+        },
+        {
+          label: "12mo: MMR + Menactra",
+          bookingUrl: "https://tendertouchclinic.bookem.com/services/68ec4f5b4b8a48228e3139bfb69c7064",
+        },
+        {
+          label: "15mo: Chicken Pox + Hep A (dose 1)",
+          bookingUrl: "https://tendertouchclinic.bookem.com/services/5f329377fb614d4fbbf9aba01e0db8c5",
+        },
+        {
+          label: "18mo: Hexaxim + Hep A",
+          bookingUrl: "https://tendertouchclinic.bookem.com/services/72d7c79bede648c7bd530b458702989a",
+        },
+        {
+          label: "2yr: Chicken Pox + Hep A (dose 2)",
+          bookingUrl: "https://tendertouchclinic.bookem.com/services/9e602138479b43a1aa37caf12db2027b",
+        },
+      ],
+    },
+  ],
+};
