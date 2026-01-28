@@ -50,163 +50,176 @@ const fadeUpVariants = {
 function GradientMesh() {
   return (
     <div className="absolute inset-0 overflow-hidden">
-      {/* Base gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary-600 via-primary-500 to-primary-400" />
+      {/* Base gradient - darker green */}
+      <div className="absolute inset-0 bg-gradient-to-br from-primary-700 via-primary-600 to-primary-500" />
 
-      {/* Gradient mesh blobs */}
+      {/* Dark teal blob - top left */}
       <motion.div
-        className="absolute w-[800px] h-[800px] rounded-full opacity-70"
+        className="absolute rounded-full"
         style={{
-          background: "radial-gradient(circle, oklch(0.65 0.18 155) 0%, transparent 70%)",
-          left: "-20%",
-          top: "-30%",
-          filter: "blur(60px)",
+          width: "50vw",
+          height: "50vw",
+          background: "radial-gradient(circle, oklch(0.45 0.15 175) 0%, transparent 60%)",
+          left: "-15%",
+          top: "-20%",
+          filter: "blur(40px)",
         }}
         animate={{
-          x: [0, 100, 50, 0],
-          y: [0, 50, 100, 0],
-          scale: [1, 1.1, 0.95, 1],
+          x: [0, 80, 40, 0],
+          y: [0, 60, 30, 0],
+          scale: [1, 1.15, 1.05, 1],
         }}
         transition={{
-          duration: 20,
+          duration: 12,
           repeat: Infinity,
           ease: "easeInOut",
         }}
       />
 
+      {/* Light mint blob - right side */}
       <motion.div
-        className="absolute w-[600px] h-[600px] rounded-full opacity-60"
+        className="absolute rounded-full"
         style={{
-          background: "radial-gradient(circle, oklch(0.75 0.15 160) 0%, transparent 70%)",
+          width: "45vw",
+          height: "45vw",
+          background: "radial-gradient(circle, oklch(0.75 0.18 155) 0%, transparent 60%)",
           right: "-10%",
-          top: "10%",
-          filter: "blur(80px)",
+          top: "5%",
+          filter: "blur(30px)",
         }}
         animate={{
-          x: [0, -80, -40, 0],
-          y: [0, 80, 40, 0],
+          x: [0, -60, -30, 0],
+          y: [0, 50, 80, 0],
           scale: [1, 0.9, 1.1, 1],
         }}
         transition={{
-          duration: 25,
-          repeat: Infinity,
-          ease: "easeInOut",
-          delay: 2,
-        }}
-      />
-
-      <motion.div
-        className="absolute w-[700px] h-[700px] rounded-full opacity-50"
-        style={{
-          background: "radial-gradient(circle, oklch(0.80 0.12 170) 0%, transparent 70%)",
-          left: "30%",
-          bottom: "-20%",
-          filter: "blur(70px)",
-        }}
-        animate={{
-          x: [0, -60, 60, 0],
-          y: [0, -80, -40, 0],
-          scale: [1, 1.15, 0.9, 1],
-        }}
-        transition={{
-          duration: 22,
-          repeat: Infinity,
-          ease: "easeInOut",
-          delay: 4,
-        }}
-      />
-
-      {/* Accent color blob */}
-      <motion.div
-        className="absolute w-[500px] h-[500px] rounded-full opacity-40"
-        style={{
-          background: "radial-gradient(circle, oklch(0.85 0.10 140) 0%, transparent 70%)",
-          right: "20%",
-          bottom: "10%",
-          filter: "blur(60px)",
-        }}
-        animate={{
-          x: [0, 70, -30, 0],
-          y: [0, -50, 50, 0],
-          scale: [1, 0.85, 1.1, 1],
-        }}
-        transition={{
-          duration: 18,
+          duration: 15,
           repeat: Infinity,
           ease: "easeInOut",
           delay: 1,
         }}
       />
 
-      {/* Warm accent blob */}
+      {/* Bright emerald blob - bottom center */}
       <motion.div
-        className="absolute w-[400px] h-[400px] rounded-full opacity-30"
+        className="absolute rounded-full"
         style={{
-          background: "radial-gradient(circle, oklch(0.82 0.08 95) 0%, transparent 70%)",
-          left: "50%",
-          top: "20%",
+          width: "60vw",
+          height: "60vw",
+          background: "radial-gradient(circle, oklch(0.6 0.2 150) 0%, transparent 55%)",
+          left: "20%",
+          bottom: "-30%",
           filter: "blur(50px)",
         }}
         animate={{
-          x: [0, -100, 50, 0],
-          y: [0, 60, -30, 0],
-          scale: [1, 1.2, 0.95, 1],
+          x: [0, -40, 40, 0],
+          y: [0, -50, -20, 0],
+          scale: [1, 1.1, 0.95, 1],
         }}
         transition={{
-          duration: 15,
-          repeat: Infinity,
-          ease: "easeInOut",
-          delay: 3,
-        }}
-      />
-
-      {/* Small floating orbs for sparkle */}
-      <motion.div
-        className="absolute w-32 h-32 rounded-full"
-        style={{
-          background: "radial-gradient(circle, rgba(255,255,255,0.4) 0%, transparent 70%)",
-          left: "15%",
-          top: "40%",
-          filter: "blur(20px)",
-        }}
-        animate={{
-          y: [0, -40, 0],
-          opacity: [0.3, 0.6, 0.3],
-          scale: [1, 1.3, 1],
-        }}
-        transition={{
-          duration: 8,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
-      />
-
-      <motion.div
-        className="absolute w-24 h-24 rounded-full"
-        style={{
-          background: "radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%)",
-          right: "25%",
-          top: "30%",
-          filter: "blur(15px)",
-        }}
-        animate={{
-          y: [0, 30, 0],
-          x: [0, -20, 0],
-          opacity: [0.2, 0.5, 0.2],
-        }}
-        transition={{
-          duration: 10,
+          duration: 18,
           repeat: Infinity,
           ease: "easeInOut",
           delay: 2,
         }}
       />
 
-      {/* Noise texture overlay for organic feel */}
-      <div
-        className="absolute inset-0 opacity-[0.03]"
+      {/* Soft sage accent - center right */}
+      <motion.div
+        className="absolute rounded-full"
         style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
+          width: "35vw",
+          height: "35vw",
+          background: "radial-gradient(circle, oklch(0.8 0.12 140) 0%, transparent 60%)",
+          right: "15%",
+          bottom: "20%",
+          filter: "blur(35px)",
+        }}
+        animate={{
+          x: [0, 50, -20, 0],
+          y: [0, -40, 30, 0],
+          scale: [1, 0.85, 1.15, 1],
+        }}
+        transition={{
+          duration: 10,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 0.5,
+        }}
+      />
+
+      {/* Warm cream accent - adds depth */}
+      <motion.div
+        className="absolute rounded-full"
+        style={{
+          width: "30vw",
+          height: "30vw",
+          background: "radial-gradient(circle, oklch(0.9 0.06 100) 0%, transparent 60%)",
+          left: "40%",
+          top: "15%",
+          filter: "blur(40px)",
+        }}
+        animate={{
+          x: [0, -70, 30, 0],
+          y: [0, 40, -20, 0],
+          scale: [1, 1.2, 0.9, 1],
+        }}
+        transition={{
+          duration: 14,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 3,
+        }}
+      />
+
+      {/* White glow orbs */}
+      <motion.div
+        className="absolute w-48 h-48 rounded-full"
+        style={{
+          background: "radial-gradient(circle, rgba(255,255,255,0.5) 0%, transparent 60%)",
+          left: "20%",
+          top: "35%",
+          filter: "blur(25px)",
+        }}
+        animate={{
+          y: [0, -30, 0],
+          x: [0, 20, 0],
+          opacity: [0.4, 0.7, 0.4],
+          scale: [1, 1.2, 1],
+        }}
+        transition={{
+          duration: 6,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+      />
+
+      <motion.div
+        className="absolute w-32 h-32 rounded-full"
+        style={{
+          background: "radial-gradient(circle, rgba(255,255,255,0.4) 0%, transparent 60%)",
+          right: "30%",
+          top: "25%",
+          filter: "blur(20px)",
+        }}
+        animate={{
+          y: [0, 25, 0],
+          x: [0, -15, 0],
+          opacity: [0.3, 0.6, 0.3],
+        }}
+        transition={{
+          duration: 8,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 1.5,
+        }}
+      />
+
+      {/* Subtle noise texture */}
+      <div
+        className="absolute inset-0 opacity-[0.02] mix-blend-overlay"
+        style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
         }}
       />
     </div>
