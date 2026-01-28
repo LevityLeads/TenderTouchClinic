@@ -60,10 +60,10 @@ export default function ServicesPage() {
                             className="flex items-center justify-between rounded-lg border border-neutral-200 bg-white px-4 py-3 transition-colors hover:border-primary-300 hover:bg-primary-50"
                           >
                             <div>
-                              <span className="font-medium text-neutral-900">
+                              <span className="block font-medium text-neutral-900">
                                 {service.name}
                               </span>
-                              <span className="ml-2 text-sm text-neutral-500">
+                              <span className="block text-sm text-neutral-500">
                                 {service.price} ({service.duration})
                               </span>
                             </div>
