@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, type HTMLMotionProps, type Variants } from "framer-motion";
+import { motion, type HTMLMotionProps } from "framer-motion";
 import { type ReactNode } from "react";
 
 // Default animation config
@@ -55,16 +55,6 @@ interface FadeInStaggerProps extends Omit<HTMLMotionProps<"div">, "children"> {
   staggerDelay?: number;
   delay?: number;
 }
-
-const staggerContainer: Variants = {
-  hidden: { opacity: 1 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-    },
-  },
-};
 
 export function FadeInStagger({
   children,
