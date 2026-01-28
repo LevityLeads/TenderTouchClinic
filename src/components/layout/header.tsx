@@ -88,12 +88,12 @@ export function Header() {
             <Image
               src="/images/logo.png"
               alt=""
-              width={150}
-              height={50}
+              width={180}
+              height={60}
               priority
               className={cn(
                 "w-auto transition-all duration-300",
-                isScrolled ? "h-8" : "h-10"
+                isScrolled ? "h-10" : "h-14"
               )}
             />
           </motion.div>

@@ -1,13 +1,11 @@
 "use client";
 
-import { useState } from "react";
 import Image from "next/image";
 import { Container } from "@/components/ui/container";
 import { Card } from "@/components/ui/card";
 import { testimonials, type Testimonial } from "@/data/testimonials";
 import { FadeIn, ScaleIn } from "@/components/ui/motion";
-import { Carousel } from "@/components/ui/carousel";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { Star } from "lucide-react";
 
 /**
@@ -251,12 +249,10 @@ function FeaturedTestimonialCard({ testimonial, colorIndex }: TestimonialCardPro
 }
 
 /**
- * Enhanced Testimonials section with carousel, gradient text heading,
+ * Enhanced Testimonials section with grid layout,
  * decorative quote marks, pull-quotes, and improved card styling.
  */
 export function Testimonials() {
-  const [viewMode, setViewMode] = useState<"carousel" | "grid">("grid");
-
   return (
     <Container>
       <FadeIn className="text-center">
@@ -272,71 +268,24 @@ export function Testimonials() {
         </p>
       </FadeIn>
 
-      {/* View mode toggle for larger screens */}
-      <div className="hidden sm:flex justify-center gap-2 mt-8">
-        <button
-          onClick={() => setViewMode("grid")}
-          className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
-            viewMode === "grid"
-              ? "bg-primary-500 text-white"
-              : "bg-neutral-100 text-neutral-600 hover:bg-neutral-200"
-          }`}
-        >
-          Grid View
-        </button>
-        <button
-          onClick={() => setViewMode("carousel")}
-          className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
-            viewMode === "carousel"
-              ? "bg-primary-500 text-white"
-              : "bg-neutral-100 text-neutral-600 hover:bg-neutral-200"
-          }`}
-        >
-          Featured View
-        </button>
-      </div>
-
-      {/* Testimonials display */}
+      {/* Testimonials grid */}
       <div className="mt-12 lg:mt-16">
-        <AnimatePresence mode="wait">
-          {viewMode === "carousel" ? (
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="grid gap-6 sm:gap-8 md:grid-cols-2 lg:grid-cols-3"
+        >
+          {testimonials.map((testimonial, index) => (
             <motion.div
-              key="carousel"
+              key={testimonial.id}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
+              transition={{ delay: index * 0.1 }}
             >
-              <Carousel autoPlay interval={6000} showArrows>
-                {testimonials.map((testimonial, index) => (
-                  <FeaturedTestimonialCard
-                    key={testimonial.id}
-                    testimonial={testimonial}
-                    colorIndex={index}
-                  />
-                ))}
-              </Carousel>
+              <TestimonialCard testimonial={testimonial} colorIndex={index} />
             </motion.div>
-          ) : (
-            <motion.div
-              key="grid"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              className="grid gap-6 sm:gap-8 md:grid-cols-2 lg:grid-cols-3"
-            >
-              {testimonials.map((testimonial, index) => (
-                <motion.div
-                  key={testimonial.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1 }}
-                >
-                  <TestimonialCard testimonial={testimonial} colorIndex={index} />
-                </motion.div>
-              ))}
-            </motion.div>
-          )}
-        </AnimatePresence>
+          ))}
+        </motion.div>
       </div>
 
       {/* Trust indicator */}
