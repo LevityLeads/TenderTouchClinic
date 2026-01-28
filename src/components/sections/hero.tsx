@@ -54,7 +54,7 @@ const fadeUpVariants = {
  */
 export function Hero({ backgroundImage = "/images/hero.gif" }: HeroProps) {
   const isAnimated = backgroundImage.endsWith(".gif");
-  const title = "Nurturing Care for Mothers & Babies";
+  const title = "Nurture and Care for Parents and Babies";
 
   return (
     <section className="relative min-h-[80vh] overflow-hidden">
@@ -178,24 +178,27 @@ export function Hero({ backgroundImage = "/images/hero.gif" }: HeroProps) {
       <Container className="relative flex min-h-[80vh] flex-col items-center justify-center py-24 text-center">
         {/* Animated title with letter-by-letter reveal */}
         <motion.h1
-          className="font-serif text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl xl:text-7xl"
+          className="font-serif text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl xl:text-7xl max-w-5xl"
           variants={titleVariants}
           initial="hidden"
           animate="visible"
-          style={{ perspective: "1000px" }}
+          style={{ perspective: "1000px", textWrap: "balance" }}
         >
-          {title.split("").map((char, index) => (
-            <motion.span
-              key={index}
-              variants={letterVariants}
-              className="inline-block"
-              style={{
-                display: char === " " ? "inline" : "inline-block",
-                whiteSpace: char === " " ? "pre" : "normal",
-              }}
-            >
-              {char === " " ? "\u00A0" : char}
-            </motion.span>
+          {title.split(" ").map((word, wordIndex) => (
+            <span key={wordIndex} className="inline-block whitespace-nowrap">
+              {word.split("").map((char, charIndex) => (
+                <motion.span
+                  key={`${wordIndex}-${charIndex}`}
+                  variants={letterVariants}
+                  className="inline-block"
+                >
+                  {char}
+                </motion.span>
+              ))}
+              {wordIndex < title.split(" ").length - 1 && (
+                <span className="inline-block">&nbsp;</span>
+              )}
+            </span>
           ))}
         </motion.h1>
 
