@@ -2,7 +2,7 @@
 
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useActionState } from "react";
+import { useActionState, useState, useEffect } from "react";
 import {
   contactFormSchema,
   type ContactFormData,
@@ -13,6 +13,9 @@ import {
   type ContactFormState,
 } from "@/app/actions/contact";
 import { Button } from "@/components/ui/button";
+import { Input, Textarea, Select } from "@/components/ui/input";
+import { motion } from "framer-motion";
+import { CheckCircle } from "lucide-react";
 
 const initialState: ContactFormState = {
   success: false,
@@ -24,28 +27,50 @@ export function ContactForm() {
     submitContactForm,
     initialState
   );
+  const [showSuccess, setShowSuccess] = useState(false);
 
   const {
     register,
-    formState: { errors },
+    formState: { errors, touchedFields, isValid },
+    watch,
   } = useForm<ContactFormData>({
     resolver: zodResolver(contactFormSchema),
     mode: "onBlur", // Validate on blur for progressive disclosure
   });
 
-  // Show success state
-  if (state.success && state.message) {
+  // Watch for successful submission
+  useEffect(() => {
+    if (state.success && state.message) {
+      setShowSuccess(true);
+    }
+  }, [state.success, state.message]);
+
+  // Show success state with animation
+  if (showSuccess) {
     return (
-      <div
+      <motion.div
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
         className="rounded-lg border border-green-200 bg-green-50 p-8 text-center"
         role="status"
         aria-live="polite"
       >
+        <motion.div
+          initial={{ scale: 0 }}
+          animate={{ scale: 1 }}
+          transition={{ type: "spring", stiffness: 200, delay: 0.1 }}
+          className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-green-100"
+        >
+          <CheckCircle className="h-8 w-8 text-green-600" />
+        </motion.div>
         <h3 className="text-lg font-semibold text-green-800">Message Sent!</h3>
         <p className="mt-2 text-green-700">{state.message}</p>
-      </div>
+      </motion.div>
     );
   }
+
+  // Get field values for success states
+  const watchedFields = watch();
 
   return (
     <form action={formAction} className="space-y-6">
@@ -60,7 +85,7 @@ export function ContactForm() {
       />
 
       {/* Privacy notice */}
-      <p className="text-sm text-gray-600">
+      <p className="text-sm text-neutral-600">
         We will only use your information to respond to your inquiry. See our{" "}
         <a href="/privacy" className="text-primary-600 hover:underline">
           Privacy Policy
@@ -69,159 +94,84 @@ export function ContactForm() {
       </p>
 
       {/* Name field */}
-      <div>
-        <label
-          htmlFor="name"
-          className="block text-sm font-medium text-gray-700"
-        >
-          Name <span className="text-red-500">*</span>
-        </label>
-        <input
-          {...register("name")}
-          type="text"
-          id="name"
-          name="name"
-          className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-primary-500 focus:outline-none focus:ring-1 focus:ring-primary-500"
-          aria-describedby={errors.name ? "name-error" : undefined}
-          aria-invalid={errors.name ? "true" : "false"}
-        />
-        {(errors.name || state.errors?.name) && (
-          <p id="name-error" className="mt-1 text-sm text-red-600" role="alert">
-            {errors.name?.message || state.errors?.name?.[0]}
-          </p>
-        )}
-      </div>
+      <Input
+        {...register("name")}
+        id="name"
+        label="Name"
+        type="text"
+        required
+        error={errors.name?.message || state.errors?.name?.[0]}
+        success={touchedFields.name && !errors.name && !!watchedFields.name}
+        floatingLabel
+      />
 
       {/* Email field */}
-      <div>
-        <label
-          htmlFor="email"
-          className="block text-sm font-medium text-gray-700"
-        >
-          Email <span className="text-red-500">*</span>
-        </label>
-        <input
-          {...register("email")}
-          type="email"
-          id="email"
-          name="email"
-          className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-primary-500 focus:outline-none focus:ring-1 focus:ring-primary-500"
-          aria-describedby={errors.email ? "email-error" : undefined}
-          aria-invalid={errors.email ? "true" : "false"}
-        />
-        {(errors.email || state.errors?.email) && (
-          <p
-            id="email-error"
-            className="mt-1 text-sm text-red-600"
-            role="alert"
-          >
-            {errors.email?.message || state.errors?.email?.[0]}
-          </p>
-        )}
-      </div>
+      <Input
+        {...register("email")}
+        id="email"
+        label="Email"
+        type="email"
+        required
+        error={errors.email?.message || state.errors?.email?.[0]}
+        success={touchedFields.email && !errors.email && !!watchedFields.email}
+        floatingLabel
+      />
 
       {/* Phone field */}
-      <div>
-        <label
-          htmlFor="phone"
-          className="block text-sm font-medium text-gray-700"
-        >
-          Phone <span className="text-red-500">*</span>
-        </label>
-        <input
-          {...register("phone")}
-          type="tel"
-          id="phone"
-          name="phone"
-          className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-primary-500 focus:outline-none focus:ring-1 focus:ring-primary-500"
-          aria-describedby={errors.phone ? "phone-error" : undefined}
-          aria-invalid={errors.phone ? "true" : "false"}
-        />
-        {(errors.phone || state.errors?.phone) && (
-          <p
-            id="phone-error"
-            className="mt-1 text-sm text-red-600"
-            role="alert"
-          >
-            {errors.phone?.message || state.errors?.phone?.[0]}
-          </p>
-        )}
-      </div>
+      <Input
+        {...register("phone")}
+        id="phone"
+        label="Phone"
+        type="tel"
+        required
+        error={errors.phone?.message || state.errors?.phone?.[0]}
+        success={touchedFields.phone && !errors.phone && !!watchedFields.phone}
+        floatingLabel
+      />
 
       {/* Preferred time field */}
-      <div>
-        <label
-          htmlFor="preferredTime"
-          className="block text-sm font-medium text-gray-700"
-        >
-          Preferred Contact Time <span className="text-red-500">*</span>
-        </label>
-        <select
-          {...register("preferredTime")}
-          id="preferredTime"
-          name="preferredTime"
-          className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-primary-500 focus:outline-none focus:ring-1 focus:ring-primary-500"
-          aria-describedby={
-            errors.preferredTime ? "preferredTime-error" : undefined
-          }
-          aria-invalid={errors.preferredTime ? "true" : "false"}
-        >
-          <option value="">Select a time...</option>
-          {preferredTimeOptions.map((option) => (
-            <option key={option.value} value={option.value}>
-              {option.label}
-            </option>
-          ))}
-        </select>
-        {(errors.preferredTime || state.errors?.preferredTime) && (
-          <p
-            id="preferredTime-error"
-            className="mt-1 text-sm text-red-600"
-            role="alert"
-          >
-            {errors.preferredTime?.message || state.errors?.preferredTime?.[0]}
-          </p>
-        )}
-      </div>
+      <Select
+        {...register("preferredTime")}
+        id="preferredTime"
+        label="Preferred Contact Time"
+        required
+        options={preferredTimeOptions}
+        error={errors.preferredTime?.message || state.errors?.preferredTime?.[0]}
+        success={touchedFields.preferredTime && !errors.preferredTime && !!watchedFields.preferredTime}
+      />
 
       {/* Message field */}
-      <div>
-        <label
-          htmlFor="message"
-          className="block text-sm font-medium text-gray-700"
-        >
-          Message <span className="text-red-500">*</span>
-        </label>
-        <textarea
-          {...register("message")}
-          id="message"
-          name="message"
-          rows={5}
-          className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-primary-500 focus:outline-none focus:ring-1 focus:ring-primary-500"
-          aria-describedby={errors.message ? "message-error" : undefined}
-          aria-invalid={errors.message ? "true" : "false"}
-        />
-        {(errors.message || state.errors?.message) && (
-          <p
-            id="message-error"
-            className="mt-1 text-sm text-red-600"
-            role="alert"
-          >
-            {errors.message?.message || state.errors?.message?.[0]}
-          </p>
-        )}
-      </div>
+      <Textarea
+        {...register("message")}
+        id="message"
+        label="Message"
+        rows={5}
+        required
+        error={errors.message?.message || state.errors?.message?.[0]}
+        success={touchedFields.message && !errors.message && !!watchedFields.message}
+        floatingLabel
+      />
 
       {/* Server error message */}
       {!state.success && state.message && (
-        <p className="text-sm text-red-600" role="alert" aria-live="polite">
+        <motion.p
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="text-sm text-red-600"
+          role="alert"
+          aria-live="polite"
+        >
           {state.message}
-        </p>
+        </motion.p>
       )}
 
-      {/* Submit button */}
-      <Button type="submit" disabled={pending} className="w-full">
-        {pending ? "Sending..." : "Send Message"}
+      {/* Submit button with loading state */}
+      <Button
+        type="submit"
+        loading={pending}
+        className="w-full"
+      >
+        Send Message
       </Button>
     </form>
   );

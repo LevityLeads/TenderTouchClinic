@@ -41,12 +41,18 @@ export interface VaccineCategory {
 }
 
 /**
+ * Icon names for service categories (using Lucide icon names)
+ */
+export type ServiceIconName = "baby" | "heart-handshake" | "milk" | "syringe";
+
+/**
  * Service category with services
  */
 export interface ServiceCategory {
   id: string;
   name: string;
   description: string;
+  icon: ServiceIconName;
   services: (ServiceItem | ExpandableServiceItem)[];
 }
 
@@ -57,6 +63,7 @@ export interface VaccinationsCategory {
   id: string;
   name: string;
   description: string;
+  icon: ServiceIconName;
   categories: VaccineCategory[];
 }
 
@@ -77,6 +84,7 @@ export const serviceCategories: ServiceCategory[] = [
     id: "pregnancy-preparation",
     name: "Pregnancy & Preparation",
     description: "Prepare for your journey into parenthood with expert guidance and support",
+    icon: "baby",
     services: [
       {
         name: "Antenatal Consultation",
@@ -102,6 +110,7 @@ export const serviceCategories: ServiceCategory[] = [
     id: "postnatal-support",
     name: "Postnatal Support",
     description: "Comprehensive care for you and your baby in the early weeks and beyond",
+    icon: "heart-handshake",
     services: [
       {
         name: "Home Visits",
@@ -137,6 +146,7 @@ export const serviceCategories: ServiceCategory[] = [
     id: "breastfeeding-lactation",
     name: "Breastfeeding & Lactation",
     description: "Expert support for your breastfeeding journey",
+    icon: "milk",
     services: [
       {
         name: "Breastfeeding Consultation (Sr Megan)",
@@ -161,6 +171,7 @@ export const vaccinationsCategory: VaccinationsCategory = {
   id: "baby-vaccinations",
   name: "Baby Vaccinations",
   description: "Essential immunizations in a calm, caring environment",
+  icon: "syringe",
   categories: [
     {
       name: "State-Subsidised Schedule",
