@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
-import { Car, ParkingCircle, Bus } from "lucide-react";
+import { Car, ParkingCircle, Bus, MapPin, Phone, Mail, MessageCircle } from "lucide-react";
 import { Section } from "@/components/ui/section";
 import { Container } from "@/components/ui/container";
-import { ContactInfo } from "@/components/sections/contact-info";
 import { MapEmbed } from "@/components/sections/map-embed";
 import { ContactForm } from "@/components/forms/contact-form";
 import { contactInfo, directions } from "@/data/contact";
@@ -10,31 +9,122 @@ import { contactInfo, directions } from "@/data/contact";
 export const metadata: Metadata = {
   title: "Contact Us | Tender Touch Mother & Baby Clinic",
   description:
-    "Get in touch with Tender Touch Mother & Baby Clinic in Kirstenhof, Cape Town. Find our address, phone number, email, WhatsApp, business hours, and directions.",
+    "Get in touch with Tender Touch Mother & Baby Clinic in Kirstenhof, Cape Town. Find our address, phone number, email, WhatsApp, and directions.",
 };
 
 export default function ContactPage() {
+  const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(contactInfo.address.full)}`;
+  const whatsappUrl = `https://wa.me/${contactInfo.whatsapp}`;
+
   return (
     <main>
-      {/* Hero Section */}
+      {/* Main Contact Section - Form and Info */}
       <Section variant="primary">
         <Container>
-          <div className="mx-auto max-w-3xl text-center">
-            <h1 className="font-display text-4xl font-bold tracking-tight text-neutral-900 sm:text-5xl">
-              Get in Touch
-            </h1>
-            <p className="mt-6 text-lg leading-8 text-neutral-700">
-              We would love to hear from you. Whether you have questions about our services,
-              want to book a class, or need support, we are here to help.
-            </p>
-          </div>
-        </Container>
-      </Section>
+          <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
+            {/* Left Column - Business Info and Image */}
+            <div className="space-y-8">
+              <div>
+                <h1 className="font-display text-3xl font-bold tracking-tight text-neutral-900 sm:text-4xl">
+                  Get in Touch
+                </h1>
+                <p className="mt-4 text-lg leading-relaxed text-neutral-700">
+                  We would love to hear from you. Whether you have questions about our services,
+                  want to book a class, or need support, we are here to help.
+                </p>
+              </div>
 
-      {/* Contact Info Section */}
-      <Section>
-        <Container>
-          <ContactInfo />
+              {/* Placeholder Image */}
+              <div className="aspect-[4/3] overflow-hidden rounded-lg bg-neutral-200">
+                <div className="flex h-full w-full items-center justify-center text-neutral-500">
+                  <span className="text-sm">Image placeholder</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Right Column - Form and Contact Details */}
+            <div className="space-y-8">
+              {/* Contact Form */}
+              <div className="rounded-lg bg-white p-6 shadow-md sm:p-8">
+                <h2 className="mb-6 font-display text-xl font-bold text-neutral-900">
+                  Send Us a Message
+                </h2>
+                <ContactForm />
+                <p className="mt-4 text-center text-sm text-neutral-600">
+                  No medical information is collected via this form.
+                </p>
+              </div>
+
+              {/* Contact Details */}
+              <div className="space-y-4">
+                <h3 className="font-display text-lg font-semibold text-neutral-900">
+                  Contact Details
+                </h3>
+
+                <div className="grid gap-4 sm:grid-cols-2">
+                  {/* Phone */}
+                  <div className="flex gap-3">
+                    <Phone className="h-5 w-5 shrink-0 text-primary-600" aria-hidden="true" />
+                    <div>
+                      <p className="text-sm font-medium text-neutral-900">Phone</p>
+                      <a
+                        href={`tel:${contactInfo.phone.replace(/\s/g, "")}`}
+                        className="text-sm text-primary-600 hover:underline"
+                      >
+                        {contactInfo.phone}
+                      </a>
+                    </div>
+                  </div>
+
+                  {/* Email */}
+                  <div className="flex gap-3">
+                    <Mail className="h-5 w-5 shrink-0 text-primary-600" aria-hidden="true" />
+                    <div>
+                      <p className="text-sm font-medium text-neutral-900">Email</p>
+                      <a
+                        href={`mailto:${contactInfo.email}`}
+                        className="text-sm text-primary-600 hover:underline"
+                      >
+                        {contactInfo.email}
+                      </a>
+                    </div>
+                  </div>
+
+                  {/* WhatsApp */}
+                  <div className="flex gap-3">
+                    <MessageCircle className="h-5 w-5 shrink-0 text-primary-600" aria-hidden="true" />
+                    <div>
+                      <p className="text-sm font-medium text-neutral-900">WhatsApp</p>
+                      <a
+                        href={whatsappUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-sm text-primary-600 hover:underline"
+                      >
+                        Message us
+                      </a>
+                    </div>
+                  </div>
+
+                  {/* Address */}
+                  <div className="flex gap-3">
+                    <MapPin className="h-5 w-5 shrink-0 text-primary-600" aria-hidden="true" />
+                    <div>
+                      <p className="text-sm font-medium text-neutral-900">Address</p>
+                      <a
+                        href={mapsUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-sm text-primary-600 hover:underline"
+                      >
+                        {contactInfo.address.street}, {contactInfo.address.suburb}
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </Container>
       </Section>
 
@@ -95,23 +185,6 @@ export default function ContactPage() {
                 </p>
               </div>
             </div>
-          </div>
-        </Container>
-      </Section>
-
-      {/* Contact Form Section */}
-      <Section variant="primary">
-        <Container>
-          <div className="mx-auto max-w-xl">
-            <h2 className="mb-8 text-center font-display text-2xl font-bold text-neutral-900 sm:text-3xl">
-              Send Us a Message
-            </h2>
-            <div className="rounded-lg bg-white p-6 shadow-md sm:p-8">
-              <ContactForm />
-            </div>
-            <p className="mt-4 text-center text-sm text-neutral-600">
-              No medical information is collected via this form.
-            </p>
           </div>
         </Container>
       </Section>
