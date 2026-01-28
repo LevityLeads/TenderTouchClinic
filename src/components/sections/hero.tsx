@@ -260,7 +260,7 @@ function GradientMesh() {
 }
 
 /**
- * Enhanced Hero section with animated gradient mesh background,
+ * Enhanced Hero section with video background,
  * staggered text reveal, and glassmorphism CTAs.
  */
 export function Hero() {
@@ -268,11 +268,33 @@ export function Hero() {
 
   return (
     <section className="relative min-h-[80vh] overflow-hidden">
-      {/* Animated Gradient Mesh Background */}
-      <GradientMesh />
+      {/* Video Background */}
+      <div className="absolute inset-0">
+        {/* Gradient fallback (shows while video loads or if video fails) */}
+        <GradientMesh />
+
+        {/* Video element */}
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+          poster="/videos/hero-poster.jpg"
+        >
+          <source src="/videos/hero.mp4" type="video/mp4" />
+          <source src="/videos/hero.webm" type="video/webm" />
+        </video>
+
+        {/* Color overlay to tint video with brand colors */}
+        <div
+          className="absolute inset-0 mix-blend-multiply"
+          style={{ background: "oklch(0.50 0.12 160 / 0.6)" }}
+        />
+      </div>
 
       {/* Subtle vignette for depth */}
-      <div className="absolute inset-0 bg-gradient-to-t from-primary-900/40 via-transparent to-primary-900/20" />
+      <div className="absolute inset-0 bg-gradient-to-t from-primary-900/50 via-transparent to-primary-900/30" />
       <div className="absolute inset-0 bg-gradient-to-r from-primary-900/20 via-transparent to-primary-900/20" />
 
       <Container className="relative flex min-h-[80vh] flex-col items-center justify-center py-24 text-center">
