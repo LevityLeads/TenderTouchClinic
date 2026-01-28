@@ -5,7 +5,7 @@
 See: .planning/PROJECT.md (updated 2026-01-27)
 
 **Core value:** Visitors can quickly understand what Tender Touch offers and easily take the next step—whether booking classes or reaching out for support.
-**Current focus:** PROJECT COMPLETE - All phases delivered
+**Current focus:** Polish pass v2 - Images and layout improvements
 
 ## Current Position
 
@@ -80,7 +80,26 @@ Recent decisions affecting current work:
 
 ### Pending Todos
 
-None.
+**Next Session: Images & Layout Improvements**
+
+1. **Add real images**
+   - Hero background image (replace gradient)
+   - Megan's photo for About section
+   - Clinic/facility photos for photo gallery
+   - Service images for service cards
+   - og-image.jpg for social sharing (1200x630px)
+
+2. **Layout UI improvements**
+   - Review spacing and visual hierarchy
+   - Enhance hero section design
+   - Improve service card layouts
+   - Polish about page layout
+   - Review mobile layouts
+
+3. **Production checklist**
+   - Configure RESEND_API_KEY
+   - Verify Bookem credentials
+   - Legal review of Privacy/Terms pages
 
 ### Blockers/Concerns
 
@@ -92,6 +111,15 @@ None.
 
 ## Session Continuity
 
-Last session: 2026-01-27
-Stopped at: PROJECT COMPLETE - All 11 plans across 4 phases delivered
+Last session: 2026-01-28
+Stopped at: Added Framer Motion animations & polish. Ready for images and layout improvements.
 Resume file: None
+
+**Recent additions (this session):**
+- framer-motion for scroll animations
+- Reusable motion components (FadeIn, SlideIn, ScaleIn, Stagger)
+- Homepage sections animate on scroll
+- Button/card hover micro-interactions
+- Mobile nav slide animation with staggered items
+- WhatsApp button pulse + scale effects
+- Page transitions via template.tsx
