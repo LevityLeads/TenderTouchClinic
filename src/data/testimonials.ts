@@ -8,51 +8,27 @@ export interface Testimonial {
 
 export const testimonials: Testimonial[] = [
   {
-    id: "test-1",
-    name: "Sarah M.",
+    id: "nicole",
+    name: "Nicole A.",
+    service: "Antenatal Classes & Postnatal Support",
+    quote:
+      "Megan is an absolute life saver! I truly don't know how we would have gotten through the newborn season without her. Her home visits during those first 6 weeks were a life saver. Every service she offers is the absolute best - antenatal classes, infant massage, vaccinations, and CPR courses. My son is now 15 months old and I am bonded to Megan for life!",
+    imageUrl: "/images/testimonials/nicole.jpg",
+  },
+  {
+    id: "madelaine",
+    name: "Madelaine S.",
     service: "Antenatal Classes",
     quote:
-      "Megan's antenatal classes gave us the confidence we needed. The small group setting meant we could ask all our questions without feeling rushed. I still keep in touch with the other couples we met!",
-    imageUrl: "/images/testimonials/placeholder-1.jpg",
+      "This is by far the best class I have ever taken. Megan was fantastic and really has a lot of insight and understanding. Made the experience of getting ready to become a mom smooth and answered all the questions we had. I feel so much better and more prepared than I did 6 weeks ago. Thank you so much Megan!",
+    imageUrl: "/images/testimonials/madelaine.jpg",
   },
   {
-    id: "test-2",
-    name: "Jessica & Mark T.",
+    id: "laura",
+    name: "Laura H.",
     service: "Antenatal Classes",
     quote:
-      "As first-time parents, we were nervous about everything. Megan's warm, evidence-based approach helped us feel prepared and excited rather than anxious. The course was worth every cent.",
-    imageUrl: "/images/testimonials/placeholder-2.jpg",
-  },
-  {
-    id: "test-3",
-    name: "Lauren K.",
-    service: "Baby Massage",
-    quote:
-      "The baby massage course was such a special bonding experience. My little one now loves our massage time, and it really helps him settle before bed. I'd recommend it to every new parent.",
-    imageUrl: "/images/testimonials/placeholder-3.jpg",
-  },
-  {
-    id: "test-4",
-    name: "Amanda B.",
-    service: "Postnatal Support",
-    quote:
-      "When I was struggling with breastfeeding, Megan's home visit was a lifesaver. She was patient, knowledgeable, and so reassuring. I felt supported rather than judged.",
-    imageUrl: "/images/testimonials/placeholder-4.jpg",
-  },
-  {
-    id: "test-5",
-    name: "Nadia P.",
-    service: "Postnatal Support",
-    quote:
-      "The postnatal check-ups gave me such peace of mind. Megan takes the time to really listen and address all your concerns. It's not just a quick weigh-in - it's genuine care.",
-    imageUrl: "/images/testimonials/placeholder-5.jpg",
-  },
-  {
-    id: "test-6",
-    name: "Claire & David R.",
-    service: "Antenatal Classes",
-    quote:
-      "We did our research and chose Tender Touch for the small class sizes. It was the best decision. Megan's experience and personal touch made all the difference to our birth preparation.",
-    imageUrl: "/images/testimonials/placeholder-6.jpg",
+      "Megan is super knowledgeable and supportive. She knows that not everyone has the same ideas, so caters to every possibility and expertly advises given your unique needs. The 6-week antenatal class has been really fun but also eye-opening. My husband and I had a lot to learn! Plus, you get to connect with others who are in the same boat.",
+    imageUrl: "/images/testimonials/laura.jpg",
   },
 ];
