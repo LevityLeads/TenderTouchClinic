@@ -280,10 +280,8 @@ export function Hero() {
           loop
           playsInline
           className="absolute inset-0 w-full h-full object-cover"
-          poster="/videos/hero-poster.jpg"
         >
-          <source src="/videos/hero.mp4" type="video/mp4" />
-          <source src="/videos/hero.webm" type="video/webm" />
+          <source src="/images/hero.mp4" type="video/mp4" />
         </video>
 
         {/* Color overlay to tint video with brand colors */}
