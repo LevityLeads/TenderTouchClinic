@@ -43,7 +43,7 @@ export const servicePageContent: Record<string, ServicePageContent> = {
     title: "Postnatal Support",
     subtitle: "Caring for you and your baby in the early weeks",
     heroImage: "/images/services/postnatal-support-hero.jpg",
-    heroVideo: "/videos/postnatal.mov",
+    heroVideo: "/videos/postnatal.mp4",
     introduction:
       "The first weeks with your newborn are precious but can also feel overwhelming. Our postnatal support services provide hands-on help and reassurance when you need it most. Whether at home or in-clinic, we offer check-ups for both mom and baby, feeding support, and guidance to help you settle into your new routine with confidence.",
     whatToExpect: [
