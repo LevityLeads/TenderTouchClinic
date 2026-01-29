@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { Container } from "@/components/ui/container";
@@ -6,7 +7,8 @@ import { Button } from "@/components/ui/button";
 import { ServicePageHero } from "@/components/sections/service-page-hero";
 import { getServicePageContent, getServiceCategoryBySlug } from "@/data/service-pages";
 import { isExpandableService, type ServiceCategory } from "@/data/services";
-import { ArrowRight, CheckCircle, MessageCircle } from "lucide-react";
+import { getFeaturedTestimonialForService } from "@/data/testimonials";
+import { ArrowRight, CheckCircle, MessageCircle, Quote } from "lucide-react";
 
 const SLUG = "postnatal-support";
 
@@ -22,6 +24,7 @@ export const metadata: Metadata = {
 export default function PostnatalSupportPage() {
   const pageContent = getServicePageContent(SLUG);
   const category = getServiceCategoryBySlug(SLUG) as ServiceCategory;
+  const testimonial = getFeaturedTestimonialForService(SLUG);
 
   if (!pageContent || !category) {
     notFound();
@@ -129,6 +132,41 @@ export default function PostnatalSupportPage() {
         </Container>
       </section>
 
+      {/* Testimonial */}
+      {testimonial && (
+        <section className="py-12 lg:py-16 bg-sky-50">
+          <Container>
+            <div className="mx-auto max-w-3xl">
+              <div className="relative rounded-2xl bg-white p-8 shadow-sm">
+                <Quote className="absolute top-6 left-6 h-8 w-8 text-sky-200" aria-hidden="true" />
+                <div className="relative">
+                  <blockquote className="pl-6">
+                    <p className="text-lg text-neutral-700 leading-relaxed italic">
+                      &ldquo;{testimonial.quote}&rdquo;
+                    </p>
+                  </blockquote>
+                  <div className="mt-6 flex items-center gap-4 pl-6">
+                    {testimonial.imageUrl && (
+                      <Image
+                        src={testimonial.imageUrl}
+                        alt={testimonial.name}
+                        width={48}
+                        height={48}
+                        className="h-12 w-12 rounded-full object-cover"
+                      />
+                    )}
+                    <div>
+                      <p className="font-semibold text-neutral-900">{testimonial.name}</p>
+                      <p className="text-sm text-neutral-500">{testimonial.service}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </Container>
+        </section>
+      )}
+
       {/* What to Expect */}
       <section className="py-12 lg:py-16">
         <Container>
@@ -180,7 +218,7 @@ export default function PostnatalSupportPage() {
             </p>
             <div className="mt-8 flex flex-wrap justify-center gap-4">
               <Button href="/book" variant="secondary" size="lg">
-                Book Online
+                Book Now
               </Button>
               <Button href="/contact" variant="outline" size="lg" className="border-white text-white hover:bg-white/10">
                 Contact Us

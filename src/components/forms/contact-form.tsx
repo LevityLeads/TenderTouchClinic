@@ -15,7 +15,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Input, Textarea, Select } from "@/components/ui/input";
 import { motion } from "framer-motion";
-import { CheckCircle } from "lucide-react";
+import { CheckCircle, Clock } from "lucide-react";
 
 const initialState: ContactFormState = {
   success: false,
@@ -31,7 +31,7 @@ export function ContactForm() {
 
   const {
     register,
-    formState: { errors, touchedFields, isValid },
+    formState: { errors, touchedFields },
     watch,
   } = useForm<ContactFormData>({
     resolver: zodResolver(contactFormSchema),
@@ -64,7 +64,9 @@ export function ContactForm() {
           <CheckCircle className="h-8 w-8 text-green-600" />
         </motion.div>
         <h3 className="text-lg font-semibold text-green-800">Message Sent!</h3>
-        <p className="mt-2 text-green-700">{state.message}</p>
+        <p className="mt-2 text-green-700">
+          Thank you for reaching out. We&apos;ll get back to you within 2 business hours during clinic hours.
+        </p>
       </motion.div>
     );
   }
@@ -74,6 +76,12 @@ export function ContactForm() {
 
   return (
     <form action={formAction} className="space-y-6">
+      {/* Response time indicator */}
+      <div className="flex items-center gap-2 rounded-lg bg-primary-50 p-3 text-sm text-primary-700">
+        <Clock className="h-4 w-4 flex-shrink-0" aria-hidden="true" />
+        <span>We typically respond within 2 hours during business hours</span>
+      </div>
+
       {/* Honeypot field - hidden from users, visible to bots */}
       <input
         type="text"
@@ -84,20 +92,11 @@ export function ContactForm() {
         aria-hidden="true"
       />
 
-      {/* Privacy notice */}
-      <p className="text-sm text-neutral-600">
-        We will only use your information to respond to your inquiry. See our{" "}
-        <a href="/privacy" className="text-primary-600 hover:underline">
-          Privacy Policy
-        </a>
-        .
-      </p>
-
       {/* Name field */}
       <Input
         {...register("name")}
         id="name"
-        label="Name"
+        label="Your name"
         type="text"
         required
         error={errors.name?.message || state.errors?.name?.[0]}
@@ -109,7 +108,7 @@ export function ContactForm() {
       <Input
         {...register("email")}
         id="email"
-        label="Email"
+        label="Email address"
         type="email"
         required
         error={errors.email?.message || state.errors?.email?.[0]}
@@ -121,7 +120,7 @@ export function ContactForm() {
       <Input
         {...register("phone")}
         id="phone"
-        label="Phone"
+        label="Phone number"
         type="tel"
         required
         error={errors.phone?.message || state.errors?.phone?.[0]}
@@ -133,7 +132,7 @@ export function ContactForm() {
       <Select
         {...register("preferredTime")}
         id="preferredTime"
-        label="Preferred Contact Time"
+        label="Best time to reach you"
         required
         options={preferredTimeOptions}
         error={errors.preferredTime?.message || state.errors?.preferredTime?.[0]}
@@ -144,7 +143,7 @@ export function ContactForm() {
       <Textarea
         {...register("message")}
         id="message"
-        label="Message"
+        label="How can we help?"
         rows={5}
         required
         error={errors.message?.message || state.errors?.message?.[0]}
@@ -173,6 +172,14 @@ export function ContactForm() {
       >
         Send Message
       </Button>
+
+      {/* Privacy notice */}
+      <p className="text-xs text-neutral-500 text-center">
+        We&apos;ll only use your information to respond to your inquiry.{" "}
+        <a href="/privacy" className="text-primary-600 hover:underline">
+          Privacy Policy
+        </a>
+      </p>
     </form>
   );
 }

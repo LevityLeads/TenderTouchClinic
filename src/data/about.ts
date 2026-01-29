@@ -16,7 +16,7 @@ My approach combines evidence-based care with genuine warmth and understanding. 
 Whether you're preparing for birth, navigating the early weeks with your newborn, or looking for ongoing support, I'm here to help you feel confident and cared for.`,
   personalNote:
     "When I'm not at the clinic, you'll find me enjoying Cape Town's beautiful outdoors with my family.",
-  imageUrl: "/images/about/megan.png",
+  imageUrl: "/images/about/megan.webp",
 };
 
 export const brigitteBio = {
@@ -35,7 +35,7 @@ In 2023, she qualified as a South African Certified Lactation Consultant, enhanc
 Brigitte brings a calm, empathetic, and family-centred approach to all aspects of her care.`,
   personalNote:
     "Brigitte is a mom to two young adult men and understands the parenting journey from newborn through to adulthood.",
-  imageUrl: "/images/about/brigitte.png",
+  imageUrl: "/images/about/brigitte.webp",
 };
 
 export const teamMembers = [meganBio, brigitteBio];

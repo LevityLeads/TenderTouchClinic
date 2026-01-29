@@ -312,7 +312,7 @@ function GradientMesh() {
  * staggered text reveal, and glassmorphism CTAs.
  */
 export function Hero() {
-  const title = "Nurture and Care for Parents and Babies";
+  const title = "Cape Town's Trusted Partner for New Parents";
 
   return (
     <section className="relative min-h-[80vh] overflow-hidden">
@@ -327,6 +327,8 @@ export function Hero() {
           muted
           loop
           playsInline
+          poster="/images/hero.jpg"
+          preload="metadata"
           className="absolute inset-0 w-full h-full object-cover"
         >
           <source src="/images/hero.mp4" type="video/mp4" />
@@ -379,7 +381,7 @@ export function Hero() {
           custom={0.8}
         >
           Antenatal classes, postnatal support, and baby massage in a warm,
-          welcoming environment in Cape Town.
+          welcoming environment. Over 25 years of midwifery experience.
         </motion.p>
 
         {/* CTA buttons with glassmorphism effect */}
@@ -395,7 +397,7 @@ export function Hero() {
             size="lg"
             className="bg-white text-primary-700 hover:bg-white/90 hover:text-primary-800 shadow-xl shadow-black/20"
           >
-            Book a Class
+            Book Now
           </Button>
           <Button
             href="/services"

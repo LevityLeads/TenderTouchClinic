@@ -138,6 +138,9 @@ export function UpcomingClasses() {
       ? availableClasses
       : upcomingClasses.slice(0, 3);
 
+  // Count classes with few spots
+  const urgentClasses = upcomingClasses.filter(c => c.status === "few-spots").length;
+
   return (
     <Container>
       <FadeIn>
@@ -148,6 +151,16 @@ export function UpcomingClasses() {
           <p className="mt-3 text-lg text-neutral-600 max-w-2xl mx-auto">
             Secure your spot in our intimate, small-group sessions
           </p>
+          {/* Urgency indicator */}
+          {urgentClasses > 0 && (
+            <p className="mt-4 inline-flex items-center gap-2 rounded-full bg-amber-50 px-4 py-2 text-sm font-medium text-amber-700">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-amber-500"></span>
+              </span>
+              {urgentClasses} {urgentClasses === 1 ? 'class' : 'classes'} filling up fast
+            </p>
+          )}
         </div>
       </FadeIn>
 

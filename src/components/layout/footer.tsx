@@ -127,7 +127,7 @@ export function Footer() {
                 <li><FooterLink href="/about">About Megan</FooterLink></li>
                 <li><FooterLink href="/schedule">Class Schedule</FooterLink></li>
                 <li><FooterLink href="/contact">Contact</FooterLink></li>
-                <li><FooterLink href="/book">Book Online</FooterLink></li>
+                <li><FooterLink href="/book">Book Now</FooterLink></li>
               </ul>
             </motion.div>
 
