@@ -8,6 +8,7 @@ export interface ServicePageContent {
   title: string;
   subtitle: string;
   heroImage: string;
+  heroVideo?: string;
   introduction: string;
   whatToExpect: string[];
   whyChooseUs?: string[];
@@ -22,6 +23,7 @@ export const servicePageContent: Record<string, ServicePageContent> = {
     title: "Pregnancy & Preparation",
     subtitle: "Expert guidance as you prepare for parenthood",
     heroImage: "/images/services/pregnancy-preparation-hero.jpg",
+    heroVideo: "/videos/pregnancy.mp4",
     introduction:
       "Preparing for your baby's arrival is an exciting journey. Our pregnancy and preparation services are designed to give you the knowledge, confidence, and support you need. From one-on-one antenatal consultations to comprehensive parent preparation classes, we're here to help you feel ready for birth and beyond.",
     whatToExpect: [
