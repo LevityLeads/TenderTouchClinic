@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { Car, ParkingCircle, Bus, MapPin, Phone, Mail, MessageCircle } from "lucide-react";
 import { Section } from "@/components/ui/section";
 import { Container } from "@/components/ui/container";
@@ -34,11 +35,16 @@ export default function ContactPage() {
                 </p>
               </div>
 
-              {/* Placeholder Image */}
-              <div className="aspect-[4/3] overflow-hidden rounded-lg bg-neutral-200">
-                <div className="flex h-full w-full items-center justify-center text-neutral-500">
-                  <span className="text-sm">Image placeholder</span>
-                </div>
+              {/* Contact Image */}
+              <div className="relative aspect-[3/4] overflow-hidden rounded-lg bg-neutral-100 shadow-lg">
+                <Image
+                  src="/images/contactus.png"
+                  alt="Tender Touch Mother & Baby Clinic - Welcoming space for parents and babies"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="object-cover"
+                  priority
+                />
               </div>
             </div>
 
