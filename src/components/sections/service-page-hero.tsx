@@ -37,7 +37,7 @@ export function ServicePageHero({ title, subtitle, heroImage, heroVideo }: Servi
             muted
             loop
             playsInline
-            preload="metadata"
+            preload="auto"
             className="hidden md:block absolute inset-0 w-full h-full object-cover object-bottom"
           >
             <source
