@@ -2,7 +2,10 @@ import { cn } from "@/lib/utils";
 import type { HTMLAttributes, ReactNode } from "react";
 import { WaveDivider, LayeredWaveDivider } from "./wave-divider";
 
-export type SectionVariant = "default" | "muted" | "primary" | "gradient" | "gradient-primary" | "rose" | "sky" | "cream" | "lavender";
+export type SectionVariant =
+  | "default" | "muted" | "primary" | "gradient" | "gradient-primary"
+  | "rose" | "sky" | "cream" | "lavender"
+  | "rose-animated" | "sky-animated" | "cream-animated" | "lavender-animated" | "aurora";
 
 type WaveType = "wave1" | "wave2" | "wave3" | "curve" | "layered" | false;
 
@@ -25,6 +28,12 @@ const variantStyles: Record<SectionVariant, string> = {
   sky: "bg-sky-50",
   cream: "bg-cream-50",
   lavender: "bg-lavender-50",
+  // Animated variants with subtle gradient motion
+  "rose-animated": "bg-animated-rose",
+  "sky-animated": "bg-animated-sky",
+  "cream-animated": "bg-animated-cream",
+  "lavender-animated": "bg-animated-lavender",
+  "aurora": "bg-animated-aurora",
 };
 
 /**

@@ -294,6 +294,79 @@
   }
 
   --animate-shake: shake 0.4s ease-out;
+
+  /* Subtle gradient drift - slow, calming movement */
+  @keyframes gradient-drift {
+    0%, 100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+
+  /* Soft breathing/pulsing opacity for overlays */
+  @keyframes breathe {
+    0%, 100% {
+      opacity: 0.4;
+    }
+    50% {
+      opacity: 0.6;
+    }
+  }
+
+  /* Gentle color shift between pastels */
+  @keyframes color-shift-rose {
+    0%, 100% {
+      background-color: oklch(0.98 0.01 350);
+    }
+    50% {
+      background-color: oklch(0.97 0.02 340);
+    }
+  }
+
+  @keyframes color-shift-sky {
+    0%, 100% {
+      background-color: oklch(0.98 0.01 230);
+    }
+    50% {
+      background-color: oklch(0.97 0.02 220);
+    }
+  }
+
+  @keyframes color-shift-cream {
+    0%, 100% {
+      background-color: oklch(0.98 0.01 80);
+    }
+    50% {
+      background-color: oklch(0.97 0.02 70);
+    }
+  }
+
+  @keyframes color-shift-lavender {
+    0%, 100% {
+      background-color: oklch(0.98 0.01 290);
+    }
+    50% {
+      background-color: oklch(0.97 0.02 280);
+    }
+  }
+
+  /* Subtle aurora-like gradient movement */
+  @keyframes aurora {
+    0% {
+      background-position: 0% 50%;
+      filter: hue-rotate(0deg);
+    }
+    50% {
+      background-position: 100% 50%;
+      filter: hue-rotate(5deg);
+    }
+    100% {
+      background-position: 0% 50%;
+      filter: hue-rotate(0deg);
+    }
+  }
 }
 
 /* Base styles and accessibility */
@@ -581,6 +654,126 @@
   .section-gradient-primary {
     background: linear-gradient(180deg, var(--color-primary-50) 0%, white 100%);
   }
+
+  /* Animated pastel section backgrounds - subtle and calming */
+  .bg-animated-rose {
+    position: relative;
+    background: linear-gradient(
+      135deg,
+      oklch(0.98 0.01 350) 0%,
+      oklch(0.97 0.02 340) 25%,
+      oklch(0.98 0.015 355) 50%,
+      oklch(0.97 0.02 345) 75%,
+      oklch(0.98 0.01 350) 100%
+    );
+    background-size: 400% 400%;
+    animation: gradient-drift 20s ease-in-out infinite;
+  }
+
+  .bg-animated-sky {
+    position: relative;
+    background: linear-gradient(
+      135deg,
+      oklch(0.98 0.01 230) 0%,
+      oklch(0.97 0.02 220) 25%,
+      oklch(0.98 0.015 235) 50%,
+      oklch(0.97 0.02 225) 75%,
+      oklch(0.98 0.01 230) 100%
+    );
+    background-size: 400% 400%;
+    animation: gradient-drift 25s ease-in-out infinite;
+  }
+
+  .bg-animated-cream {
+    position: relative;
+    background: linear-gradient(
+      135deg,
+      oklch(0.98 0.01 80) 0%,
+      oklch(0.97 0.02 70) 25%,
+      oklch(0.98 0.015 85) 50%,
+      oklch(0.97 0.02 75) 75%,
+      oklch(0.98 0.01 80) 100%
+    );
+    background-size: 400% 400%;
+    animation: gradient-drift 22s ease-in-out infinite;
+  }
+
+  .bg-animated-lavender {
+    position: relative;
+    background: linear-gradient(
+      135deg,
+      oklch(0.98 0.01 290) 0%,
+      oklch(0.97 0.02 280) 25%,
+      oklch(0.98 0.015 295) 50%,
+      oklch(0.97 0.02 285) 75%,
+      oklch(0.98 0.01 290) 100%
+    );
+    background-size: 400% 400%;
+    animation: gradient-drift 23s ease-in-out infinite;
+  }
+
+  /* Multi-color aurora gradient - very subtle pastel shift */
+  .bg-animated-aurora {
+    position: relative;
+    background: linear-gradient(
+      135deg,
+      oklch(0.98 0.01 350) 0%,
+      oklch(0.98 0.01 290) 25%,
+      oklch(0.98 0.01 230) 50%,
+      oklch(0.98 0.01 80) 75%,
+      oklch(0.98 0.01 350) 100%
+    );
+    background-size: 400% 400%;
+    animation: aurora 30s ease-in-out infinite;
+  }
+
+  /* Floating orb overlay - adds depth */
+  .bg-orbs::before,
+  .bg-orbs::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(60px);
+    opacity: 0.3;
+    pointer-events: none;
+    animation: float 12s ease-in-out infinite;
+  }
+
+  .bg-orbs::before {
+    width: 300px;
+    height: 300px;
+    background: oklch(0.90 0.04 350);
+    top: 10%;
+    left: 10%;
+  }
+
+  .bg-orbs::after {
+    width: 250px;
+    height: 250px;
+    background: oklch(0.90 0.04 230);
+    bottom: 10%;
+    right: 10%;
+    animation-delay: -6s;
+  }
+
+  /* Breathing gradient overlay for extra subtlety */
+  .bg-breathe::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+      ellipse at 30% 20%,
+      oklch(0.95 0.02 350 / 0.3) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      ellipse at 70% 80%,
+      oklch(0.95 0.02 230 / 0.3) 0%,
+      transparent 50%
+    );
+    animation: breathe 8s ease-in-out infinite;
+    pointer-events: none;
+  }
 }
 
 /* Reduced motion support */
@@ -603,5 +796,22 @@
   .float-delayed,
   .blob {
     animation: none !important;
+  }
+
+  /* Disable animated backgrounds for reduced motion */
+  .bg-animated-rose,
+  .bg-animated-sky,
+  .bg-animated-cream,
+  .bg-animated-lavender,
+  .bg-animated-aurora {
+    animation: none !important;
+    background-size: 100% 100% !important;
+  }
+
+  .bg-orbs::before,
+  .bg-orbs::after,
+  .bg-breathe::before {
+    animation: none !important;
+    opacity: 0.2 !important;
   }
 }
