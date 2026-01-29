@@ -32,6 +32,7 @@ export default function BreastfeedingLactationPage() {
         title={pageContent.title}
         subtitle={pageContent.subtitle}
         heroImage={pageContent.heroImage}
+        heroVideo={pageContent.heroVideo}
       />
 
       {/* Introduction */}

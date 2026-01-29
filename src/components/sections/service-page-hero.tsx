@@ -37,9 +37,13 @@ export function ServicePageHero({ title, subtitle, heroImage, heroVideo }: Servi
             muted
             loop
             playsInline
+            preload="metadata"
             className="hidden md:block absolute inset-0 w-full h-full object-cover object-bottom"
           >
-            <source src={heroVideo} type="video/mp4" />
+            <source
+              src={heroVideo}
+              type={heroVideo.endsWith('.mov') ? 'video/quicktime' : 'video/mp4'}
+            />
           </video>
         )}
 

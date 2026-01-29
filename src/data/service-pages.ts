@@ -43,6 +43,7 @@ export const servicePageContent: Record<string, ServicePageContent> = {
     title: "Postnatal Support",
     subtitle: "Caring for you and your baby in the early weeks",
     heroImage: "/images/services/postnatal-support-hero.jpg",
+    heroVideo: "/videos/postnatal.mov",
     introduction:
       "The first weeks with your newborn are precious but can also feel overwhelming. Our postnatal support services provide hands-on help and reassurance when you need it most. Whether at home or in-clinic, we offer check-ups for both mom and baby, feeding support, and guidance to help you settle into your new routine with confidence.",
     whatToExpect: [
@@ -62,6 +63,7 @@ export const servicePageContent: Record<string, ServicePageContent> = {
     title: "Breastfeeding & Lactation",
     subtitle: "Expert support for your breastfeeding journey",
     heroImage: "/images/services/breastfeeding-lactation-hero.jpg",
+    heroVideo: "/videos/breastfeeding.mp4",
     introduction:
       "Breastfeeding is natural, but that doesn't mean it's always easy. Our lactation consultants provide compassionate, expert support to help you overcome challenges and find what works best for you and your baby. Whether you're dealing with latch issues, low supply concerns, or just need reassurance, we're here to help.",
     whatToExpect: [
@@ -81,6 +83,7 @@ export const servicePageContent: Record<string, ServicePageContent> = {
     title: "Baby Vaccinations",
     subtitle: "Essential immunisations in a calm, caring environment",
     heroImage: "/images/services/baby-vaccinations-hero.jpg",
+    heroVideo: "/videos/vaccine.mp4",
     introduction:
       "Keeping your baby protected with timely vaccinations is one of the most important things you can do as a parent. At Tender Touch, we administer both state-subsidised and private vaccines in a gentle, unhurried setting. We take the time to answer your questions and make the experience as stress-free as possible for both you and your little one.",
     whatToExpect: [
