@@ -24,12 +24,12 @@ export default function Home() {
       </Section>
 
       {/* About Megan intro */}
-      <Section variant="cream">
+      <Section variant="cream-animated">
         <AboutIntro />
       </Section>
 
       {/* Testimonials */}
-      <Section variant="rose">
+      <Section variant="rose-animated">
         <Testimonials />
       </Section>
 
@@ -39,7 +39,7 @@ export default function Home() {
       </Section>
 
       {/* Trust Indicators (credentials) */}
-      <Section variant="sky">
+      <Section variant="sky-animated">
         <TrustIndicators />
       </Section>
     </>
