@@ -178,6 +178,54 @@ function GradientMesh() {
         }}
       />
 
+      {/* Soft rose/pink blob - nurturing warmth */}
+      <motion.div
+        className="absolute rounded-full"
+        style={{
+          width: "30vw",
+          height: "30vw",
+          background: "radial-gradient(circle, oklch(0.85 0.08 350) 0%, transparent 55%)",
+          right: "5%",
+          top: "35%",
+          filter: "blur(40px)",
+        }}
+        animate={{
+          x: [0, -40, 20, 0],
+          y: [0, 30, -20, 0],
+          scale: [1, 1.15, 0.95, 1],
+        }}
+        transition={{
+          duration: 13,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 1.5,
+        }}
+      />
+
+      {/* Soft sky/blue blob - calming accent */}
+      <motion.div
+        className="absolute rounded-full"
+        style={{
+          width: "25vw",
+          height: "25vw",
+          background: "radial-gradient(circle, oklch(0.82 0.07 230) 0%, transparent 55%)",
+          left: "5%",
+          bottom: "20%",
+          filter: "blur(35px)",
+        }}
+        animate={{
+          x: [0, 50, -25, 0],
+          y: [0, -35, 20, 0],
+          scale: [1, 0.9, 1.1, 1],
+        }}
+        transition={{
+          duration: 11,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 2.5,
+        }}
+      />
+
       {/* Floating light orbs */}
       <motion.div
         className="absolute rounded-full"

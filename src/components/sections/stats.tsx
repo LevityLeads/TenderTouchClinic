@@ -13,6 +13,7 @@ const stats = [
     label: "Happy Families",
     icon: Users,
     description: "Trusted by parents across Cape Town",
+    colors: { bg: "bg-sky-100", text: "text-sky-600", hoverBg: "from-sky-50" },
   },
   {
     value: 25,
@@ -20,6 +21,7 @@ const stats = [
     label: "Years Experience",
     icon: Heart,
     description: "Caring for mothers since 1996",
+    colors: { bg: "bg-rose-100", text: "text-rose-500", hoverBg: "from-rose-50" },
   },
   {
     value: 1000,
@@ -27,6 +29,7 @@ const stats = [
     label: "Babies Vaccinated",
     icon: Baby,
     description: "Safe, gentle immunizations",
+    colors: { bg: "bg-lavender-100", text: "text-lavender-500", hoverBg: "from-lavender-50" },
   },
   {
     value: 200,
@@ -34,6 +37,7 @@ const stats = [
     label: "Classes Taught",
     icon: Calendar,
     description: "Antenatal preparation courses",
+    colors: { bg: "bg-cream-200", text: "text-cream-500", hoverBg: "from-cream-50" },
   },
 ];
 
@@ -69,13 +73,13 @@ export function Stats() {
                 whileHover={{ y: -4 }}
               >
                 {/* Background gradient on hover */}
-                <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary-50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${stat.colors.hoverBg} to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300`} />
 
                 {/* Content */}
                 <div className="relative">
                   {/* Icon */}
                   <motion.div
-                    className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-primary-100 text-primary-600"
+                    className={`mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full ${stat.colors.bg} ${stat.colors.text}`}
                     whileHover={{ scale: 1.1, rotate: 5 }}
                     transition={{ type: "spring", stiffness: 300 }}
                   >

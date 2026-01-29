@@ -2,7 +2,7 @@ import { cn } from "@/lib/utils";
 import type { HTMLAttributes, ReactNode } from "react";
 import { WaveDivider, LayeredWaveDivider } from "./wave-divider";
 
-export type SectionVariant = "default" | "muted" | "primary" | "gradient" | "gradient-primary";
+export type SectionVariant = "default" | "muted" | "primary" | "gradient" | "gradient-primary" | "rose" | "sky" | "cream" | "lavender";
 
 type WaveType = "wave1" | "wave2" | "wave3" | "curve" | "layered" | false;
 
@@ -21,6 +21,10 @@ const variantStyles: Record<SectionVariant, string> = {
   primary: "bg-primary-50",
   gradient: "bg-gradient-to-b from-neutral-50 via-white to-neutral-50",
   "gradient-primary": "bg-gradient-to-b from-primary-50 via-white to-primary-50",
+  rose: "bg-rose-50",
+  sky: "bg-sky-50",
+  cream: "bg-cream-50",
+  lavender: "bg-lavender-50",
 };
 
 /**
