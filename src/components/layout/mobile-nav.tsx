@@ -124,15 +124,19 @@ export function MobileNav() {
   };
 
   return (
-    <div className="md:hidden">
+    <div className="md:hidden relative z-[60]">
       {/* Hamburger button */}
       <button
         ref={buttonRef}
         onClick={() => handleMenuToggle(!isOpen)}
+        onTouchEnd={(e) => {
+          e.preventDefault();
+          handleMenuToggle(!isOpen);
+        }}
         aria-expanded={isOpen}
         aria-controls="mobile-menu"
         aria-label={isOpen ? "Close menu" : "Open menu"}
-        className="relative z-50 p-2 -mr-2 text-neutral-700 hover:text-neutral-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 rounded-md"
+        className="relative p-3 -mr-2 text-neutral-700 hover:text-neutral-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 rounded-md touch-manipulation"
       >
         <HamburgerIcon isOpen={isOpen} />
       </button>

@@ -47,7 +47,7 @@ export const clinicStory = {
   description:
     "Tender Touch Mother & Baby Clinic grew from my successful postnatal home visit practice into a dedicated space where mothers can come for ongoing support and community. The clinic provides a calm, nurturing environment for antenatal classes, baby massage courses, consultations, and check-ups.",
   mission:
-    "To provide nurturing, evidence-based care in a warm environment where every mother feels supported and every baby thrives.",
+    "To provide nurturing, evidence-based care in a warm environment where every parent feels supported and every baby thrives.",
   values: [
     "Personalized attention in small groups",
     "Evidence-based, current information",
