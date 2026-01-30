@@ -54,5 +54,6 @@ export const clinicStory = {
     "Warmth and genuine care",
     "Building community among parents",
     "No question is too small",
+    "Non-judgmental support for all choices",
   ],
 };
