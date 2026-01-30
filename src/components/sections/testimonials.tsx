@@ -4,7 +4,7 @@ import Image from "next/image";
 import { Container } from "@/components/ui/container";
 import { Card } from "@/components/ui/card";
 import { testimonials, type Testimonial } from "@/data/testimonials";
-import { FadeIn, ScaleIn } from "@/components/ui/motion";
+import { FadeIn } from "@/components/ui/motion";
 import { motion } from "framer-motion";
 import { Star } from "lucide-react";
 
@@ -288,26 +288,6 @@ export function Testimonials() {
         </motion.div>
       </div>
 
-      {/* Trust indicator */}
-      <ScaleIn delay={0.6}>
-        <div className="mt-12 text-center">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-neutral-100">
-            <div className="flex -space-x-2">
-              {[...Array(4)].map((_, i) => (
-                <div
-                  key={i}
-                  className={`w-8 h-8 rounded-full border-2 border-white ${avatarColors[i]} flex items-center justify-center text-xs font-semibold`}
-                >
-                  {String.fromCharCode(65 + i)}
-                </div>
-              ))}
-            </div>
-            <span className="text-sm text-neutral-600">
-              <span className="font-semibold text-neutral-900">500+</span> happy families
-            </span>
-          </div>
-        </div>
-      </ScaleIn>
     </Container>
   );
 }

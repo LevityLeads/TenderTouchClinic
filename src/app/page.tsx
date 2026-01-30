@@ -21,14 +21,14 @@ export default function Home() {
         <MissionStatement />
       </Section>
 
-      {/* About Megan intro */}
-      <Section variant="cream-animated">
-        <AboutIntro />
-      </Section>
-
       {/* Testimonials */}
       <Section variant="rose-animated">
         <Testimonials />
+      </Section>
+
+      {/* About the team */}
+      <Section variant="cream-animated">
+        <AboutIntro />
       </Section>
     </>
   );
