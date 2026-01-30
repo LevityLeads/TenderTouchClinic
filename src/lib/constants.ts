@@ -43,7 +43,7 @@ export const SOCIAL_LINKS = {
     label: "Follow us on Facebook",
   },
   instagram: {
-    url: "https://instagram.com/tendertouchclinic",
+    url: "https://www.instagram.com/tendertouchcapetown/",
     label: "Follow us on Instagram",
   },
 } as const;
