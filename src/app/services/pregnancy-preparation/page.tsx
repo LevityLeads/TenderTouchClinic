@@ -1,16 +1,13 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import { Container } from "@/components/ui/container";
-import { ServicePageHero } from "@/components/sections/service-page-hero";
 import { getServicePageContent, getServiceCategoryBySlug } from "@/data/service-pages";
 import { isExpandableService, type ServiceCategory } from "@/data/services";
 import { ArrowRight, CheckCircle } from "lucide-react";
 
 const SLUG = "pregnancy-preparation";
-
-// Soft mint/teal gradient
-const GRADIENT = "linear-gradient(135deg, #d1fae5 0%, #a7f3d0 25%, #6ee7b7 50%, #5eead4 75%, #99f6e4 100%)";
 
 // Humanized "What to Expect" items
 const whatToExpect = [
@@ -39,11 +36,39 @@ export default function PregnancyPreparationPage() {
 
   return (
     <div className="bg-neutral-50">
-      <ServicePageHero
-        title={pageContent.title}
-        subtitle="Getting ready for the adventure ahead"
-        gradient={GRADIENT}
-      />
+      {/* Hero with Image */}
+      <section className="relative">
+        <div className="relative w-full h-[200px] sm:h-[250px] lg:h-[300px]">
+          <Image
+            src="/images/pregnancy.png"
+            alt="Pregnancy preparation"
+            fill
+            className="object-cover"
+            priority
+            sizes="100vw"
+          />
+          {/* Light mint overlay */}
+          <div
+            className="absolute inset-0"
+            style={{
+              background: "linear-gradient(135deg, rgba(209, 250, 229, 0.7) 0%, rgba(167, 243, 208, 0.6) 50%, rgba(110, 231, 183, 0.5) 100%)"
+            }}
+          />
+          {/* Content */}
+          <div className="absolute inset-0 flex items-center justify-center">
+            <Container>
+              <div className="text-center">
+                <h1 className="font-serif text-3xl font-bold text-neutral-800 sm:text-4xl lg:text-5xl">
+                  {pageContent.title}
+                </h1>
+                <p className="mx-auto mt-3 max-w-2xl text-base text-neutral-700 sm:text-lg">
+                  Getting ready for the adventure ahead
+                </p>
+              </div>
+            </Container>
+          </div>
+        </div>
+      </section>
 
       {/* Introduction */}
       <section className="py-12 lg:py-16">
