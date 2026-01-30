@@ -37,8 +37,9 @@ export default function BreastfeedingLactationPage() {
   return (
     <div className="bg-neutral-50">
       {/* Hero with centered background illustration */}
-      <section className="relative overflow-hidden">
-        <div className="absolute inset-0">
+      <section className="relative overflow-hidden bg-rose-50 md:bg-transparent">
+        {/* Image only visible on md+ screens */}
+        <div className="absolute inset-0 hidden md:block">
           <Image
             src="/images/breastfeeding.png"
             alt=""
@@ -51,7 +52,7 @@ export default function BreastfeedingLactationPage() {
           />
         </div>
         <Container className="relative z-10">
-          <div className="py-16 sm:py-20 lg:py-24 text-center">
+          <div className="py-12 sm:py-16 lg:py-24 text-center">
             <h1 className="font-serif text-3xl font-bold text-neutral-800 sm:text-4xl lg:text-5xl">
               {pageContent.title}
             </h1>
