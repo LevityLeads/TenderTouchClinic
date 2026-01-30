@@ -47,13 +47,6 @@ export default function PregnancyPreparationPage() {
             priority
             sizes="100vw"
           />
-          {/* Light mint overlay */}
-          <div
-            className="absolute inset-0"
-            style={{
-              background: "linear-gradient(135deg, rgba(209, 250, 229, 0.7) 0%, rgba(167, 243, 208, 0.6) 50%, rgba(110, 231, 183, 0.5) 100%)"
-            }}
-          />
           {/* Content */}
           <div className="absolute inset-0 flex items-center justify-center">
             <Container>
