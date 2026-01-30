@@ -1,13 +1,16 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import Image from "next/image";
 import { Container } from "@/components/ui/container";
+import { ServicePageHero } from "@/components/sections/service-page-hero";
 import { getServicePageContent, getServiceCategoryBySlug } from "@/data/service-pages";
 import { isExpandableService, type ServiceCategory } from "@/data/services";
 import { ArrowRight, CheckCircle } from "lucide-react";
 
 const SLUG = "pregnancy-preparation";
+
+// Soft mint/teal gradient
+const GRADIENT = "linear-gradient(135deg, #d1fae5 0%, #a7f3d0 25%, #6ee7b7 50%, #5eead4 75%, #99f6e4 100%)";
 
 // Humanized "What to Expect" items
 const whatToExpect = [
@@ -36,40 +39,11 @@ export default function PregnancyPreparationPage() {
 
   return (
     <div className="bg-neutral-50">
-      {/* Hero with Image */}
-      <section className="relative">
-        {/* Image container - height based on image aspect ratio */}
-        <div className="relative w-full h-[300px] sm:h-[400px] lg:h-[500px]">
-          <Image
-            src="/images/pregnancy.png"
-            alt="Pregnancy preparation"
-            fill
-            className="object-cover"
-            priority
-            sizes="100vw"
-          />
-          {/* Light mint/teal overlay */}
-          <div
-            className="absolute inset-0"
-            style={{
-              background: "linear-gradient(135deg, rgba(209, 250, 229, 0.6) 0%, rgba(167, 243, 208, 0.5) 50%, rgba(110, 231, 183, 0.4) 100%)"
-            }}
-          />
-          {/* Content overlay */}
-          <div className="absolute inset-0 flex items-center justify-center">
-            <Container>
-              <div className="text-center">
-                <h1 className="font-serif text-4xl font-bold text-neutral-800 sm:text-5xl drop-shadow-sm">
-                  {pageContent.title}
-                </h1>
-                <p className="mx-auto mt-4 max-w-2xl text-lg text-neutral-700">
-                  Getting ready for the adventure ahead
-                </p>
-              </div>
-            </Container>
-          </div>
-        </div>
-      </section>
+      <ServicePageHero
+        title={pageContent.title}
+        subtitle="Getting ready for the adventure ahead"
+        gradient={GRADIENT}
+      />
 
       {/* Introduction */}
       <section className="py-12 lg:py-16">
