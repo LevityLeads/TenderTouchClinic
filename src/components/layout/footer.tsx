@@ -124,7 +124,7 @@ export function Footer() {
               <h3 className="text-lg font-semibold mb-4 text-white">Quick Links</h3>
               <ul className="space-y-2">
                 <li><FooterLink href="/services">Services</FooterLink></li>
-                <li><FooterLink href="/about">About Megan</FooterLink></li>
+                <li><FooterLink href="/about">About</FooterLink></li>
                 <li><FooterLink href="/schedule">Class Schedule</FooterLink></li>
                 <li><FooterLink href="/contact">Contact</FooterLink></li>
                 <li><FooterLink href="/book">Book Online</FooterLink></li>

@@ -56,9 +56,9 @@ export function Header() {
     <header
       className={cn(
         "sticky top-0 z-50 transition-all duration-300",
-        isScrolled
-          ? "bg-white/95 backdrop-blur-lg shadow-sm border-b border-neutral-100/50"
-          : "bg-white/80 backdrop-blur border-b border-transparent"
+        // Solid white on mobile for visibility, semi-transparent on desktop
+        "bg-white md:bg-white/80 md:backdrop-blur",
+        isScrolled && "md:bg-white/95 md:backdrop-blur-lg shadow-sm border-b border-neutral-100/50"
       )}
     >
       {/* Scroll progress indicator */}
