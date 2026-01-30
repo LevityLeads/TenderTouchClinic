@@ -21,7 +21,7 @@ export function CTASection() {
         </p>
 
         <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:justify-center">
-          <Button href="/schedule" size="lg">
+          <Button href="/services" size="lg">
             Book Your Class
           </Button>
           <Button href="/contact" variant="secondary" size="lg">

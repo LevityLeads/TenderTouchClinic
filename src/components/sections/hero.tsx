@@ -391,7 +391,7 @@ export function Hero() {
           custom={1.1}
         >
           <Button
-            href="/book"
+            href="/services"
             size="lg"
             className="bg-white text-primary-700 hover:bg-white/90 hover:text-primary-800 shadow-xl shadow-black/20"
           >
