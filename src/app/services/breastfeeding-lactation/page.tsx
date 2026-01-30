@@ -1,13 +1,24 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import Link from "next/link";
 import { Container } from "@/components/ui/container";
-import { Button } from "@/components/ui/button";
 import { ServicePageHero } from "@/components/sections/service-page-hero";
 import { getServicePageContent, getServiceCategoryBySlug } from "@/data/service-pages";
 import { isExpandableService, type ServiceCategory } from "@/data/services";
 import { ArrowRight, CheckCircle } from "lucide-react";
 
 const SLUG = "breastfeeding-lactation";
+
+// Soft rose/pink gradient
+const GRADIENT = "linear-gradient(135deg, #fce7f3 0%, #fbcfe8 25%, #f9a8d4 50%, #f472b6 75%, #f9a8d4 100%)";
+
+// Humanized "What to Expect" items
+const whatToExpect = [
+  "A thorough look at how feeding is going - we'll watch a feed and help troubleshoot",
+  "Practical hands-on help with positioning and latch",
+  "A judgement-free space to talk about your feeding goals, whatever they may be",
+  "Follow-up support so you're not left to figure it out alone",
+];
 
 export const metadata: Metadata = {
   title: "Breastfeeding & Lactation Support",
@@ -30,9 +41,8 @@ export default function BreastfeedingLactationPage() {
     <div className="bg-neutral-50">
       <ServicePageHero
         title={pageContent.title}
-        subtitle={pageContent.subtitle}
-        heroImage={pageContent.heroImage}
-        heroVideo={pageContent.heroVideo}
+        subtitle="Gentle, expert support for your feeding journey"
+        gradient={GRADIENT}
       />
 
       {/* Introduction */}
@@ -40,7 +50,10 @@ export default function BreastfeedingLactationPage() {
         <Container>
           <div className="mx-auto max-w-3xl">
             <p className="text-lg text-neutral-600 leading-relaxed">
-              {pageContent.introduction}
+              Breastfeeding is natural, but that doesn&apos;t mean it&apos;s always easy. Whether
+              you&apos;re dealing with latch issues, worried about supply, in pain, or just need
+              someone to check that everything&apos;s going okay - we&apos;re here to help. We support
+              all feeding journeys, so whatever your goals, we&apos;ll work with you to get there.
             </p>
           </div>
         </Container>
@@ -50,7 +63,7 @@ export default function BreastfeedingLactationPage() {
       <section className="bg-white py-12 lg:py-16">
         <Container>
           <h2 className="font-serif text-2xl font-bold text-neutral-900 sm:text-3xl text-center">
-            Our Services
+            What We Offer
           </h2>
           <div className="mt-10 grid gap-6 md:grid-cols-2 max-w-4xl mx-auto">
             {category.services.map((service, index) =>
@@ -59,17 +72,12 @@ export default function BreastfeedingLactationPage() {
                   key={index}
                   className="flex flex-col rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm hover:shadow-md hover:border-primary-200 transition-all duration-300"
                 >
-                  {/* Service Name */}
                   <h3 className="font-serif text-xl font-semibold text-neutral-900">
                     {service.name}
                   </h3>
-
-                  {/* Description */}
                   <p className="mt-3 text-neutral-600 text-sm leading-relaxed flex-grow">
                     {service.description}
                   </p>
-
-                  {/* Price & Duration */}
                   <div className="mt-6 pt-4 border-t border-neutral-100">
                     <div className="flex items-baseline justify-between">
                       <span className="text-2xl font-bold text-primary-600">
@@ -80,8 +88,6 @@ export default function BreastfeedingLactationPage() {
                       </span>
                     </div>
                   </div>
-
-                  {/* Book Button */}
                   <a
                     href={service.bookingUrl}
                     target="_blank"
@@ -106,7 +112,7 @@ export default function BreastfeedingLactationPage() {
               What to Expect
             </h2>
             <ul className="mt-8 space-y-4">
-              {pageContent.whatToExpect.map((item, index) => (
+              {whatToExpect.map((item, index) => (
                 <li key={index} className="flex items-start gap-3">
                   <CheckCircle className="h-6 w-6 text-primary-500 shrink-0 mt-0.5" />
                   <span className="text-neutral-600">{item}</span>
@@ -117,43 +123,24 @@ export default function BreastfeedingLactationPage() {
         </Container>
       </section>
 
-      {/* Why Choose Us */}
-      {pageContent.whyChooseUs && (
-        <section className="bg-primary-50 py-12 lg:py-16">
-          <Container>
-            <div className="mx-auto max-w-3xl text-center">
-              <h2 className="font-serif text-2xl font-bold text-neutral-900 sm:text-3xl">
-                Why Choose Tender Touch
-              </h2>
-              <ul className="mt-8 space-y-3">
-                {pageContent.whyChooseUs.map((item, index) => (
-                  <li key={index} className="text-neutral-600">
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </Container>
-        </section>
-      )}
-
-      {/* CTA */}
-      <section className="bg-primary-600 py-12 lg:py-16">
+      {/* Soft CTA */}
+      <section className="bg-rose-50 py-12 lg:py-16">
         <Container>
-          <div className="text-center">
-            <h2 className="font-serif text-2xl font-bold text-white sm:text-3xl">
-              Need Breastfeeding Support?
+          <div className="mx-auto max-w-2xl text-center">
+            <h2 className="font-serif text-2xl font-bold text-neutral-900 sm:text-3xl">
+              Struggling with Feeding?
             </h2>
-            <p className="mt-4 text-primary-100">
-              You don&apos;t have to figure it out alone. Book a consultation with our experts.
+            <p className="mt-4 text-neutral-600">
+              You don&apos;t have to figure it out alone. Get in touch and we&apos;ll find
+              a time to chat.
             </p>
-            <div className="mt-8 flex flex-wrap justify-center gap-4">
-              <Button href="/book" variant="secondary" size="lg">
-                Book Online
-              </Button>
-              <Button href="/contact" variant="outline" size="lg" className="border-white text-white hover:bg-white/10">
-                Contact Us
-              </Button>
+            <div className="mt-8">
+              <Link
+                href="/contact"
+                className="inline-flex items-center justify-center rounded-lg bg-primary-600 px-6 py-3 text-white font-medium hover:bg-primary-700 transition-colors"
+              >
+                Get in Touch
+              </Link>
             </div>
           </div>
         </Container>

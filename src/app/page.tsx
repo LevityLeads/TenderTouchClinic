@@ -2,9 +2,7 @@ import { Hero } from "@/components/sections/hero";
 import { ServicesOverview } from "@/components/sections/services-overview";
 import { AboutIntro } from "@/components/sections/about-intro";
 import { Testimonials } from "@/components/sections/testimonials";
-import { CTASection } from "@/components/sections/cta-section";
-import { Stats } from "@/components/sections/stats";
-import { TrustIndicators } from "@/components/sections/trust-indicators";
+import { MissionStatement } from "@/components/sections/mission-statement";
 import { Section } from "@/components/ui/section";
 
 export default function Home() {
@@ -18,9 +16,9 @@ export default function Home() {
         <ServicesOverview />
       </Section>
 
-      {/* Stats with animated counters */}
+      {/* Mission Statement */}
       <Section>
-        <Stats />
+        <MissionStatement />
       </Section>
 
       {/* About Megan intro */}
@@ -31,16 +29,6 @@ export default function Home() {
       {/* Testimonials */}
       <Section variant="rose-animated">
         <Testimonials />
-      </Section>
-
-      {/* Call to Action */}
-      <Section variant="primary">
-        <CTASection />
-      </Section>
-
-      {/* Trust Indicators (credentials) */}
-      <Section variant="sky-animated">
-        <TrustIndicators />
       </Section>
     </>
   );

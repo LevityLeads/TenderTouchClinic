@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { Container } from "@/components/ui/container";
-import { Button } from "@/components/ui/button";
 import { PhotoGallery } from "@/components/sections/photo-gallery";
 import { meganBio, brigitteBio, clinicStory } from "@/data/about";
 
@@ -184,29 +183,6 @@ export default function AboutPage() {
           </p>
           <div className="mt-8">
             <PhotoGallery images={galleryImages} />
-          </div>
-        </Container>
-      </section>
-
-      {/* CTA Section */}
-      <section className="bg-primary-500 py-section lg:py-section-lg">
-        <Container>
-          <div className="text-center">
-            <h2 className="font-heading text-3xl font-bold text-white">
-              Ready to Meet Us?
-            </h2>
-            <p className="mt-4 text-lg text-primary-100">
-              Book a consultation and let&apos;s discuss how we can support you on your journey.
-            </p>
-            <div className="mt-8">
-              <Button
-                href="/contact"
-                variant="secondary"
-                size="lg"
-              >
-                Book a Consultation
-              </Button>
-            </div>
           </div>
         </Container>
       </section>
