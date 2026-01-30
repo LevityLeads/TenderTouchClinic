@@ -47,6 +47,8 @@ export default function PregnancyPreparationPage() {
             className="object-contain object-center"
             priority
             sizes="100vw"
+            quality={100}
+            unoptimized
           />
         </div>
 
