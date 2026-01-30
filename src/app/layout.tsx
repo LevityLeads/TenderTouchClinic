@@ -5,7 +5,6 @@ import { SkipLink } from "@/components/ui/skip-link";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { WhatsAppButton } from "@/components/layout/whatsapp-button";
-import { StickyMobileCTA } from "@/components/layout/sticky-mobile-cta";
 import { CookieConsentBanner } from "@/components/layout/cookie-consent";
 import { SITE_CONFIG, CONTACT_INFO } from "@/lib/constants";
 
@@ -111,7 +110,6 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
-        <StickyMobileCTA />
         <WhatsAppButton />
         <CookieConsentBanner />
       </body>
