@@ -1,16 +1,13 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import { Container } from "@/components/ui/container";
-import { ServicePageHero } from "@/components/sections/service-page-hero";
 import { getServicePageContent, getServiceCategoryBySlug } from "@/data/service-pages";
 import { isExpandableService, type ServiceCategory } from "@/data/services";
 import { ArrowRight, CheckCircle, MessageCircle } from "lucide-react";
 
 const SLUG = "postnatal-support";
-
-// Soft sky blue gradient
-const GRADIENT = "linear-gradient(135deg, #e0f2fe 0%, #bae6fd 25%, #7dd3fc 50%, #38bdf8 75%, #7dd3fc 100%)";
 
 // Humanized "What to Expect" items
 const whatToExpect = [
@@ -39,11 +36,31 @@ export default function PostnatalSupportPage() {
 
   return (
     <div className="bg-neutral-50">
-      <ServicePageHero
-        title={pageContent.title}
-        subtitle="Support for you and your baby in those precious early weeks"
-        gradient={GRADIENT}
-      />
+      {/* Hero with centered background illustration */}
+      <section className="relative overflow-hidden">
+        <div className="absolute inset-0">
+          <Image
+            src="/images/postnatal.png"
+            alt=""
+            fill
+            className="object-contain object-center"
+            priority
+            sizes="100vw"
+            quality={100}
+            unoptimized
+          />
+        </div>
+        <Container className="relative z-10">
+          <div className="py-16 sm:py-20 lg:py-24 text-center">
+            <h1 className="font-serif text-3xl font-bold text-neutral-800 sm:text-4xl lg:text-5xl">
+              {pageContent.title}
+            </h1>
+            <p className="mt-4 max-w-xl mx-auto text-base text-neutral-600 sm:text-lg">
+              Support for you and your baby in those precious early weeks
+            </p>
+          </div>
+        </Container>
+      </section>
 
       {/* Introduction */}
       <section className="py-12 lg:py-16">
