@@ -38,7 +38,7 @@ export default function ContactPage() {
               {/* Contact Image */}
               <div className="relative aspect-[3/4] overflow-hidden rounded-lg bg-neutral-100 shadow-lg">
                 <Image
-                  src="/images/contactus.png"
+                  src="/images/about/contactus.jpg"
                   alt="Tender Touch Mother & Baby Clinic - Welcoming space for parents and babies"
                   fill
                   sizes="(max-width: 1024px) 100vw, 50vw"
