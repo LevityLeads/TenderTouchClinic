@@ -36,31 +36,31 @@ export default function PregnancyPreparationPage() {
 
   return (
     <div className="bg-neutral-50">
-      {/* Hero with Image */}
-      <section className="relative">
-        <div className="relative w-full h-[200px] sm:h-[250px] lg:h-[300px]">
+      {/* Hero with centered background illustration */}
+      <section className="relative overflow-hidden">
+        {/* Background image - centered */}
+        <div className="absolute inset-0">
           <Image
             src="/images/pregnancy.png"
-            alt="Pregnancy preparation"
+            alt=""
             fill
-            className="object-cover"
+            className="object-contain object-center"
             priority
             sizes="100vw"
           />
-          {/* Content */}
-          <div className="absolute inset-0 flex items-center justify-center">
-            <Container>
-              <div className="text-center">
-                <h1 className="font-serif text-3xl font-bold text-neutral-800 sm:text-4xl lg:text-5xl">
-                  {pageContent.title}
-                </h1>
-                <p className="mx-auto mt-3 max-w-2xl text-base text-neutral-700 sm:text-lg">
-                  Getting ready for the adventure ahead
-                </p>
-              </div>
-            </Container>
-          </div>
         </div>
+
+        {/* Content overlay */}
+        <Container className="relative z-10">
+          <div className="py-16 sm:py-20 lg:py-24 text-center">
+            <h1 className="font-serif text-3xl font-bold text-neutral-800 sm:text-4xl lg:text-5xl">
+              {pageContent.title}
+            </h1>
+            <p className="mt-4 max-w-xl mx-auto text-base text-neutral-600 sm:text-lg">
+              Getting ready for the adventure ahead
+            </p>
+          </div>
+        </Container>
       </section>
 
       {/* Introduction */}
